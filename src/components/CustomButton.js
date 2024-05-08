@@ -1,10 +1,10 @@
 import React from "react";
 import "../mastercss/InputStyle.css";
 
-const CustomButton = () => {
+const CustomButton = ({classn}) => {
   return (
     <div>
-      <button>Submit</button>
+      <button className={classn} >Submit</button>
     </div>
   );
 };
