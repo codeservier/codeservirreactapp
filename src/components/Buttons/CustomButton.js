@@ -1,5 +1,4 @@
 import React from "react";
-import "../../mastercss/InputStyle.css";
 
 const CustomButton = ({ classn }) => {
   return (

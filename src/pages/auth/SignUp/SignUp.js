@@ -1,16 +1,14 @@
 import React, { useEffect } from "react";
-import CustomInput from "../../components/InputFields/CustomInput";
-import Footer from "../../components/Footer/Footer";
-import CustomButton from "../../components/Buttons/CustomButton";
-import headerBg from "../../assets/header-bg.jpg";
-import maya from "../../assets/news-2.png";
-import Navbar from "../../components/navbar/Navbar";
+import CustomInput from "../../../components/InputFields/CustomInput";
+import CustomButton from "../../../components/Buttons/CustomButton";
+import headerBg from "../../../assets/header-bg.jpg";
+import maya from "../../../assets/news-2.png";
 import { useState } from "react";
-import googleLogo from "../../assets/googlelogo.png";
-import facebookLogo from "../../assets/facbooklogo.png";
+import googleLogo from "../../../assets/googlelogo.png";
+import facebookLogo from "../../../assets/facbooklogo.png";
 
-import githubLogo from "../../assets/githublogo.png";
-import { db, auth } from "../../config/config";
+import githubLogo from "../../../assets/githublogo.png";
+import { db, auth } from "../../../config/config";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
@@ -152,7 +150,6 @@ const SignUp = () => {
       {/* {redirectToHome && <Navigate to="/Home" />} */}
 
       <div className="container1">
-        <Navbar />
 
         <div className="header">
           <img alt="" src={headerBg} />
@@ -229,7 +226,6 @@ const SignUp = () => {
           </div>
         </form>
 
-        <Footer />
       </div>
     </>
   );

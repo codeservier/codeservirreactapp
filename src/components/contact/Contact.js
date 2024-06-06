@@ -1,5 +1,4 @@
 import React from "react";
-import "./ContactCss.css";
 import headerBg from "../../assets/header-bg.jpg";
 import maya from "../../assets/news-2.png";
 import CustomInput from "../CustomInput";

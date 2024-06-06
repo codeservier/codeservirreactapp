@@ -1,5 +1,4 @@
 import React from "react";
-import "../../mastercss/InputStyle.css";
 
 const Textarea = ({ placeholder, label, id, type, onChange, value }) => {
   return (

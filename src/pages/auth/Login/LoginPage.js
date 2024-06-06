@@ -1,15 +1,14 @@
 import React from "react";
-import CustomButton from "../../components/Buttons/CustomButton";
-import CustomInput from "../../components/InputFields/CustomInput";
-import headerBg from "../../assets/header-bg.jpg";
+import CustomButton from "../../../components/Buttons/CustomButton";
+import CustomInput from "../../../components/InputFields/CustomInput";
+import headerBg from "../../../assets/header-bg.jpg";
 import { useState } from "react";
-import maya from "../../assets/news-2.png";
-import googleLogo from "../../assets/googlelogo.png";
-import facebookLogo from "../../assets/facbooklogo.png";
-import githubLogo from "../../assets/githublogo.png";
-import { auth } from "../../config/config";
+import maya from "../../../assets/news-2.png";
+import googleLogo from "../../../assets/googlelogo.png";
+import facebookLogo from "../../../assets/facbooklogo.png";
+import githubLogo from "../../../assets/githublogo.png";
+import { auth } from "../../../config/config";
 import { useNavigate } from "react-router-dom";
-import '../../mastercss/InputStyle.css';
 
 const LoginPage = () => {
   const navigate = useNavigate();
