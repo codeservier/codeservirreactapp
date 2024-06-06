@@ -5,7 +5,7 @@ const Navbar = ({ userName }) => {
   return (
     <div>
       <div className="navbar">{userName}</div>
-      hello hello hello
+      hello hello hello hello hello hello hello hello hello hello hello hello
     </div>
   );
 };
