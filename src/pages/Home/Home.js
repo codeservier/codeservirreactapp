@@ -44,7 +44,7 @@ const Home = () => {
     try {
       await auth.signOut();
       console.log("User logged out successfully");
-      navigate("/login");
+      navigate("/LoginPage");
     } catch (error) {
       console.error("Logout failed:", error.message);
     }
@@ -55,7 +55,11 @@ const Home = () => {
       <div>
         <button onClick={handleLogout}>Logout</button>
       </div>
-      {userData && (
+      <div>
+        <button onClick={handleLogout}>Login</button>
+      </div>
+
+      {/* {userData && (
         <div>
           <h2>User Data</h2>
           <ul>
@@ -64,7 +68,7 @@ const Home = () => {
             ))}
           </ul>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

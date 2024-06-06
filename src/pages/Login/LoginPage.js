@@ -9,7 +9,7 @@ import facebookLogo from "../../assets/facbooklogo.png";
 import githubLogo from "../../assets/githublogo.png";
 import { auth } from "../../config/config";
 import { useNavigate } from "react-router-dom";
-// import { Navbar } from "../../components/navbar/Navbar";
+import '../../mastercss/InputStyle.css';
 
 const LoginPage = () => {
   const navigate = useNavigate();
