@@ -1,13 +1,12 @@
-import React from 'react'
+import React from "react";
+import "../../mastercss/css/animate.css";
 
-const Navbar = () => {
+const Navbar = ({ userName }) => {
   return (
     <div>
-        <div className='navbar'>
-             Hello i am NavBar
-        </div>
+      <div className="navbar">{userName}</div>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

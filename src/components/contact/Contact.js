@@ -8,13 +8,15 @@ import Navbar from "../navbar/Navbar";
 import CustomButton from "../CustomButton";
 import { useState } from "react";
 import Textarea from "../Textarea";
+import { db } from "../../config/config";
 
 export default function Contact() {
-  const [fname, setfname] = useState("");
-  const [lname, setlname] = useState("");
-  const [areacode, setareacode] = useState("");
-  const [city, setcity] = useState("");
-  const [message, setmessage] = useState("");
+  const [fname, setFname] = useState("");
+  const [email, setEmail] = useState("");
+  const [areacode, setAreacode] = useState("");
+  const [city, setCity] = useState("");
+  const [message, setMessage] = useState("");
+  const [contactData, setContactData] = useState(null);
 
   const handleSubmit = (event) => {
     const errorfname = document.getElementById("errorf");
@@ -40,7 +42,7 @@ export default function Contact() {
       errorColorfname.classList.remove("errorColor");
     }
 
-    if (lname === "") {
+    if (email === "") {
       errorlname.innerHTML = "Please Enter Something";
       errorColorlname.classList.add("errorColor");
     } else {
@@ -73,23 +75,69 @@ export default function Contact() {
       errorColormessage.classList.remove("errorColor");
     }
 
+    const contactData = {
+      name: fname,
+      email: email,
+      areacode: areacode,
+      city: city,
+      message: message,
+    };
+    if (
+      fname === "" ||
+      email === "" ||
+      areacode === "" ||
+      city === "" ||
+      message === ""
+    ) {
+      alert("Something Went Wrong!");
+    } else {
+      submitData(contactData);
+    }
+
     event.preventDefault();
+  };
+
+  const submitData = async (contactData) => {
+    console.log(contactData);
+
+    try {
+      // adding data to firebase collection
+      // const documentRef = await firestore
+      db.collection("contact")
+        .add(contactData)
+        .then(() => {
+          alert("data submitted successfully...");
+        })
+        .catch((error) => {
+          console.log("error" + error);
+          alert("There is a problem occured");
+        });
+    } catch (e) {
+      console.log("Error ", e);
+    }
   };
 
   return (
     <>
       <div className="container1">
         <Navbar />
+        <h2>
+          Hello :{" "}
+          {contactData && contactData.name && contactData.name
+            ? contactData.name
+            : ""}
+        </h2>
+
         <div className="header">
-          <img src={headerBg} />
+          <img alt="" src={headerBg} />
         </div>
         <form onSubmit={handleSubmit}>
           <div className="lrcontainer">
             <div className="right">
-              <img src={maya} width={500} height={500} />
+              <img alt="" src={maya} width={500} height={500} />
             </div>
             <div className="left">
-              <h1 className="contactheading">Let's Contact Us...</h1>
+              <h1 className="contactheading">Let's Contact Us</h1>
 
               <div className="leftchild">
                 <CustomInput
@@ -97,7 +145,7 @@ export default function Contact() {
                   id={"fname"}
                   type={"text"}
                   value={fname}
-                  onChange={(e) => setfname(e.target.value)}
+                  onChange={(e) => setFname(e.target.value)}
                   placeholder={"Enter your Full Name:"}
                 />
                 <span id="errorf"></span>
@@ -106,8 +154,8 @@ export default function Contact() {
                   placeholder={"Enter your Email:"}
                   id={"lname"}
                   type={"text"}
-                  value={lname}
-                  onChange={(e) => setlname(e.target.value)}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 <span id="errorl"></span>
 
@@ -117,7 +165,7 @@ export default function Contact() {
                   id={"areacode"}
                   type={"number"}
                   value={areacode}
-                  onChange={(e) => setareacode(e.target.value)}
+                  onChange={(e) => setAreacode(e.target.value)}
                 />
                 <span id="errorarea"></span>
 
@@ -127,7 +175,7 @@ export default function Contact() {
                   id={"city"}
                   type={"text"}
                   value={city}
-                  onChange={(e) => setcity(e.target.value)}
+                  onChange={(e) => setCity(e.target.value)}
                 />
                 <span id="errorcity"></span>
 
@@ -135,7 +183,9 @@ export default function Contact() {
                   placeholder={"Enter Your Message:"}
                   // label={"Your Message"}
                   id={"message"}
-                  onChange={(e) => setmessage(e.target.value)}
+                  value={message}
+                  type={"textarea"}
+                  onChange={(e) => setMessage(e.target.value)}
                 ></Textarea>
                 <span id="errormessage"></span>
               </div>

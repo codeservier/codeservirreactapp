@@ -106,6 +106,8 @@
 
 .contactheading {
     color: rgb(236, 164, 9);
+    margin-top: -40px;
+    background-color:white ;
     font-size: 50px;
 }
 
