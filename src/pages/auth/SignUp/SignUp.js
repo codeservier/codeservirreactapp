@@ -143,7 +143,7 @@ const SignUp = () => {
   };
 
   const gotoLogin = () => {
-    navigate("/login");
+    navigate("/LoginPage");
   };
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
