@@ -20,7 +20,7 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#e4feff]">
+    <div className="min-h-screen bg-[#fff] ">
       <div>
         <Navbar />
       </div>
