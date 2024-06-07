@@ -146,88 +146,86 @@ const SignUp = () => {
     navigate("/login");
   };
   return (
-    <>
-      {/* {redirectToHome && <Navigate to="/Home" />} */}
-
-      <div className="container1">
-
-        <div className="header">
-          <img alt="" src={headerBg} />
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
+      <div className="w-full max-w-2xl p-8 space-y-8 bg-white rounded-lg shadow-md mt-10">
+        <div className="flex justify-center">
+          <img
+            alt="header background"
+            src={headerBg}
+            className="w-full h-32 object-cover rounded-t-lg"
+          />
         </div>
-        <form onSubmit={handleonsubmit}>
-          <div className="lrcontainer">
-            <div className="right">
-              <img alt="" src={maya} width={400} height={400} />
-            </div>
-            <div className="left">
-              <h1 className="contactheading">Sign Up </h1>
-
-              <div className="leftchild">
-                <CustomInput
-                  id={"fname"}
-                  type={"text"}
-                  value={fname}
-                  onChange={(e) => setFname(e.target.value)}
-                  placeholder={"Enter your Full Name:"}
-                />
-                <span id="errorfname"></span>
-                <CustomInput
-                  placeholder={"Enter your Email:"}
-                  id={"email"}
-                  type={"text"}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <span id="erroremail"></span>
-                <CustomInput
-                  placeholder={"Enter your Phone Number:"}
-                  id={"mobnumber"}
-                  type={"text"}
-                  value={mobnumber}
-                  onChange={(e) => setmobnumber(e.target.value)}
-                />
-                <span id="errormobnumber"></span>
-                <CustomInput
-                  placeholder={"Enter your Password:"}
-                  id={"password"}
-                  type={"password"}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <span id="errorpassword"></span>
-                <CustomInput
-                  style={{ marginBottom: 20 }}
-                  placeholder={"Confirm your Password:"}
-                  id={"cpassword"}
-                  type={"password"}
-                  value={confpassword}
-                  onChange={(e) => setconfpassword(e.target.value)}
-                />
-                <span id="errorcpassword"></span>
-              </div>
-
-              <div className="btn">
-                <CustomButton classn={"btn2"} />
-              </div>
-              <div>Sign with other apps!</div>
-
-              <div className="logos">
-                <img src={googleLogo} alt="Google" width={40} height={40} />
-                <img src={facebookLogo} alt="Facebook" width={40} height={40} />
-                <img src={githubLogo} alt="GitHub" width={40} height={40} />
-              </div>
-
-              <div style={{ marginBottom: 34 }}>
-                <a style={{ cursor: "pointer" }} onClick={gotoLogin}>
-                  Go to Login
-                </a>
-              </div>
-            </div>
+        <form onSubmit={handleonsubmit} className="space-y-6">
+          <h1 className="text-2xl font-bold text-center">Sign Up</h1>
+          <div className="space-y-4">
+            <CustomInput
+              id="fname"
+              type="text"
+              value={fname}
+              onChange={(e) => setFname(e.target.value)}
+              placeholder="Enter your Full Name"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+            />
+            <span id="errorfname" className="text-red-600"></span>
+            <CustomInput
+              id="email"
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your Email"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+            />
+            <span id="erroremail" className="text-red-600"></span>
+            <CustomInput
+              id="mobnumber"
+              type="text"
+              value={mobnumber}
+              onChange={(e) => setmobnumber(e.target.value)}
+              placeholder="Enter your Phone Number"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+            />
+            <span id="errormobnumber" className="text-red-600"></span>
+            <CustomInput
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter your Password"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+            />
+            <span id="errorpassword" className="text-red-600"></span>
+            <CustomInput
+              id="cpassword"
+              type="password"
+              value={confpassword}
+              onChange={(e) => setconfpassword(e.target.value)}
+              placeholder="Confirm your Password"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 mb-4"
+            />
+            <span id="errorcpassword" className="text-red-600"></span>
+          </div>
+          <div className="flex justify-center">
+            <CustomButton className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300" />
+          </div>
+          <div className="text-center text-gray-600">
+            Sign up with other apps
+          </div>
+          <div className="flex justify-center space-x-4">
+            <img src={googleLogo} alt="Google" className="w-10 h-10" />
+            <img src={facebookLogo} alt="Facebook" className="w-10 h-10" />
+            <img src={githubLogo} alt="GitHub" className="w-10 h-10" />
+          </div>
+          <div className="text-center mt-4">
+            <a
+              onClick={gotoLogin}
+              className="text-blue-600 hover:underline cursor-pointer"
+            >
+              Go to Login
+            </a>
           </div>
         </form>
-
       </div>
-    </>
+    </div>
   );
 };
 
