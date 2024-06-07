@@ -56,7 +56,7 @@ const LoginPage = () => {
   };
 
   const gotsignup = () => {
-    navigate("/signup");
+    navigate("/SignUp");
   };
 
   return (
