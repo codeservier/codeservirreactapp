@@ -7,6 +7,8 @@ import Footer from "../../components/Footer/Footer";
 import LandingPage from "../LandingPage/LandingPage";
 import Services from "../Services.js/Services";
 import OurProjects from "../OurProjects/OurProjects";
+import Logobtn from "../../components/Logobtn/Logobtn";
+import ContactPage from "../Contact/Contact";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -28,10 +30,9 @@ const Home = () => {
         <div className="flex justify-between items-center px-10 ">
           <div className="flex flex-col items-center">
             <img src={logo} alt="Logo" className="h-40" />
-            <h2 className="font-poppins text-[#ca4b19] text-2xl mt-[-3.5rem]">
-  code<span className="text-[#1dceff]">servir.com</span>
-</h2>
-
+            <h2 className="text-[#ffb907] text-2xl mt-[-3.5rem]">
+              code<span className="text-[#1dceff]">servir.com</span>
+            </h2>
           </div>
           <div>
             <button
@@ -42,6 +43,7 @@ const Home = () => {
             </button>
           </div>
         </div>
+
         <div>
           <LandingPage />
         </div>
@@ -53,11 +55,9 @@ const Home = () => {
         <div>
           <OurProjects />
         </div>
-
-        <div>
-          <Footer />
-        </div>
+        <div>{/* <ContactPage /> */}</div>
       </div>
+      <Footer />
     </div>
   );
 };

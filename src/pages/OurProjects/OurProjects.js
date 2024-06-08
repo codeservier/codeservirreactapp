@@ -10,8 +10,8 @@ const OurProjects = () => {
     "Commercial Project",
     "Teaching Project",
     "Gym Project",
-    "AI Project",
-    "Healthcare Project",
+    // "AI Project",
+    // "Healthcare Project",
     "Finance Project",
     "Education Project",
     "Retail Project",
@@ -135,7 +135,7 @@ const OurProjects = () => {
   const currentProjects = projects[selectedCategory] || [];
 
   return (
-    <div className="p-10">
+    <div className="p-10 mx-5 sm:mx-[10rem] mb-10">
       <div className="flex flex-wrap justify-around mb-6">
         {categories.map((category) => (
           <button
