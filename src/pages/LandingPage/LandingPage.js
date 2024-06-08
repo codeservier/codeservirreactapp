@@ -4,7 +4,7 @@ import laptopImage from "../../assets/hero-5.png";
 
 const LandingPage = () => {
   return (
-    <div className="mx-5 sm:mx-[10rem] mb-10">
+    <div className="bg-hero-pattern2 bg-no-repeat bg-cover bg-center min-h-screen px-5 sm:mx-[10rem] mb-10">
       <div className="flex flex-col md:flex-row md:max-w-screen rounded-lg overflow-hidden ">
         <div className="px-10 py-8 md:p-10 flex flex-col justify-center  w-full ">
           <h1 className="text-3xl md:text-4xl font-semibold text-gray-800 mb-4">
