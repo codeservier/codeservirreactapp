@@ -20,20 +20,18 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#fff] ">
-      <div>
-        <Navbar />
-      </div>
-      <div className="flex justify-between items-center px-5">
+    <div>
+      <div className="min-h-screen bg-[#fff]">
         <div>
           <Navbar />
         </div>
         <div className="flex justify-between items-center px-10 ">
           <div className="flex flex-col items-center">
             <img src={logo} alt="Logo" className="h-40" />
-            <h2 className="text-[#ffb907] text-2xl mt-[-3.5rem]">
-              code<span className="text-[#1dceff]">servir.com</span>
-            </h2>
+            <h2 className="font-poppins text-[#ca4b19] text-2xl mt-[-3.5rem]">
+  code<span className="text-[#1dceff]">servir.com</span>
+</h2>
+
           </div>
           <div>
             <button
