@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNavbar = () => {
@@ -42,70 +45,70 @@ const Navbar = () => {
         {/* Render menu for small screens */}
         {isOpen && (
           <div className="bg-gray-100 rounded-lg p-4 shadow-md">
-            <ul className="md:flex justify-between items-center space-x-4 pt-4">
+            <ul className="md:flex flex justify-between items-center space-x-4 pt-4">
               <li>
-                <a
-                  href="#home"
+                <Link
+                  to="/"
                   className="text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#services"
+                <Link
+                  to="/Services"
                   className="text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1"
                 >
                   Services
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#about"
+                <Link
+                  to="/About"
                   className="text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1"
                 >
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#portfolio"
+                <Link
+                  to="/Portfolio"
                   className="text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1"
                 >
                   Portfolio
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#contact"
+                <Link
+                  to="/ContactPage"
                   className="text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1"
                 >
                   Contact
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#blog"
+                <Link
+                  to="/Blog"
                   className="text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1"
                 >
                   Blog
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#careers"
+                <Link
+                  to="/Careers"
                   className="text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1"
                 >
                   Careers
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#faq"
+                <Link
+                  to="/FAQ"
                   className="text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1"
                 >
                   FAQ
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -115,68 +118,68 @@ const Navbar = () => {
       <div className="hidden md:block">
         <ul className="flex justify-between items-center space-x-4">
           <li>
-            <a
-              href="#home"
-              className="text-gray-700 hover:text-blue-500 transition duration-300"
+            <Link
+              to="/"
+              className="text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1"
             >
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#services"
-              className="text-gray-700 hover:text-blue-500 transition duration-300"
+            <Link
+              to="/Services"
+              className="text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1"
             >
               Services
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#about"
-              className="text-gray-700 hover:text-blue-500 transition duration-300"
+            <Link
+              to="/About"
+              className="text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1"
             >
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#portfolio"
-              className="text-gray-700 hover:text-blue-500 transition duration-300"
+            <Link
+              to="/Portfolio"
+              className="text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1"
             >
               Portfolio
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#contact"
-              className="text-gray-700 hover:text-blue-500 transition duration-300"
+            <Link
+              to="/ContactPage"
+              className="text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1"
             >
               Contact
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#blog"
-              className="text-gray-700 hover:text-blue-500 transition duration-300"
+            <Link
+              to="/Blog"
+              className="text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1"
             >
               Blog
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#careers"
-              className="text-gray-700 hover:text-blue-500 transition duration-300"
+            <Link
+              to="/Careers"
+              className="text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1"
             >
               Careers
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#faq"
-              className="text-gray-700 hover:text-blue-500 transition duration-300"
+            <Link
+              to="/FAQ"
+              className="text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1"
             >
               FAQ
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

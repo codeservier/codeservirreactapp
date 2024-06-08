@@ -7,6 +7,8 @@ import Footer from "../../components/Footer/Footer";
 import LandingPage from "../LandingPage/LandingPage";
 import Services from "../Services.js/Services";
 import OurProjects from "../OurProjects/OurProjects";
+import Logobtn from "../../components/Logobtn/Logobtn";
+import ContactPage from "../Contact/Contact";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -25,22 +27,10 @@ const Home = () => {
         <div>
           <Navbar />
         </div>
-        <div className="flex justify-between items-center px-10 ">
-          <div className="flex flex-col items-center">
-            <img src={logo} alt="Logo" className="h-40" />
-            <h2 className="text-[#ffb907] text-2xl mt-[-3.5rem]">
-              code<span className="text-[#1dceff]">servir.com</span>
-            </h2>
-          </div>
-          <div>
-            <button
-              onClick={handleLogin}
-              className="bg-[#000000] text-white px-4 py-2 rounded-[5rem] hidden md:block mr-4 hover:bg-blue-600 transition duration-300"
-            >
-              Login
-            </button>
-          </div>
+        <div>
+          <Logobtn />
         </div>
+
         <div>
           <LandingPage />
         </div>
@@ -52,11 +42,9 @@ const Home = () => {
         <div>
           <OurProjects />
         </div>
-
-        <div>
-          <Footer />
-        </div>
+        <div>{/* <ContactPage /> */}</div>
       </div>
+      <Footer />
     </div>
   );
 };
