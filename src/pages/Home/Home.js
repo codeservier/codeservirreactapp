@@ -20,11 +20,8 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#fff] ">
-      <div>
-        <Navbar />
-      </div>
-      <div className="flex justify-between items-center px-5">
+    <div className=" ">
+      <div className=" justify-between items-center px-5">
         <div>
           <Navbar />
         </div>
