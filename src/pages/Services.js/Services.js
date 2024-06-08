@@ -5,7 +5,7 @@ import consultantImage from "../../assets/techCons.png";
 
 const Services = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-around items-center p-10 space-y-6 md:space-y-0 md:space-x-6">
+    <div className="   flex flex-col md:flex-row justify-around items-center p-10 space-y-6 md:space-y-0 md:space-x-6 mx-5 sm:mx-[10rem] mb-10">
       <div className="bg-green-100 p-6 rounded-lg shadow-md w-full md:w-1/3 flex flex-col items-center">
         <img
           src={androidImage}

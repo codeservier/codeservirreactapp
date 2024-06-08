@@ -35,9 +35,9 @@ const Home = () => {
           <div>
             <button
               onClick={handleLogin}
-              className="bg-blue-500 text-white px-4 py-2 rounded-[5rem] mr-4 hover:bg-blue-600 transition duration-300"
+              className="bg-[#000000] text-white px-4 py-2 rounded-[5rem] hidden md:block mr-4 hover:bg-blue-600 transition duration-300"
             >
-              Get In Touch
+              Login
             </button>
           </div>
         </div>
