@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import IsOpenMenu from "../isOpenMenu/isOpenMenu";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ const Navbar = () => {
           >
             {isOpen ? (
               <path
+                style={{background:"red"}}
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
@@ -43,79 +45,17 @@ const Navbar = () => {
           </svg>
         </button>
         {/* Render menu for small screens */}
-        {isOpen && (
-          <div className="bg-gray-100 rounded-lg p-4 shadow-md">
-            <ul className="md:flex flex justify-between items-center space-x-4 pt-4">
-              <li>
-                <Link
-                  to="/"
-                  className="text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/Services"
-                  className="text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1"
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/About"
-                  className="text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/Portfolio"
-                  className="text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1"
-                >
-                  Portfolio
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/ContactPage"
-                  className="text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1"
-                >
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/Blog"
-                  className="text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/Careers"
-                  className="text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1"
-                >
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/FAQ"
-                  className="text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1"
-                >
-                  FAQ
-                </Link>
-              </li>
-            </ul>
-          </div>
-        )}
+        {isOpen && (IsOpenMenu({isOpen})
+)}
+
       </div>
       {/* Render menu for larger screens */}
-      <div className="hidden md:block">
+      {/* Render menu for larger screens */}
+      {/* Render menu for larger screens */}
+      {/* Render menu for larger screens */}
+
+
+      <div className="hidden md:block flex flex-row">
         <ul className="flex justify-between items-center space-x-4">
           <li>
             <Link

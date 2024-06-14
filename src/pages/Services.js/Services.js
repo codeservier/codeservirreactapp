@@ -8,11 +8,13 @@ import Footer from "../../components/Footer/Footer";
 const Services = () => {
   return (
     <>
-      <div>
-        <Navbar />
-      </div>
-      <div>
-        <div className=" flex flex-col md:flex-row justify-around items-center p-10 space-y-6 md:space-y-0 md:space-x-6 mx-5 sm:mx-[10rem] ">
+        <div  className=" bg-black flex md:flex-col justify-around items-center p-1 space-y-6 md:space-y-0 md:space-x-6 mx-5 sm:mx-[10rem]">
+        <div  className="flex md:flex-col justify-around items-center p-1 space-y-6 md:space-y-0 md:space-x-6 mx-5 sm:mx-[10rem]">
+          <h1 className="text-4xl font-bold text-blue-600 p-6 m-7 rounded-lg shadow-xl">
+            Hello World
+          </h1>
+        </div>
+        <div className="flex flex-col md:flex-row justify-around items-center p-10 space-y-6 md:space-y-0 md:space-x-6 mx-5 sm:mx-[10rem] ">
           <div className="bg-green-100 p-6 rounded-lg shadow-md w-full md:w-1/3 flex flex-col items-center">
             <img
               src={androidImage}

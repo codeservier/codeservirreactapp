@@ -24,31 +24,17 @@ const Home = () => {
   return (
     <div>
       <div className="min-h-screen bg-[#fff]">
-        <div>
+        <div className="bg-hero-pattern bg-no-repeat bg-cover bg-center">
           <Navbar />
-        </div>
-        <div className="flex justify-between items-center px-10 ">
-          <div className="flex flex-col items-center">
-            <img src={logo} alt="Logo" className="h-40" />
-            <h2 className="text-[#ffb907] text-2xl mt-[-3.5rem]">
-              code<span className="text-[#1dceff]">servir.com</span>
-            </h2>
-          </div>
-          <div>
-            <button
-              onClick={handleLogin}
-              className="bg-blue-500 text-white px-4 py-2 rounded-[5rem] mr-4 hover:bg-blue-600 transition duration-300"
-            >
-              Get In Touch
-            </button>
-          </div>
-        </div>
 
-        <div>
+          <Logobtn />
+          <div className=" md:mt-[30px]">
           <LandingPage />
+
+          </div>
         </div>
 
-        <div>
+        <div className=" mx-8 mt-[-100px]">
           <Services />
         </div>
 
