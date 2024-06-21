@@ -1,22 +1,44 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 // Define JSON data for menu items
 const menuData = [
   { to: "/", label: "Home" },
   { to: "/Services", label: "Services" },
   { to: "/About", label: "About" },
-  { to: "/Portfolio", label: "Portfolio" },
   { to: "/ContactPage", label: "Contact" },
-  { to: "/Blog", label: "Blog" },
-  { to: "/Careers", label: "Careers" },
-  { to: "/FAQ", label: "FAQ" }
+  { to: "/FAQ", label: "FAQ" },
+  { to: "/Courses", label: "Courses" },
+  { to: "/InternshipForm", label: "Our Internship", highlight: true },
 ];
 
 const IsOpenMenu = ({ isOpen }) => {
   return (
     <div className="" >
+        <style>
+        {`
+          @keyframes blink {
+            0%, 100% {
+              opacity: 1;
+            }
+            50% {
+              opacity: 0;
+            }
+          }
+
+          .blink {
+            animation: blink 1s infinite;
+          }
+
+          .highlight {
+            background-color: yellow;
+            color: red;
+          }
+        `}
+      </style>
       {isOpen && (
         <div className="bg-gray-100 rounded-lg p-4 shadow-lg flex flex-col -m-4">
           <ul className="flex flex-col space-y-4 pt-4">
@@ -31,11 +53,16 @@ const IsOpenMenu = ({ isOpen }) => {
 
             {/* Render menu items dynamically */}
             {menuData.map((item, index) => (
-              <li key={index}>
+              <li key={index} className={item.highlight ? "blink" : ""}>
                 <Link
                   to={item.to}
-                  className="text-gray-700 hover:text-white transition duration-300 font-semibold uppercase bg-white hover:bg-blue-500 rounded-full px-3 py-2 shadow-md hover:shadow-lg"
+                  className={`font-concert text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1 ${
+                    item.highlight ? "highlight" : ""
+                  }`}
                 >
+                  {item.highlight && (
+                    <FontAwesomeIcon icon={faStar} className="mr-2" />
+                  )}
                   {item.label}
                 </Link>
               </li>
