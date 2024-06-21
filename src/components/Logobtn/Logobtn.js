@@ -8,7 +8,7 @@ const Logobtn = () => {
         <div className="flex flex-col items-center md:mt-0 mt-6">
           <img src={logo} alt="Logo" className="h-20 md:h-40" />
           <h2 className="text-[#ffb907] text-lg md:text-2xl mt-[-1.5rem] md:mt-[-3.5rem]">
-           s code<span className="text-[#1dceff]">ervir.com</span>
+          code<span className="text-[#1dceff]">servir.com</span>
           </h2>
         </div>
         <div className="md:flex hidden space-x-4 mt-6 p-2 rounded-3xl md:mt-0 shadow-lg bg-white hover:translate-x-2 duration-500">
