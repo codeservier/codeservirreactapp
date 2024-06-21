@@ -11,7 +11,6 @@ const CustomInput = ({
   value,
 }) => {
 
-  
   return (
     <div className="mb-4 ml-8 mr-8">
       <div className="mb-2">

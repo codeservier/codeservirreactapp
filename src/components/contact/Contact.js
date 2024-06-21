@@ -1,77 +1,82 @@
-import React from "react";
-import headerBg from "../../assets/header-bg.jpg";
-import maya from "../../assets/news-2.png";
-import CustomInput from "../CustomInput";
-import Footer from "../Footer/Footer";
-import Navbar from "../navbar/Navbar";
-import CustomButton from "../CustomButton";
-import { useState } from "react";
-import Textarea from "../Textarea";
+import React, { useState } from "react";
+import CustomButton from "../Buttons/CustomButton";
+import CustomInput from "../InputFields/CustomInput";
+import Textarea from "../InputFields/Textarea";
 import { db } from "../../config/config";
+import contactImg from "../../assets/contactimg.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPhone,
+  faEnvelope,
+  faGlobe,
+} from "@fortawesome/free-solid-svg-icons";
 
-export default function Contact() {
-  const [fname, setFname] = useState("");
-  const [email, setEmail] = useState("");
-  const [areacode, setAreacode] = useState("");
-  const [city, setCity] = useState("");
-  const [message, setMessage] = useState("");
-  const [contactData, setContactData] = useState(null);
+const contactInfo = [
+  {
+    icon: faPhone,
+    label: "Phone Number",
+    value: "+1 (234) 567-890",
+  },
+  {
+    icon: faEnvelope,
+    label: "Email Address",
+    value: "info@csitcompany.com",
+  },
+  {
+    icon: faGlobe,
+    label: "Website",
+    value: "www.csitcompany.com",
+  },
+  {
+    icon: faGlobe,
+    label: "Website",
+    value: "www.csitcompany.com",
+  },
+  {
+    icon: faGlobe,
+    label: "Website",
+    value: "www.csitcompany.com",
+  },
+  {
+    icon: faGlobe,
+    label: "Website",
+    value: "www.csitcompany.com",
+  },
+  // Add more contact info as needed
+];
 
-  const handleSubmit = (event) => {
-    const errorfname = document.getElementById("errorf");
-    const errorColorfname = document.getElementById("fname");
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    fname: "",
+    email: "",
+    areacode: "",
+    city: "",
+    message: "",
+  });
 
-    const errorlname = document.getElementById("errorl");
-    const errorColorlname = document.getElementById("lname");
+  const inputFields = [
+    { placeholder: "Enter Your Full Name", type: "text", name: "fname" },
+    { placeholder: "Enter Your Email", type: "email", name: "email" },
+    { placeholder: "Enter Your Area Code", type: "number", name: "areacode" },
+    { placeholder: "Enter Your City Name", type: "text", name: "city" },
+  ];
 
-    const errorarea = document.getElementById("errorarea");
-    const errorColorarea = document.getElementById("areacode");
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-    const errorcity = document.getElementById("errorcity");
-    const errorColorcity = document.getElementById("city");
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-    const errormessage = document.getElementById("errormessage");
-    const errorColormessage = document.getElementById("message");
+    const { fname, email, areacode, city, message } = formData;
 
-    if (fname === "") {
-      errorfname.innerHTML = "Please Enter Something";
-      errorColorfname.classList.add("errorColor");
-    } else {
-      errorfname.innerHTML = "";
-      errorColorfname.classList.remove("errorColor");
-    }
-
-    if (email === "") {
-      errorlname.innerHTML = "Please Enter Something";
-      errorColorlname.classList.add("errorColor");
-    } else {
-      errorlname.innerHTML = "";
-      errorColorlname.classList.remove("errorColor");
-    }
-
-    if (areacode === "") {
-      errorarea.innerHTML = "Please Enter Something";
-      errorColorarea.classList.add("errorColor");
-    } else if (areacode) {
-    } else {
-      errorarea.innerHTML = "";
-      errorColorarea.classList.remove("errorColor");
-    }
-
-    if (city === "") {
-      errorcity.innerHTML = "Please Enter Something";
-      errorColorcity.classList.add("errorColor");
-    } else {
-      errorcity.innerHTML = "";
-      errorColorcity.classList.remove("errorColor");
-    }
-
-    if (message === "") {
-      errormessage.innerHTML = "Please Enter Something";
-      errorColormessage.classList.add("errorColor");
-    } else {
-      errormessage.innerHTML = "";
-      errorColormessage.classList.remove("errorColor");
+    // Validate form fields
+    if (!fname || !email || !areacode || !city || !message) {
+      alert("Please fill out all fields.");
+      return;
     }
 
     const contactData = {
@@ -81,122 +86,98 @@ export default function Contact() {
       city: city,
       message: message,
     };
-    if (
-      fname === "" ||
-      email === "" ||
-      areacode === "" ||
-      city === "" ||
-      message === ""
-    ) {
-      alert("Something Went Wrong!");
-    } else {
-      submitData(contactData);
-    }
-
-    event.preventDefault();
-  };
-
-  const submitData = async (contactData) => {
-    console.log(contactData);
 
     try {
-      // adding data to firebase collection
-      // const documentRef = await firestore
-      db.collection("contact")
-        .add(contactData)
-        .then(() => {
-          alert("data submitted successfully...");
-        })
-        .catch((error) => {
-          console.log("error" + error);
-          alert("There is a problem occured");
-        });
-    } catch (e) {
-      console.log("Error ", e);
+      // Add data to Firebase collection
+      await db.collection("contact").add(contactData);
+      alert("Data submitted successfully!");
+      // Clear form fields after submission
+      setFormData({
+        fname: "",
+        email: "",
+        areacode: "",
+        city: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Error submitting data: ", error);
+      alert("An error occurred, please try again later.");
     }
   };
 
   return (
     <>
-      <div className="container1">
-        <Navbar />
-        <h2>
-          Hello :{" "}
-          {contactData && contactData.name && contactData.name
-            ? contactData.name
-            : ""}
-        </h2>
-
-        <div className="header">
-          <img alt="" src={headerBg} />
-        </div>
-        <form onSubmit={handleSubmit}>
-          <div className="lrcontainer">
-            <div className="right">
-              <img alt="" src={maya} width={500} height={500} />
-            </div>
-            <div className="left">
-              <h1 className="contactheading">Let's Contact Us</h1>
-
-              <div className="leftchild">
-                <CustomInput
-                  // label={"Enter Your First Name: "}
-                  id={"fname"}
-                  type={"text"}
-                  value={fname}
-                  onChange={(e) => setFname(e.target.value)}
-                  placeholder={"Enter your Full Name:"}
+      <div className="container mx-auto py-12">
+        <div className="bg-[#ffffff] p-8 rounded-lg shadow-md">
+          <h1 className="text-4xl md:text-8xl font-bold text-center mb-8 text-[#26baf6] font-lilita">
+            Contact Us
+          </h1>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {contactInfo.map((info, index) => (
+              <div
+                key={index}
+                className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow"
+              >
+                <FontAwesomeIcon
+                  icon={info.icon}
+                  className="text-2xl text-[#26baf6]"
                 />
-                <span id="errorf"></span>
-                <CustomInput
-                  // label={"Enter Your Last Name: "}
-                  placeholder={"Enter your Email:"}
-                  id={"lname"}
-                  type={"text"}
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <span id="errorl"></span>
-
-                <CustomInput
-                  // label={"Enter Your Area Code:"}
-                  placeholder={"Pin Code:"}
-                  id={"areacode"}
-                  type={"number"}
-                  value={areacode}
-                  onChange={(e) => setAreacode(e.target.value)}
-                />
-                <span id="errorarea"></span>
-
-                <CustomInput
-                  // label={"Enter Your City Name: "}
-                  placeholder={"City Name:"}
-                  id={"city"}
-                  type={"text"}
-                  value={city}
-                  onChange={(e) => setCity(e.target.value)}
-                />
-                <span id="errorcity"></span>
-
-                <Textarea
-                  placeholder={"Enter Your Message:"}
-                  // label={"Your Message"}
-                  id={"message"}
-                  value={message}
-                  type={"textarea"}
-                  onChange={(e) => setMessage(e.target.value)}
-                ></Textarea>
-                <span id="errormessage"></span>
+                <div>
+                  <span className=" text-3xl font-concert block font-bold">{info.label}</span>
+                  <span className=" font-concert block">{info.value}</span>
+                </div>
               </div>
-              <div className="btn">
-                <CustomButton classn={"btn2"} />
-              </div>
-            </div>
+            ))}
           </div>
-        </form>
-
-        <Footer />
+        </div>
+        <div className="container mx-auto flex flex-col md:flex-row justify-center items-center py-8 min-h-screen">
+          {" "}
+          {/* Right section with image */}
+          <div className="w-full md:w-1/2 p-10">
+            <img
+              src={contactImg}
+              alt="Contact Illustration"
+              className="w-full h-auto"
+            />
+          </div>
+          {/* Left section with form */}
+          <div className="w-full md:w-1/2 p-8 bg-contactbg bg-cover bg-center hover:bg-[#ffffff] duration-500 rounded-lg shadow-md">
+            <h1 className="text-3xl md:text-8xl font-bold text-center mb-8 font-lilita text-[#26baf6]">
+               Take a meet
+            </h1>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {inputFields.map((field, index) => (
+                <CustomInput
+                  key={index}
+                  placeholder={field.placeholder}
+                  type={field.type}
+                  value={formData[field.name]}
+                  onChange={handleChange}
+                  name={field.name}
+                  className="w-full"
+                />
+              ))}
+              <Textarea
+                placeholder="Enter Your Message"
+                value={formData.message}
+                onChange={handleChange}
+                name="message"
+                className="w-full"
+              />
+              <div className="text-center">
+                <CustomButton
+                  type="submit"
+                  className="btn2 bg-[#dda242] text-white py-2 px-6 rounded-lg hover:bg-blue-700 transition duration-300"
+                >
+                  Submit
+                </CustomButton>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </>
   );
-}
+};
+
+export default Contact;
