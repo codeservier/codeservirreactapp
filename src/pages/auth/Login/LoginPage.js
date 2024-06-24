@@ -12,23 +12,25 @@ import { useNavigate } from "react-router-dom";
 import Navbar from '../../../components/Navbar/Navbar';
 import Logobtn from '../../../components/Logobtn/Logobtn';
 import Footer from '../../../components/Footer/Footer';
+import { aliases } from "@fortawesome/free-solid-svg-icons/fa0";
 
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const signInWithEmailAndPassword = async () => {
     try {
       await auth.signInWithEmailAndPassword(email, password);
+      alert("Sign in successful");
       navigate("/", { state: { email: email } });
-      console.log("Sign in successful");
     } catch (error) {
-      console.error("Sign in failed:", error.message);
+      console.error("Sign in error:", error); // Log the error object
+      alert(`Sign in failed: ${error.message || error}`); // Show the error message or the entire error object if message is not available
     }
   };
-
+  
+  
   const handleonsubmit = (event) => {
     event.preventDefault();
 

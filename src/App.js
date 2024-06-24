@@ -17,12 +17,14 @@ import FAQ from "./pages/FAQ/FAQ";
 import DevCycle from "./pages/DevCycle/DevCycle";
 import InternshipForm from "./pages/InternshipForm/InternshipForm";
 import Courses from "./pages/Courses/Courses";
+import AdminPanel from "./pages/Admin/Admin";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        {/* <Route path="/" element={<AdminPanel />} /> */}
         <Route path="/Services" element={<ServicesInner />} />
         <Route path="/LoginPage" element={<LoginPage />} />
         <Route path="/SignUp" element={<SignUp />} />
