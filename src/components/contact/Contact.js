@@ -107,7 +107,8 @@ const Contact = () => {
 
   return (
     <>
-      <div className="container mx-auto py-12">
+    
+      <div className="container mx-auto py-12 pt-[10rem]">
         <div className="bg-[#ffffff] p-8 rounded-lg shadow-md">
           <h1 className="text-4xl md:text-8xl font-bold text-center mb-8 text-[#26baf6] font-lilita">
             Contact Us

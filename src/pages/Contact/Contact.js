@@ -23,8 +23,11 @@ const ContactPage = () => {
   return (
     <>
      <div className="bg-[#ebfbff] min-h-screen">
-      <Navbar />
-      <Logobtn />
+     <Logobtn />
+
+      <div className="relative z-50">
+        <Navbar />
+      </div>
       <Contact/>
    
     </div>

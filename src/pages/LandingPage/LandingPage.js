@@ -61,7 +61,7 @@ const LandingPage = () => {
   `;
 
   return (
-    <div className="min-h-screen mt-10 bg-no-repeat bg-cover bg-center sm:mx-[10rem]">
+    <div className="min-h-screen  bg-no-repeat bg-cover bg-center sm:mx-[10rem]">
       <style>{slideAnimation}</style>
       <div className="flex flex-col md:flex-row md:max-w-screen rounded-lg overflow-hidden">
         <div className="px-10  md:p-10 flex flex-col justify-center w-full mb-4 md:mb-0">

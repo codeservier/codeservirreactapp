@@ -46,14 +46,14 @@ const Navbar = () => {
           }
         `}
       </style>
-      <nav className="fixed top-[3.5rem] left-1/2 transform -translate-x-1/2 w-11/12 max-w-4xl md:bg-white rounded-[2rem] p-5 md:shadow-lg">
+      <nav className="fixed top-[3.5rem] left-1/2 transform -translate-x-1/2 w-11/12 max-w-4xl md:bg-white rounded-[2rem] p-5 md:shadow-lg " >
         <div className="block md:hidden">
           <button
             className="focus:outline-none absolute top-0 right-0 p-3"
             onClick={toggleNavbar}
           >
             <svg
-              className="h-6 w-6 text-gray-700"
+              className="h-6 w-6 text-gray-700 -mt-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -75,9 +75,13 @@ const Navbar = () => {
               )}
             </svg>
           </button>
-          <div className={`transition-max-height duration-[2000ms] ease-out p-8 ${isOpen ? 'max-h-screen' : 'max-h-0'}`}>
-  <IsOpenMenu isOpen={isOpen} />
-</div>
+          <div
+            className={`transition-max-height duration-[2000ms] ease-out p-8 ${
+              isOpen ? "max-h-screen" : "max-h-0"
+            }`}
+          >
+            <IsOpenMenu isOpen={isOpen} />
+          </div>
         </div>
 
         <div className="hidden md:block">

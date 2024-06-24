@@ -62,9 +62,13 @@ const InternshipForm = () => {
 
   return (
     <div className="bg-gradient-to-r from-blue-500 to-red-400 min-h-screen">
-      <Logobtn />
+         <Logobtn />
 
-      <div className="min-h-screen flex items-center justify-center p-6">
+<div className="relative z-50">
+  <Navbar />
+</div>
+
+      <div className="min-h-screen flex items-center justify-center p-6 pt-[10rem]">
         <div className="bg-white shadow-lg rounded-lg flex flex-col md:flex-row overflow-hidden max-w-6xl w-full">
           <div
             className="md:w-1/2 w-full bg-cover bg-center flex flex-col justify-start p-4 backdrop-blur-lg"
@@ -137,7 +141,6 @@ const InternshipForm = () => {
           </div>
         </div>
       </div>
-      <Navbar/>
       <Footer />
     </div>
   );

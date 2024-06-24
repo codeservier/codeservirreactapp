@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import {  } from "react-router-dom";
+import {useNavigate,  Link } from "react-router-dom";
+
 
 // Define JSON data for menu items
 const menuData = [
@@ -15,7 +17,17 @@ const menuData = [
   { to: "/InternshipForm", label: "Our Internship", highlight: true },
 ];
 
+
+
 const IsOpenMenu = ({ isOpen }) => {
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate('/LoginPage'); // Use navigate function to redirect to /LoginPage
+  };
+  const handleSignup = () => {
+    navigate('/SignUp'); // Use navigate function to redirect to /LoginPage
+  };
   return (
     <div className="" >
         <style>
@@ -70,10 +82,10 @@ const IsOpenMenu = ({ isOpen }) => {
 
             <li className="flex justify-center mt-6"> {/* Centering the buttons */}
               <div className="space-x-4 p-2 rounded-3xl md:mt-0 shadow-lg bg-white shadow-gray-500">
-                <button className="bg-[#21c4ff] text-white text-lg md:text-1xl px-6 md:px-6 py-1 rounded-full hover:translate-y-1 hover:bg-[#ffd739] transition duration-300 shadow-lg shadow-gray-500">
+                <button onClick={handleLogin} className="bg-[#21c4ff] text-white text-lg md:text-1xl px-6 md:px-6 py-1 rounded-full hover:translate-y-1 hover:bg-[#ffd739] transition duration-300 shadow-lg shadow-gray-500">
                   Login
                 </button>
-                <button className="bg-[#ff8800] text-white text-lg md:text-1xl px-6 md:px-3 py-1 rounded-full hover:translate-y-1 hover:bg-[#ffd739] transition duration-300 shadow-lg shadow-gray-500">
+                <button onClick={handleSignup} className="bg-[#ff8800] text-white text-lg md:text-1xl px-6 md:px-3 py-1 rounded-full hover:translate-y-1 hover:bg-[#ffd739] transition duration-300 shadow-lg shadow-gray-500">
                   Register
                 </button>
               </div>

@@ -1,78 +1,80 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import CustomInput from "../../../components/InputFields/CustomInput";
 import CustomButton from "../../../components/Buttons/CustomButton";
-import headerBg from "../../../assets/header-bg.jpg";
-import maya from "../../../assets/news-2.png";
-import { useState } from "react";
+import maya from "../../../assets/backgrounds_images/signupbg.jpg"; // Import your image here
 import googleLogo from "../../../assets/googlelogo.png";
 import facebookLogo from "../../../assets/facbooklogo.png";
-
 import githubLogo from "../../../assets/githublogo.png";
-import { db, auth } from "../../../config/config";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../../../components/Navbar/Navbar";
+import Logobtn from "../../../components/Logobtn/Logobtn";
+import Footer from "../../../components/Footer/Footer";
 
 const SignUp = () => {
   const navigate = useNavigate();
   const [fname, setFname] = useState("");
   const [email, setEmail] = useState("");
-  const [mobnumber, setmobnumber] = useState("");
+  const [mobnumber, setMobnumber] = useState("");
   const [password, setPassword] = useState("");
-  const [confpassword, setconfpassword] = useState("");
-  const [redirectToHome, setRedirectToHome] = useState(false);
+  const [confpassword, setConfpassword] = useState("");
+  const [errors, setErrors] = useState({
+    fname: "",
+    email: "",
+    mobnumber: "",
+    password: "",
+    confpassword: "",
+  });
 
-  const handleonsubmit = (event) => {
-    const errorfname = document.getElementById("errorfname");
-    const errorfnameColor = document.getElementById("fname");
-
-    const erroremail = document.getElementById("erroremail");
-    const erroremailColor = document.getElementById("email");
-
-    const errormobnumber = document.getElementById("errormobnumber");
-    const errormobnumberColor = document.getElementById("mobnumber");
-
-    const errorpassword = document.getElementById("errorpassword");
-    const errorpasswordColor = document.getElementById("password");
-
-    const errorcpassword = document.getElementById("errorcpassword");
-    const errorcpasswordColor = document.getElementById("cpassword");
-
-    if (fname === "") {
-      errorfname.innerHTML = "Please Enter Something";
-      errorfnameColor.classList.add("errorColor");
-    } else {
-      errorfname.innerHTML = "";
-      errorfnameColor.classList.remove("errorColor");
-    }
-
-    if (email === "") {
-      erroremail.innerHTML = "Please Enter Something";
-      erroremailColor.classList.add("errorColor");
-    } else {
-      erroremail.innerHTML = "";
-      erroremailColor.classList.remove("errorColor");
-    }
-    if (mobnumber === "") {
-      errormobnumber.innerHTML = "Please Enter Something";
-      errormobnumberColor.classList.add("errorColor");
-    } else {
-      errormobnumber.innerHTML = "";
-      errormobnumberColor.classList.remove("errorColor");
-    }
-    if (password === "") {
-      errorpassword.innerHTML = "Please Enter Something";
-      errorpasswordColor.classList.add("errorColor");
-    } else {
-      errorpassword.innerHTML = "";
-      errorpasswordColor.classList.remove("errorColor");
-    }
-    if (confpassword === "") {
-      errorpassword.innerHTML = "Please Enter Something";
-      errorcpasswordColor.classList.add("errorColor");
-    } else {
-      errorcpassword.innerHTML = "";
-      errorcpasswordColor.classList.remove("errorColor");
-    }
+  const handleOnSubmit = (event) => {
     event.preventDefault();
+
+    // Validate form fields
+    const errorsCopy = { ...errors };
+
+    if (!fname.trim()) {
+      errorsCopy.fname = "Please enter your full name";
+    } else {
+      errorsCopy.fname = "";
+    }
+
+    if (!email.trim()) {
+      errorsCopy.email = "Please enter your email";
+    } else {
+      errorsCopy.email = "";
+    }
+
+    if (!mobnumber.trim()) {
+      errorsCopy.mobnumber = "Please enter your phone number";
+    } else {
+      errorsCopy.mobnumber = "";
+    }
+
+    if (!password.trim()) {
+      errorsCopy.password = "Please enter your password";
+    } else {
+      errorsCopy.password = "";
+    }
+
+    if (!confpassword.trim()) {
+      errorsCopy.confpassword = "Please confirm your password";
+    } else if (password.trim() !== confpassword.trim()) {
+      errorsCopy.confpassword = "Passwords do not match";
+    } else {
+      errorsCopy.confpassword = "";
+    }
+
+    setErrors(errorsCopy);
+
+    // Submit data if there are no errors
+    if (
+      errorsCopy.fname ||
+      errorsCopy.email ||
+      errorsCopy.mobnumber ||
+      errorsCopy.password ||
+      errorsCopy.confpassword
+    ) {
+      return;
+    }
 
     const signupdata = {
       name: fname,
@@ -82,150 +84,147 @@ const SignUp = () => {
       cpassword: confpassword,
     };
 
-    console.log("Full name " + fname);
+    console.log("Signup Data: ", signupdata);
 
-    if (
-      fname === "" ||
-      email === "" ||
-      mobnumber === "" ||
-      password === "" ||
-      confpassword === ""
-    ) {
-      console.log("Enter all details...");
-    } else {
-      submitData(signupdata);
-    }
-  };
-
-  const submitData = async (signupdata) => {
-    const { email, password } = signupdata;
-    console.log(signupdata);
-
-    try {
-      await auth
-        .createUserWithEmailAndPassword(email, password)
-        .then(() => {
-          alert("Login Succussfully");
-          // saving database
-          db.collection("SignUp")
-            .add(signupdata)
-            .then(() => {
-              alert("Data saved successfully...");
-              // empty the input field
-              // setFname("");
-              // setEmail("");
-              // setmobnumber("");
-              // setPassword("");
-              // setconfpassword("");
-              // setRedirectToHome(true);
-              navigate("/");
-            })
-
-            .catch((error) => {
-              alert("There is a error occured..." + error.message);
-            });
-          //////////////////////////////////////
-        })
-        .catch((e) => {
-          alert(e);
-
-          // empty the input field
-          // setFname("");
-          // setEmail("");
-          // setmobnumber("");
-          // setPassword("");
-          // setconfpassword("");
-          /////////////////////////////////////////
-        });
-    } catch (e) {
-      console.log("Problem occurred", e);
-    }
+    // Handle signup logic (authentication and database save)
+    // Example logic using auth and db objects, replace with your own implementation
+    // auth.createUserWithEmailAndPassword(email, password)
+    //   .then((userCredential) => {
+    //     db.collection("users").doc(userCredential.user.uid).set(signupdata)
+    //       .then(() => {
+    //         console.log("User data saved successfully");
+    //         navigate("/success"); // Navigate to success page
+    //       })
+    //       .catch((error) => {
+    //         console.error("Error saving user data: ", error);
+    //       });
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error creating user: ", error);
+    //   });
   };
 
   const gotoLogin = () => {
     navigate("/LoginPage");
   };
+
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-      <div className="w-full max-w-2xl p-8 space-y-8 bg-white rounded-lg shadow-md mt-10">
-        <div className="flex justify-center">
-          <img
-            alt="header background"
-            src={headerBg}
-            className="w-full h-32 object-cover rounded-t-lg"
-          />
-        </div>
-        <form onSubmit={handleonsubmit} className="space-y-6">
-          <h1 className="text-2xl font-bold text-center">Sign Up</h1>
-          <div className="space-y-4">
-            <CustomInput
-              id="fname"
-              type="text"
-              value={fname}
-              onChange={(e) => setFname(e.target.value)}
-              placeholder="Enter your Full Name"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-            />
-            <span id="errorfname" className="text-red-600"></span>
-            <CustomInput
-              id="email"
-              type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your Email"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-            />
-            <span id="erroremail" className="text-red-600"></span>
-            <CustomInput
-              id="mobnumber"
-              type="text"
-              value={mobnumber}
-              onChange={(e) => setmobnumber(e.target.value)}
-              placeholder="Enter your Phone Number"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-            />
-            <span id="errormobnumber" className="text-red-600"></span>
-            <CustomInput
-              id="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter your Password"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-            />
-            <span id="errorpassword" className="text-red-600"></span>
-            <CustomInput
-              id="cpassword"
-              type="password"
-              value={confpassword}
-              onChange={(e) => setconfpassword(e.target.value)}
-              placeholder="Confirm your Password"
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 mb-4"
-            />
-            <span id="errorcpassword" className="text-red-600"></span>
-          </div>
-          <div className="flex justify-center">
-            <CustomButton className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300" />
-          </div>
-          <div className="text-center text-gray-600">
-            Sign up with other apps
-          </div>
-          <div className="flex justify-center space-x-4">
-            <img src={googleLogo} alt="Google" className="w-10 h-10" />
-            <img src={facebookLogo} alt="Facebook" className="w-10 h-10" />
-            <img src={githubLogo} alt="GitHub" className="w-10 h-10" />
-          </div>
-          <div className="text-center mt-4">
-            <a
-              onClick={gotoLogin}
-              className="text-blue-600 hover:underline cursor-pointer"
-            >
-              Go to Login
-            </a>
-          </div>
-        </form>
+    <>
+      <Logobtn />
+      <div className="relative z-50">
+        <Navbar />
       </div>
-    </div>
+      <div className="flex flex-col items-center justify-center bg-gray-100 pt-[6rem] pb-10">
+        <div className="w-full max-w-6xl p-8 bg-white rounded-lg shadow-md mt-10 flex flex-col md:flex-row md:space-x-8">
+          {/* Image Section */}
+          <div className="md:w-1/2 flex justify-center items-center">
+            <img
+              alt="Image Alt Text"
+              src={maya} // Replace with your image source
+              className="object-cover rounded-lg"
+            />
+          </div>
+          {/* Form Section */}
+          <form onSubmit={handleOnSubmit} className="md:w-1/2 w-full px-8 space-y-6">
+            <h1 className="text-4xl md:text-6xl text-[#26baf6] font-bold text-center mb-8">Sign Up</h1>
+            <div className="space-y-4">
+              <CustomInput
+                id="fname"
+                type="text"
+                value={fname}
+                onChange={(e) => setFname(e.target.value)}
+                placeholder="Enter your Full Name"
+                className={`w-full px-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 ${
+                  errors.fname ? "border-red-500" : ""
+                }`}
+              />
+              {errors.fname && (
+                <span className="text-red-600 ml-2">{errors.fname}</span>
+              )}
+              <CustomInput
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your Email"
+                className={`w-full px-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 ${
+                  errors.email ? "border-red-500" : ""
+                }`}
+              />
+              {errors.email && (
+                <span className="text-red-600 ml-2">{errors.email}</span>
+              )}
+              <CustomInput
+                id="mobnumber"
+                type="text"
+                value={mobnumber}
+                onChange={(e) => setMobnumber(e.target.value)}
+                placeholder="Enter your Phone Number"
+                className={`w-full px-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 ${
+                  errors.mobnumber ? "border-red-500" : ""
+                }`}
+              />
+              {errors.mobnumber && (
+                <span className="text-red-600 ml-2">{errors.mobnumber}</span>
+              )}
+              <CustomInput
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter your Password"
+                className={`w-full px-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 ${
+                  errors.password ? "border-red-500" : ""
+                }`}
+              />
+              {errors.password && (
+                <span className="text-red-600 ml-2">{errors.password}</span>
+              )}
+              <CustomInput
+                id="cpassword"
+                type="password"
+                value={confpassword}
+                onChange={(e) => setConfpassword(e.target.value)}
+                placeholder="Confirm your Password"
+                className={`w-full px-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 ${
+                  errors.confpassword ? "border-red-500" : ""
+                }`}
+              />
+              {errors.confpassword && (
+                <span className="text-red-600 ml-2">
+                  {errors.confpassword}
+                </span>
+              )}
+            </div>
+            <div className="flex justify-center">
+              <CustomButton
+                className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300 p-5"
+                onClick={handleOnSubmit}
+              >
+                Sign Up
+              </CustomButton>
+            </div>
+            <div className="text-center text-gray-600">
+              Sign up with other apps
+            </div>
+            <div className="flex justify-center space-x-4">
+              <img src={googleLogo} alt="Google" className="w-10 h-10" />
+              <img src={facebookLogo} alt="Facebook" className="w-10 h-10" />
+              <img src={githubLogo} alt="GitHub" className="w-10 h-10" />
+            </div>
+            <div className="text-center mt-4">
+              <a
+                onClick={gotoLogin}
+                className="text-blue-600 hover:underline cursor-pointer"
+              >
+                Go to Login
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+      <Footer />
+    </>
   );
 };
 

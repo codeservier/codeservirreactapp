@@ -16,6 +16,7 @@ import Careers from "./pages/Careers/Careers";
 import FAQ from "./pages/FAQ/FAQ";
 import DevCycle from "./pages/DevCycle/DevCycle";
 import InternshipForm from "./pages/InternshipForm/InternshipForm";
+import Courses from "./pages/Courses/Courses";
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/Careers" element={<Careers />} />
         <Route path="/FAQ" element={<FAQ />} />
         <Route path="/InternshipForm" element={<InternshipForm />} />
+        <Route path="/Courses" element={<Courses />} />
       </Routes>
     </BrowserRouter>
   );

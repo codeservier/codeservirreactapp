@@ -94,7 +94,7 @@ const Services = () => {
 
   return (
     <>
-      <div className=" bg-servicebg3 flex flex-col items-center justify-center py-8">
+      <div className=" bg-servicebg3 flex flex-col items-center justify-center py-8 pt-[10rem]">
         <div className="flex flex-col md:flex-row items-center justify-center w-full md:w-3/4 p-6">
           <div className="md:w-1/2 md:mr-4 text-center md:text-left">
             <h2 className="md:text-7xl text-4xl font-lilita font-bold text-[#26baf6] mb-2">
