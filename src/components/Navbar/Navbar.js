@@ -13,8 +13,8 @@ const menuData = [
   { to: "/FAQ", label: "FAQ" },
   { to: "/Courses", label: "Courses" },
   { to: "/Admin", label: "Admin" },
-  { to: "/TodoCompany", label: "TodoCompany" },
-  { to: "/InternshipForm", label: "Our Internship", highlight: true },
+  { to: "/TodoCompany", label: "Finance" },
+  { to: "/InternshipForm", label: "Internship", highlight: true },
 ];
 
 const Navbar = () => {
