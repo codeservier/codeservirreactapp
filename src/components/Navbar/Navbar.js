@@ -12,7 +12,7 @@ const menuData = [
   { to: "/ContactPage", label: "Contact" },
   { to: "/FAQ", label: "FAQ" },
   { to: "/Courses", label: "Courses" },
-  { to: "/AdminPanel", label: "Admin" },
+  { to: "/Admin", label: "Admin" },
   { to: "/TodoCompany", label: "TodoCompany" },
   { to: "/InternshipForm", label: "Our Internship", highlight: true },
 ];

@@ -17,6 +17,8 @@ import FAQ from "./pages/FAQ/FAQ";
 import DevCycle from "./pages/DevCycle/DevCycle";
 import InternshipForm from "./pages/InternshipForm/InternshipForm";
 import Courses from "./pages/Courses/Courses";
+import Admin from "./pages/Admin/Admin";
+import TodoCompany from "./pages/Todocompany/TodoCompany";
 
 const App = () => {
   return (
@@ -25,6 +27,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/Services" element={<ServicesInner />} />
         <Route path="/LoginPage" element={<LoginPage />} />
+        <Route path="/Admin" element={<Admin />} />
+        <Route path="/TodoCompany" element={<TodoCompany />} />
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/About" element={<About />} />
         <Route path="/Portfolio" element={<Portfolio />} />
