@@ -1,38 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import {  } from "react-router-dom";
-import {useNavigate,  Link } from "react-router-dom";
-
+import {} from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 // Define JSON data for menu items
-const menuData = [
+const baseMenuData = [
   { to: "/", label: "Home" },
   { to: "/Services", label: "Services" },
   { to: "/About", label: "About" },
   { to: "/ContactPage", label: "Contact" },
   { to: "/FAQ", label: "FAQ" },
   { to: "/Courses", label: "Courses" },
-  { to: "/Admin", label: "Admin" },
-  { to: "/TodoCompany", label: "Finance" },
   { to: "/InternshipForm", label: "Internship", highlight: true },
 ];
 
-
-
-const IsOpenMenu = ({ isOpen }) => {
+const IsOpenMenu = ({ isOpen, authData }) => {
   const navigate = useNavigate();
+  const [menuData, setMenuData] = useState(baseMenuData);
+
+  useEffect(() => {
+    const updatedMenuData = [...baseMenuData];
+    if (authData && authData !== null&&authData.role=='admin') {
+      const adminMenuItems = [
+        { to: "/Admin", label: "Admin" },
+        { to: "/TodoCompany", label: "Finance" },
+      ];
+
+      adminMenuItems.forEach((item) => {
+        if (!updatedMenuData.find((menuItem) => menuItem.to === item.to)) {
+          updatedMenuData.push(item);
+        }
+      });
+    }
+
+    setMenuData(updatedMenuData);
+  }, [authData]);
 
   const handleLogin = () => {
-    navigate('/LoginPage'); // Use navigate function to redirect to /LoginPage
+    navigate("/LoginPage"); // Use navigate function to redirect to /LoginPage
   };
   const handleSignup = () => {
-    navigate('/SignUp'); // Use navigate function to redirect to /LoginPage
+    navigate("/SignUp"); // Use navigate function to redirect to /LoginPage
   };
   return (
-    <div className="" >
-        <style>
+    <div className="">
+      <style>
         {`
           @keyframes blink {
             0%, 100% {
@@ -82,12 +96,20 @@ const IsOpenMenu = ({ isOpen }) => {
               </li>
             ))}
 
-            <li className="flex justify-center mt-6"> {/* Centering the buttons */}
+            <li className="flex justify-center mt-6">
+              {" "}
+              {/* Centering the buttons */}
               <div className="space-x-4 p-2 rounded-3xl md:mt-0 shadow-lg bg-white shadow-gray-500">
-                <button onClick={handleLogin} className="bg-[#21c4ff] text-white text-lg md:text-1xl px-6 md:px-6 py-1 rounded-full hover:translate-y-1 hover:bg-[#ffd739] transition duration-300 shadow-lg shadow-gray-500">
+                <button
+                  onClick={handleLogin}
+                  className="bg-[#21c4ff] text-white text-lg md:text-1xl px-6 md:px-6 py-1 rounded-full hover:translate-y-1 hover:bg-[#ffd739] transition duration-300 shadow-lg shadow-gray-500"
+                >
                   Login
                 </button>
-                <button onClick={handleSignup} className="bg-[#ff8800] text-white text-lg md:text-1xl px-6 md:px-3 py-1 rounded-full hover:translate-y-1 hover:bg-[#ffd739] transition duration-300 shadow-lg shadow-gray-500">
+                <button
+                  onClick={handleSignup}
+                  className="bg-[#ff8800] text-white text-lg md:text-1xl px-6 md:px-3 py-1 rounded-full hover:translate-y-1 hover:bg-[#ffd739] transition duration-300 shadow-lg shadow-gray-500"
+                >
                   Register
                 </button>
               </div>

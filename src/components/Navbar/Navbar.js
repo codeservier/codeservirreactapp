@@ -1,25 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import IsOpenMenu from "../isOpenMenu/isOpenMenu";
 
 // JSON data for menu items
-const menuData = [
+const baseMenuData = [
   { to: "/", label: "Home" },
   { to: "/Services", label: "Services" },
   { to: "/About", label: "About" },
   { to: "/ContactPage", label: "Contact" },
   { to: "/FAQ", label: "FAQ" },
   { to: "/Courses", label: "Courses" },
-  { to: "/Admin", label: "Admin" },
-  { to: "/TodoCompany", label: "Finance" },
   { to: "/InternshipForm", label: "Internship", highlight: true },
 ];
-
-const Navbar = () => {
+const Navbar = ({ authData }) => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const [menuData, setMenuData] = useState(baseMenuData);
+
+  useEffect(() => {
+    const updatedMenuData = [...baseMenuData];
+    
+    if (authData && authData !== null&&authData.role=='admin') {
+      const adminMenuItems = [
+        { to: "/Admin", label: "Admin" },
+        { to: "/TodoCompany", label: "Finance" },
+      ];
+
+      adminMenuItems.forEach((item) => {
+        if (!updatedMenuData.find((menuItem) => menuItem.to === item.to)) {
+          updatedMenuData.push(item);
+        }
+      });
+    }
+
+    setMenuData(updatedMenuData);
+  }, [authData]);
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
@@ -48,7 +65,7 @@ const Navbar = () => {
           }
         `}
       </style>
-      <nav className="fixed top-[3.5rem] left-1/2 transform -translate-x-1/2 w-11/12 max-w-4xl md:bg-white rounded-[2rem] p-5 md:shadow-lg " >
+      <nav className="fixed top-[3.5rem] left-1/2 transform -translate-x-1/2 w-11/12 max-w-4xl md:bg-white rounded-[2rem] p-5 md:shadow-lg ">
         <div className="block md:hidden">
           <button
             className="focus:outline-none absolute top-0 right-0 p-3"
@@ -82,7 +99,7 @@ const Navbar = () => {
               isOpen ? "max-h-screen" : "max-h-0"
             }`}
           >
-            <IsOpenMenu isOpen={isOpen} />
+            <IsOpenMenu isOpen={isOpen} authData={authData}/>
           </div>
         </div>
 

@@ -1,10 +1,10 @@
-
 import React, { useEffect, useState } from "react";
 import { useTable } from "react-table";
+import { useNavigate } from "react-router-dom";
 import { Bar } from "react-chartjs-2";
 import "tailwindcss/tailwind.css";
-import { db } from "../../config/config.js"; // Adjust the import path as needed
-import { collection, getDocs } from "firebase/firestore";
+import { auth, db } from "../../config/config.js"; // Adjust the import path as needed
+import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -32,6 +32,8 @@ const Admin = () => {
   const [applications, setApplications] = useState([]);
   const [users, setUsers] = useState([]);
   const [contactMessages, setContactMessages] = useState([]);
+  const [authData, setAuthData] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,10 +44,7 @@ const Admin = () => {
         );
         const applicationsData = applicationsSnapshot.docs.map((doc) => {
           const data = doc.data();
-          const timestamp =
-            data.timestamp && data.timestamp.toDate
-              ? data.timestamp.toDate()
-              : null;
+          const timestamp = data.timestamp?.toDate ? data.timestamp.toDate() : null;
           return {
             id: doc.id,
             ...data,
@@ -79,6 +78,30 @@ const Admin = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const fetchAuthData = async () => {
+      const user = auth.currentUser;
+      if (user) {
+        try {
+          // Retrieve user data from the database
+          const userDoc = await getDoc(doc(db, "users", user.uid));
+          if (userDoc.exists) {
+            const userData = userDoc.data();
+            console.log("User data:", userData);
+            setAuthData(userData);
+          } else {
+            console.error("No such user document!");
+            alert("No user data found.");
+          }
+        } catch (error) {
+          console.error("Error fetching auth data: ", error);
+        }
+      }
+    };
+
+    fetchAuthData();
+  }, [navigate]);
+
   // Columns definition for tables with serial number added
   const applicationColumns = React.useMemo(
     () => [
@@ -107,10 +130,10 @@ const Admin = () => {
         Header: "Interests",
         accessor: (row) => {
           const interests = [];
-          if (row.interests.webdev) interests.push("Web Development");
-          if (row.interests.datascience) interests.push("Data Science");
-          if (row.interests.ai) interests.push("Artificial Intelligence");
-          if (row.interests.mobiledev) interests.push("Mobile Development");
+          if (row.interests?.webdev) interests.push("Web Development");
+          if (row.interests?.datascience) interests.push("Data Science");
+          if (row.interests?.ai) interests.push("Artificial Intelligence");
+          if (row.interests?.mobiledev) interests.push("Mobile Development");
           return interests.join(", ");
         },
       },
@@ -172,17 +195,14 @@ const Admin = () => {
         accessor: "index",
         Cell: ({ row }) => <div>{row.index + 1}</div>,
       },
-
       {
         Header: "Fullname",
         accessor: "fullName",
       },
-
       {
         Header: "Email",
         accessor: "email",
       },
-
       {
         Header: "Message",
         accessor: "message",
@@ -245,11 +265,11 @@ const Admin = () => {
 
   return (
     <>
-      <Logobtn />
+      <Logobtn authData={authData} />
       <div className="relative z-50">
-        <Navbar />
+        <Navbar authData={authData}/>
       </div>
-      <div className="min-h-screen bg-gray-100 flex flex-col items-center ">
+      <div className="min-h-screen bg-gray-100 flex flex-col items-center">
         <header className="bg-white shadow w-full">
           <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 pt-[12rem]">
             <h1 className="text-3xl font-bold text-gray-900">Admin Panel</h1>
@@ -276,9 +296,7 @@ const Admin = () => {
               </div>
             </div>
             <div className="bg-white shadow-lg rounded-lg p-6">
-              <h2 className="text-2xl font-bold text-gray-700">
-                Data Overview
-              </h2>
+              <h2 className="text-2xl font-bold text-gray-700">Data Overview</h2>
               {/* Bar chart */}
               <Bar data={chartData} />
             </div>
@@ -367,7 +385,9 @@ const Admin = () => {
                     return (
                       <tr
                         {...row.getRowProps()}
-                        className={row.original.newUser ? "newDataHighlight" : ""}
+                        className={
+                          row.original.newUser ? "newDataHighlight" : ""
+                        }
                       >
                         {row.cells.map((cell) => (
                           <td

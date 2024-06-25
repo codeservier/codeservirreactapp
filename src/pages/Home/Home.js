@@ -12,9 +12,12 @@ import Contact from "../../components/contact/Contact";
 import Popup from "../../components/popOn/PoponHome"; // Ensure you have this path correct
 // import PopupCourse from "../../components/popOn/PopupCourse";
 
+import { auth, db } from "../../config/config.js"; // Adjust the import path as needed
+import { doc, getDoc } from "firebase/firestore";
 const Home = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(true); // Add state for popup visibility
   const navigate = useNavigate();
+  const [authData, setAuthData] = useState({});
 
   const handleLogin = () => {
     navigate("/LoginPage");
@@ -33,28 +36,51 @@ const Home = () => {
     setIsPopupOpen(true);
   }, []);
 
+  useEffect(() => {
+    const fetchAuthData = async () => {
+      const user = auth.currentUser;
+      if (user) {
+        try {
+          // Retrieve user data from the database
+          const userDoc = await getDoc(doc(db, "users", user.uid));
+          if (userDoc.exists) {
+            const userData = userDoc.data();
+            console.log("User data:", userData);
+            setAuthData(userData);
+          } else {
+            console.error("No such user document!");
+            alert("No user data found.");
+          }
+        } catch (error) {
+          console.error("Error fetching auth data: ", error);
+        }
+      }
+    };
+
+    fetchAuthData();
+  }, [navigate]);
+
   return (
     <div className="bg-[#ffffff]">
       {isPopupOpen && <Popup onClose={handleClosePopup} />}
       {/* {isPopupOpen && <PopupCourse onClose={handleClosePopup} />} */}
-      <Logobtn />
 
-      <div className="relative z-50 ">
-        <Navbar />
+      <Logobtn authData={authData} />
+      <div className="relative z-50">
+        <Navbar authData={authData} />
       </div>
 
-       
-        <div className="pt-[150px]">
-          <LandingPage />
-        </div>
-        <div className="bg-white-img bg-[50%] bg-no-repeat bg-cover ">
-          <Services />
-        </div>
-        <DevCycle />
-        <div className="">
-          <OurProjects />
-        </div>
-        <Contact />
+      <div className="pt-[150px]">
+        <LandingPage />
+      </div>
+      <div className="bg-white-img bg-[50%] bg-no-repeat bg-cover ">
+        <Services />
+      </div>
+      <DevCycle />
+      <div className="">
+        <OurProjects />
+      </div>
+      <Contact />
       <Footer />
     </div>
   );

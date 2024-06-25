@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../../../components/Navbar/Navbar";
 import Logobtn from "../../../components/Logobtn/Logobtn";
 import Footer from "../../../components/Footer/Footer";
-
+import { auth, db } from "../../../config/config";
 const SignUp = () => {
   const navigate = useNavigate();
   const [fname, setFname] = useState("");
@@ -84,26 +84,26 @@ const SignUp = () => {
       mobile: mobnumber,
       password: password,
       cpassword: confpassword,
+      role:'user'
     };
-
     console.log("Signup Data: ", signupdata);
-
-    // Handle signup logic (authentication and database save)
-    // Example logic using auth and db objects, replace with your own implementation
-    // auth.createUserWithEmailAndPassword(email, password)
-    //   .then((userCredential) => {
-    //     db.collection("users").doc(userCredential.user.uid).set(signupdata)
-    //       .then(() => {
-    //         console.log("User data saved successfully");
-    //         navigate("/success"); // Navigate to success page
-    //       })
-    //       .catch((error) => {
-    //         console.error("Error saving user data: ", error);
-    //       });
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error creating user: ", error);
-    //   });
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        db.collection("users")
+          .doc(userCredential.user.uid)
+          .set(signupdata)
+          .then(() => {
+            alert("User data saved and Sign up successful");
+            navigate("/LoginPage");
+          })
+          .catch((error) => {
+            alert("Error saving user data: " + error.message);
+          });
+      })
+      .catch((error) => {
+        alert("Error creating user: " + error.message);
+      });
   };
 
   const gotoLogin = () => {
@@ -127,8 +127,13 @@ const SignUp = () => {
             />
           </div>
           {/* Form Section */}
-          <form onSubmit={handleOnSubmit} className="md:w-1/2 w-full px-8 space-y-6">
-            <h1 className="text-4xl md:text-6xl text-[#26baf6] font-bold text-center mb-8">Sign Up</h1>
+          <form
+            onSubmit={handleOnSubmit}
+            className="md:w-1/2 w-full px-8 space-y-6"
+          >
+            <h1 className="text-4xl md:text-6xl text-[#26baf6] font-bold text-center mb-8">
+              Sign Up
+            </h1>
             <div className="space-y-4">
               <CustomInput
                 id="fname"
@@ -193,9 +198,7 @@ const SignUp = () => {
                 }`}
               />
               {errors.confpassword && (
-                <span className="text-red-600 ml-2">
-                  {errors.confpassword}
-                </span>
+                <span className="text-red-600 ml-2">{errors.confpassword}</span>
               )}
             </div>
             <div className="flex justify-center">

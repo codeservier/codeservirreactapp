@@ -37,7 +37,10 @@ const TodoCompany = () => {
   // Filter transactions based on selected date
   const filteredTransactions = expenses.concat(income).filter((transaction) => {
     if (!selectedDate) return true; // If no date is selected, show all transactions
-    const transactionDate = transaction.timestamp.toDate().toISOString().split("T")[0];
+    const transactionDate = transaction.timestamp
+      .toDate()
+      .toISOString()
+      .split("T")[0];
     return transactionDate === selectedDate;
   });
 
@@ -83,7 +86,13 @@ const TodoCompany = () => {
     }
 
     // Confirmation box before adding transaction
-    if (!window.confirm(`Are you sure you want to add ${transactionType === 'income' ? 'income' : 'expense'}?`)) {
+    if (
+      !window.confirm(
+        `Are you sure you want to add ${
+          transactionType === "income" ? "income" : "expense"
+        }?`
+      )
+    ) {
       return;
     }
 
@@ -209,9 +218,7 @@ const TodoCompany = () => {
           </div>
           <div className="bg-blue-200 p-4 rounded-md text-center">
             <h2 className="text-xl font-bold mb-2">Remaining Balance</h2>
-            <p className="text-2xl">
-              ₹{remainingBalance.toFixed(2)}
-            </p>
+            <p className="text-2xl">₹{remainingBalance.toFixed(2)}</p>
           </div>
         </div>
 

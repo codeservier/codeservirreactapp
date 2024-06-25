@@ -9,10 +9,9 @@ import facebookLogo from "../../../assets/facbooklogo.png";
 import githubLogo from "../../../assets/githublogo.png";
 import { auth, db } from "../../../config/config";
 import { useNavigate } from "react-router-dom";
-import Navbar from '../../../components/Navbar/Navbar';
-import Logobtn from '../../../components/Logobtn/Logobtn';
-import Footer from '../../../components/Footer/Footer';
-
+import Navbar from "../../../components/Navbar/Navbar";
+import Logobtn from "../../../components/Logobtn/Logobtn";
+import Footer from "../../../components/Footer/Footer";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -21,15 +20,57 @@ const LoginPage = () => {
 
   const signInWithEmailAndPassword = async () => {
     try {
-      await auth.signInWithEmailAndPassword(email, password);
-      navigate("/", { state: { email: email } });
-      console.log("Sign in successful");
+      const userCredential = await auth.signInWithEmailAndPassword(
+        email,
+        password
+      );
+      const user = userCredential.user;
+      alert("Sign in successful");
+      // Retrieve user data from the database
+      const userDoc = await db.collection("users").doc(user.uid).get();
+      if (userDoc.exists) {
+        const userData = userDoc.data();
+        console.log("User data:", userData);
+        if (userData.role === "admin") {
+          navigate("/Admin", { state: { email: email } });
+        } else {
+          navigate("/", { state: { email: email, userData: userData } });
+        }
+      } else {
+        console.error("No such user document!");
+        alert("No user data found.");
+      }
     } catch (error) {
-      console.error("Sign in failed:", error.message);
+      console.error("Sign in error:", error);
+      // Handle specific error codes
+      let errorMessage;
+      switch (error.code) {
+        case "auth/invalid-email":
+          errorMessage = "The email address is badly formatted.";
+          break;
+        case "auth/user-disabled":
+          errorMessage = "The user account has been disabled.";
+          break;
+        case "auth/user-not-found":
+          errorMessage =
+            "There is no user record corresponding to this identifier. The user may have been deleted.";
+          break;
+        case "auth/wrong-password":
+          errorMessage =
+            "The password is invalid or the user does not have a password.";
+          break;
+        case "auth/invalid-credential":
+          errorMessage =
+            "The supplied auth credential is incorrect, malformed, or has expired.";
+          break;
+        default:
+          errorMessage = error.message || "An unknown error occurred.";
+          break;
+      }
+      alert(`Sign in failed: ${errorMessage}`);
     }
   };
-  
-  
+
   const handleonsubmit = (event) => {
     event.preventDefault();
 
