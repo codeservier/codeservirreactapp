@@ -14,7 +14,9 @@ const menuData = [
   { to: "/ContactPage", label: "Contact" },
   { to: "/FAQ", label: "FAQ" },
   { to: "/Courses", label: "Courses" },
-  { to: "/InternshipForm", label: "Our Internship", highlight: true },
+  { to: "/Admin", label: "Admin" },
+  { to: "/TodoCompany", label: "Finance" },
+  { to: "/InternshipForm", label: "Internship", highlight: true },
 ];
 
 
