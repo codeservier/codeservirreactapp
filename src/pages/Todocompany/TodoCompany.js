@@ -12,6 +12,7 @@ const TodoCompany = () => {
   const [companyName, setCompanyName] = useState("");
   const [amount, setAmount] = useState("");
   const [transactionType, setTransactionType] = useState("expense"); // Default to expense
+  const [selectedDate, setSelectedDate] = useState(""); // State for selected date
 
   // Fetch data from Firebase on component mount
   useEffect(() => {
@@ -33,9 +34,21 @@ const TodoCompany = () => {
     return () => unsubscribe();
   }, []);
 
-  // Calculate total income and total expenses
-  const totalIncome = income.reduce((acc, curr) => acc + curr.amount, 0);
-  const totalExpenses = expenses.reduce((acc, curr) => acc + curr.amount, 0);
+  // Filter transactions based on selected date
+  const filteredTransactions = expenses.concat(income).filter((transaction) => {
+    if (!selectedDate) return true; // If no date is selected, show all transactions
+    const transactionDate = transaction.timestamp.toDate().toISOString().split("T")[0];
+    return transactionDate === selectedDate;
+  });
+
+  // Calculate total income and total expenses for the filtered transactions
+  const totalIncome = filteredTransactions
+    .filter((transaction) => transaction.type === "income")
+    .reduce((acc, curr) => acc + curr.amount, 0);
+  const totalExpenses = filteredTransactions
+    .filter((transaction) => transaction.type === "expense")
+    .reduce((acc, curr) => acc + curr.amount, 0);
+  const remainingBalance = totalIncome - totalExpenses;
 
   // State for chart data
   const [chartData, setChartData] = useState({
@@ -61,10 +74,30 @@ const TodoCompany = () => {
   // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validate amount input
+    const parsedAmount = parseFloat(amount);
+    if (isNaN(parsedAmount) || parsedAmount <= 0) {
+      alert("Please enter a valid positive amount.");
+      return;
+    }
+
+    // Confirmation box before adding transaction
+    if (!window.confirm(`Are you sure you want to add ${transactionType === 'income' ? 'income' : 'expense'}?`)) {
+      return;
+    }
+
+    // Check if selected date is in the future
+    const currentDate = new Date().toISOString().split("T")[0];
+    if (selectedDate > currentDate) {
+      alert("Cannot add transactions for future dates.");
+      return;
+    }
+
     // Create a new transaction object
     const newTransaction = {
       companyName,
-      amount: parseFloat(amount),
+      amount: parsedAmount,
       type: transactionType,
       timestamp: firebase.firestore.Timestamp.fromDate(new Date()), // Use Firestore Timestamp for consistency
     };
@@ -107,11 +140,11 @@ const TodoCompany = () => {
 
   return (
     <>
-        <Logobtn />
+      <Logobtn />
       <div className="relative z-50">
         <Navbar />
       </div>
-      <div className="container mx-auto pt-[15rem] px-4">
+      <div className="container mx-auto pt-[10rem] px-4">
         <h1 className="text-3xl font-bold text-center mb-4">
           Company Financials
         </h1>
@@ -151,6 +184,19 @@ const TodoCompany = () => {
           </button>
         </form>
 
+        {/* Date input to filter transactions */}
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            Select Date:
+          </label>
+          <input
+            type="date"
+            value={selectedDate}
+            onChange={(e) => setSelectedDate(e.target.value)}
+            className="px-4 py-2 border border-gray-300 rounded-md outline-none focus:border-blue-500"
+          />
+        </div>
+
         {/* Summary cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
           <div className="bg-green-200 p-4 rounded-md text-center">
@@ -164,7 +210,7 @@ const TodoCompany = () => {
           <div className="bg-blue-200 p-4 rounded-md text-center">
             <h2 className="text-xl font-bold mb-2">Remaining Balance</h2>
             <p className="text-2xl">
-              ₹{(totalIncome - totalExpenses).toFixed(2)}
+              ₹{remainingBalance.toFixed(2)}
             </p>
           </div>
         </div>
@@ -190,7 +236,7 @@ const TodoCompany = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {expenses.concat(income).map((transaction) => (
+              {filteredTransactions.map((transaction) => (
                 <tr key={transaction.id} className="bg-white">
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                     {transaction.companyName}
@@ -243,6 +289,7 @@ const TodoCompany = () => {
                       size: 16,
                     },
                   },
+                  beginAtZero: true,
                 },
               },
             }}
