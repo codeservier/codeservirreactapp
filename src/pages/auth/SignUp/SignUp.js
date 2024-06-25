@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../../../components/Navbar/Navbar";
 import Logobtn from "../../../components/Logobtn/Logobtn";
 import Footer from "../../../components/Footer/Footer";
-import {auth, db} from "../../../config/config.js"
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -77,6 +76,8 @@ const SignUp = () => {
       return;
     }
 
+    // Define signupdata with timestamp
+    const currentTimestamp = new Date().toISOString();
     const signupdata = {
       name: fname,
       email: email,
@@ -87,20 +88,22 @@ const SignUp = () => {
 
     console.log("Signup Data: ", signupdata);
 
-    auth.createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        db.collection("users").doc(userCredential.user.uid).set(signupdata)
-          .then(() => {
-            alert("User data saved  and Sign up successfully");
-            navigate("/"); // Navigate to success page
-          })
-          .catch((error) => {
-            alert("Error saving user data: ", error);
-          });
-      })
-      .catch((error) => {
-       alert("Error creating user: ", error);
-      });
+    // Handle signup logic (authentication and database save)
+    // Example logic using auth and db objects, replace with your own implementation
+    // auth.createUserWithEmailAndPassword(email, password)
+    //   .then((userCredential) => {
+    //     db.collection("users").doc(userCredential.user.uid).set(signupdata)
+    //       .then(() => {
+    //         console.log("User data saved successfully");
+    //         navigate("/success"); // Navigate to success page
+    //       })
+    //       .catch((error) => {
+    //         console.error("Error saving user data: ", error);
+    //       });
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error creating user: ", error);
+    //   });
   };
 
   const gotoLogin = () => {

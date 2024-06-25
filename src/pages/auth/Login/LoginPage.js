@@ -7,26 +7,25 @@ import maya from "../../../assets/news-2.png";
 import googleLogo from "../../../assets/googlelogo.png";
 import facebookLogo from "../../../assets/facbooklogo.png";
 import githubLogo from "../../../assets/githublogo.png";
-import { auth } from "../../../config/config";
+import { auth, db } from "../../../config/config";
 import { useNavigate } from "react-router-dom";
 import Navbar from '../../../components/Navbar/Navbar';
 import Logobtn from '../../../components/Logobtn/Logobtn';
 import Footer from '../../../components/Footer/Footer';
-import { aliases } from "@fortawesome/free-solid-svg-icons/fa0";
 
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const signInWithEmailAndPassword = async () => {
     try {
       await auth.signInWithEmailAndPassword(email, password);
-      alert("Sign in successful");
       navigate("/", { state: { email: email } });
+      console.log("Sign in successful");
     } catch (error) {
-      console.error("Sign in error:", error); // Log the error object
-      alert(`Sign in failed: ${error.message || error}`); // Show the error message or the entire error object if message is not available
+      console.error("Sign in failed:", error.message);
     }
   };
   
@@ -67,7 +66,6 @@ const LoginPage = () => {
 
   return (
     <>
-   
       <Logobtn />
       <div className="relative z-50">
         <Navbar />
@@ -82,7 +80,9 @@ const LoginPage = () => {
             />
           </div>
           <form onSubmit={handleonsubmit} className="space-y-6">
-            <h1 className="text-6xl font-bold text-center font-lilita text-[#26baf6] ">Login</h1>
+            <h1 className="text-6xl font-bold text-center font-lilita text-[#26baf6] ">
+              Login
+            </h1>
             <div className="space-y-4">
               <CustomInput
                 placeholder="Enter your Email"
@@ -125,7 +125,7 @@ const LoginPage = () => {
           </form>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };
