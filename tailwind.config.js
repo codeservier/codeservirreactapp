@@ -20,6 +20,7 @@ module.exports = {
       'servicebg2': "url('/src/assets/backgrounds_images/servicebg2.jpg')",
       'servicebg3': "url('/src/assets/backgrounds_images/services3.jpg')",
       'landingbg': "url('/src/assets/backgrounds_images/landingbg2.jpg')",
+      'termbg': "url('/src/assets/backgrounds_images/termbg.jpg')",
       },
       colors: {
         'yellow-custom': '#FFD700', // Example custom yellow color

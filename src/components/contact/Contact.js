@@ -114,7 +114,7 @@ const Contact = () => {
             Take a meet
           </h1>
           <form onSubmit={handleSubmit}>
-            <div className="mb-4">
+   
               <CustomInput
                 id="fullName"
                 label="Full Name"
@@ -126,8 +126,8 @@ const Contact = () => {
               {errors.fullName && (
                 <p className="text-red-500 text-xs italic">{errors.fullName}</p>
               )}
-            </div>
-            <div className="mb-4">
+
+    
               <CustomInput
                 id="email"
                 label="Email Address"
@@ -139,9 +139,7 @@ const Contact = () => {
               {errors.email && (
                 <p className="text-red-500 text-xs italic">{errors.email}</p>
               )}
-            </div>
-            <div className="mb-6">
-              <Textarea
+              <CustomInput
                 id="message"
                 label="Message"
                 placeholder="Enter your message"
@@ -151,11 +149,11 @@ const Contact = () => {
               {errors.message && (
                 <p className="text-red-500 text-xs italic">{errors.message}</p>
               )}
-            </div>
+      
             <CustomButton
               type="submit"
               label="Send Message"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-[#000000] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
             />
           </form>
         </div>

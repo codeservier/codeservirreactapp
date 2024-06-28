@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { FaClipboard, FaClipboardCheck } from "react-icons/fa";
 import Logobtn from "../../../../components/Logobtn/Logobtn";
 import Navbar from "../../../../components/Navbar/Navbar";
@@ -372,17 +372,19 @@ int main() {
 ];
 
 const Cpp = () => {
+  const [selectedHeading, setSelectedHeading] = useState(0); // Initialize with 0 for "Overview of C++"
+  const [copied, setCopied] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
-  const [selectedHeading, setSelectedHeading] = useState(null);
-  const [copied, setCopied] = useState(false);
-
   const handleHeadingClick = (index) => {
     setSelectedHeading(index);
+    if (window.innerWidth < 768) {
+      setSidebarOpen(false); // Close sidebar on small screens when a menu item is clicked
+    }
     setCopied(false); // Reset copied state when changing section
   };
 
@@ -392,10 +394,16 @@ const Cpp = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  useEffect(() => {
+    // Close sidebar on larger screens initially
+    if (window.innerWidth >= 768) {
+      setSidebarOpen(false);
+    }
+  }, []);
+
   return (
     <>
       <Logobtn />
-
       <div className="relative z-50">
         <Navbar />
       </div>
@@ -416,7 +424,9 @@ const Cpp = () => {
               <li key={index} className="mb-2">
                 <button
                   onClick={() => handleHeadingClick(index)}
-                  className="text-left w-full text-lg font-semibold text-blue-600 hover:underline"
+                  className={`text-left w-full text-lg font-semibold ${
+                    selectedHeading === index ? "text-blue-600" : "text-gray-800 hover:underline"
+                  }`}
                 >
                   {section.heading}
                 </button>
@@ -425,54 +435,52 @@ const Cpp = () => {
           </ul>
         </nav>
         <main className="w-full md:w-3/4 p-8 bg-white shadow-md">
-          {selectedHeading !== null && (
-            <div>
-              <h1 className="text-3xl font-bold mb-4 text-blue-700 animate-fadeIn">
-                {cppTutorialData[selectedHeading].heading}
-              </h1>
-              <div className="text-lg mb-4 animate-fadeIn">
-                <h2 className="text-2xl font-semibold mb-2">Introduction</h2>
-                <p>{cppTutorialData[selectedHeading].content.intro}</p>
-              </div>
-              {cppTutorialData[selectedHeading].content.example && (
-                <div className="text-lg mb-4 animate-fadeIn">
-                  <h2 className="text-2xl font-semibold mb-2">Example</h2>
-                  <pre className="bg-gray-100 p-4 rounded-lg relative">
-                    <code>
-                      {cppTutorialData[selectedHeading].content.example}
-                    </code>
-                    <button
-                      onClick={() =>
-                        handleCopyClick(
-                          cppTutorialData[selectedHeading].content.example
-                        )
-                      }
-                      className="absolute top-2 right-2 text-blue-600"
-                    >
-                      {copied ? <FaClipboardCheck /> : <FaClipboard />}
-                    </button>
-                  </pre>
-                </div>
-              )}
-              {cppTutorialData[selectedHeading].content.questions.length >
-                0 && (
-                <div className="text-lg animate-fadeIn">
-                  <h2 className="text-2xl font-semibold mb-2">Questions</h2>
-                  <ul className="list-disc ml-6">
-                    {cppTutorialData[selectedHeading].content.questions.map(
-                      (question, index) => (
-                        <li key={index}>{question}</li>
-                      )
-                    )}
-                  </ul>
-                </div>
-              )}
+          <div>
+            <h1 className="text-3xl font-bold mb-4 text-blue-700 animate-fadeIn">
+              {cppTutorialData[selectedHeading].heading}
+            </h1>
+            <div className="text-lg mb-4 animate-fadeIn">
+              <h2 className="text-2xl font-semibold mb-2">Introduction</h2>
+              <p>{cppTutorialData[selectedHeading].content.intro}</p>
             </div>
-          )}
+            {cppTutorialData[selectedHeading].content.example && (
+              <div className="text-lg mb-4 animate-fadeIn">
+                <h2 className="text-2xl font-semibold mb-2">Example</h2>
+                <pre className="bg-gray-100 p-4 rounded-lg relative">
+                  <code>
+                    {cppTutorialData[selectedHeading].content.example}
+                  </code>
+                  <button
+                    onClick={() =>
+                      handleCopyClick(
+                        cppTutorialData[selectedHeading].content.example
+                      )
+                    }
+                    className="absolute top-2 right-2 text-blue-600"
+                  >
+                    {copied ? <FaClipboardCheck /> : <FaClipboard />}
+                  </button>
+                </pre>
+              </div>
+            )}
+            {cppTutorialData[selectedHeading].content.questions.length > 0 && (
+              <div className="text-lg animate-fadeIn">
+                <h2 className="text-2xl font-semibold mb-2">Questions</h2>
+                <ul className="list-disc ml-6">
+                  {cppTutorialData[selectedHeading].content.questions.map(
+                    (question, index) => (
+                      <li key={index}>{question}</li>
+                    )
+                  )}
+                </ul>
+              </div>
+            )}
+          </div>
         </main>
       </div>
       <Footer />
     </>
   );
 };
+
 export default Cpp;
