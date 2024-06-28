@@ -19,6 +19,10 @@ import InternshipForm from "./pages/InternshipForm/InternshipForm";
 import Courses from "./pages/Courses/Courses";
 import Admin from "./pages/Admin/Admin";
 import TodoCompany from "./pages/Todocompany/TodoCompany";
+import Cpp from "./pages/Courses/AllCourses/Cpp/Cpp";
+import ComingSoon from "./pages/ComingSoon/ComingSoon";
+import TermAndCondition from "./pages/TermAndCondition/TermAndCondition";
+import PrivacyPolicy from "./pages/PrivacyAndPolicy/PrivacyandPolicy";
 
 const App = () => {
   return (
@@ -38,7 +42,18 @@ const App = () => {
         <Route path="/Careers" element={<Careers />} />
         <Route path="/FAQ" element={<FAQ />} />
         <Route path="/InternshipForm" element={<InternshipForm />} />
+        {/* course */}
         <Route path="/Courses" element={<Courses />} />
+        <Route path="/Cpp" element={<Cpp />} />
+
+        {/* comming soon */}
+        <Route path="/ComingSoon" element={<ComingSoon />} />
+
+        {/* Term and condition  */}
+        <Route path="/TermAndCondition" element={<TermAndCondition />} />
+        <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+
+
       </Routes>
     </BrowserRouter>
   );

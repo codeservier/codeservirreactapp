@@ -19,21 +19,22 @@ module.exports = {
       'servicebg': "url('/src/assets/backgrounds_images/servicebg.jpg')",
       'servicebg2': "url('/src/assets/backgrounds_images/servicebg2.jpg')",
       'servicebg3': "url('/src/assets/backgrounds_images/services3.jpg')",
+      'landingbg': "url('/src/assets/backgrounds_images/landingbg2.jpg')",
       },
       colors: {
         'yellow-custom': '#FFD700', // Example custom yellow color
         'sky-blue-custom': '#87CEEB', // Example custom sky blue color
       },
       fontFamily: {
-        concert: ['"Concert One"', 'sans-serif'],
+        // concert: ['"Concert One"', 'sans-serif'],
         questrial: ['Questrial', 'sans-serif'],
         'varela-round': ['"Varela Round"', 'sans-serif'],
         poppins: ['Poppins', 'sans-serif'],
         sans: ['Roboto', 'sans-serif'],
         serif: ['Merriweather', 'serif'],
         'open-sans': ['"Open Sans"', 'sans-serif'],
-        'lilita': ['"Lilita One"', 'cursive'],
-     
+        lilita: ['"none"', ],
+        // lilita: ['"Lilita One"', 'cursive'],
       },
     },
   },

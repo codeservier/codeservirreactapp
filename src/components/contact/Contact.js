@@ -76,18 +76,27 @@ const Contact = () => {
   };
 
   return (
-    <div className="container mx-auto py-12 pt-[10rem]">
-      <div className="bg-[#ffffff] p-8 rounded-lg shadow-md">
+    <div className="container mx-auto py-12 pt-[10rem] ">
+      <div className="bg-[#ffffff] p-8 rounded-lg shadow-md border">
         <h1 className="text-4xl md:text-8xl font-bold text-center mb-8 text-[#26baf6] font-lilita">
           Contact Us
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
+          <div className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow border">
             <div>
               <span className="text-3xl font-concert block font-bold">Phone Number</span>
-              <span className="font-concert block">+1 (234) 567-890</span>
+              <span className="font-concert block">+91 522 316 9897</span>
+              <span className="font-concert block">+91-9455791624</span>
             </div>
           </div>
+          <div className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow border">
+            <div>
+              <span className="text-3xl font-concert block font-bold">Email Address</span>
+              <span className="font-concert block">coderservir@gmail.com</span>
+              <span className="font-concert block">info@codeservir.com ,</span>
+            </div>
+          </div>
+         
         </div>
       </div>
       <div className="container mx-auto flex flex-col md:flex-row justify-center items-center py-8 min-h-screen">

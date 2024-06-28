@@ -44,16 +44,16 @@ const FAQ = () => {
   return (
     <>
       <div className="bg-hero-pattern">
-      <Logobtn />
+        <Logobtn />
 
-<div className="relative z-50">
-  <Navbar />
-</div>
+        <div className="relative z-50">
+          <Navbar />
+        </div>
 
         <div className=" bg-hero-pattern flex flex-col md:flex-row justify-center items-center p-6 pt-[10rem]">
           <div className="text-center max-w-3xl mb-6 md:mb-0 md:mr-6">
             <h1 className="text-[#26baf6] font-lilita md:text-6xl text-4xl font-bold mb-4">
-               Frequently Asked Questions
+              Frequently Asked Questions
             </h1>
             <p className=" font-concert md:text-2xl text-xl leading-relaxed ">
               Welcome to our Frequently Asked Questions (FAQ) section. Here
@@ -83,7 +83,9 @@ const FAQ = () => {
                 className="flex hover:bg-[#26baf6] duration-500 justify-between items-center p-4 bg-white cursor-pointer shadow-md rounded-lg"
                 onClick={() => toggleQuestion(index)}
               >
-                <h2 className=" font-concert md:text-2xl font-medium ">{item.question}</h2>
+                <h2 className=" font-concert md:text-2xl font-medium ">
+                  {item.question}
+                </h2>
                 <svg
                   className={`w-6 h-6 transform transition-transform ${
                     openQuestionIndex === index ? "rotate-45" : ""

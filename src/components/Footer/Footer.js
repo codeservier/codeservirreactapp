@@ -1,15 +1,19 @@
 import React from "react";
-import logo from "../../assets/logo.png"; // Replace with the path to your logo
+import logo from "../../assets/logo.png";
+import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faDiscord, faGithub, faDribbble } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
 const footerData = {
   sections: [
     {
       title: "Links",
       links: [
-        { name: "About", href: "#" },
-        { name: "Careers", href: "#" },
-        { name: "Brand Center", href: "#" },
-        { name: "Blog", href: "#" },
+        { name: "About", path: "/About" },
+        { name: "Services", path: "/Services" },
+        { name: "Brand Center", path: "/brand-center" },
+        { name: "Blog", path: "/blog" },
       ],
     },
     {
@@ -18,40 +22,43 @@ const footerData = {
         { name: "Discord Server", href: "#" },
         { name: "Twitter", href: "#" },
         { name: "Facebook", href: "#" },
-        { name: "Contact Us", href: "#" },
+        { name: "Contact Us", path: "/ContactPage" },
+      ],
+    },
+    {
+      title: "Services",
+      links: [
+        { name: "Web Development", path: "/services/web-development" },
+        { name: "App Development", path: "/services/app-development" },
+        { name: "UI/UX Design", path: "/services/ui-ux-design" },
+        { name: "SEO", path: "/services/seo" },
       ],
     },
   ],
   contact: {
-    email: "contact@yourcompany.com",
-    phone: "+123456789",
-    location: "123 Street Name, City, Country",
+    email: "info@gmail.com",
+    phone: "+91 9455791624",
+    location: "Vishesh Khand Gomti Nagar, Lucknow",
   },
   social: [
-    { name: "Facebook", href: "#", iconPath: "" },
-    { name: "Discord", href: "#", iconPath: "" },
-    { name: "GitHub", href: "#", iconPath: "" },
-    { name: "Dribbble", href: "#", iconPath: "" },
+    { name: "Facebook", href: "#", icon: faFacebook },
+    { name: "Discord", href: "#", icon: faDiscord },
+    { name: "GitHub", href: "#", icon: faGithub },
+    { name: "Dribbble", href: "#", icon: faDribbble },
   ],
 };
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
-    <footer className="bg-[#000000] relative overflow-hidden">
-      {/* Curved bottom edge */}
+    <footer className="bg-[#000000] text-white relative overflow-hidden w-full font-poppins">
       <div className="absolute inset-x-0 bottom-0 h-16 bg-white dark:bg-gray-900 transform -skew-y-6"></div>
-
       <div className="mx-auto px-4 py-6 sm:px-6 lg:px-8 max-w-screen-xl relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center md:text-left">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 text-center md:text-left">
           {/* First column with logo, description, and social icons */}
           <div className="mb-6">
-            <img src={logo} alt="Logo" className="h-20 mx-auto md:mx-0" />
-            <p className=" text-gray-600 dark:text-gray-400">
-              CodeServir is a family of futuristic solutions with complete End
-              to End Web Development, App Development, Designing, UI/UX, Tech
-              Consultation, Search Engine Optimization, Social Media Marketing,
-              Content Creation, Cloud Solutios and many more services .
-            </p>
+            <img src={logo} alt="Company Logo" className="h-[150px] mx-auto md:mx-0" />
+           
             <div className="flex justify-center md:justify-start space-x-6 mt-4">
               {footerData.social.map((social, index) => (
                 <a
@@ -59,15 +66,8 @@ const Footer = () => {
                   href={social.href}
                   className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
                 >
-                  <svg
-                    className="h-5 w-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d={social.iconPath}></path>
-                  </svg>
-                  <span className="sr-only">{social.name} page</span>
+                  <FontAwesomeIcon icon={social.icon} className="h-5 w-5 hover:text-[yellow]" />
+                  <span  className="sr-only">{social.name} page</span>
                 </a>
               ))}
             </div>
@@ -81,7 +81,23 @@ const Footer = () => {
             <ul className="text-gray-600 dark:text-gray-400 font-medium">
               {footerData.sections[0].links.map((link, index) => (
                 <li key={index} className="mb-2">
-                  <a href={link.href} className="hover:underline">
+                  <span onClick={() => navigate(link.path)} className="hover:underline cursor-pointer">
+                    {link.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Third column with help center links */}
+          <div className="mb-6">
+            <h2 className="mb-4 text-sm font-semibold uppercase text-gray-900 dark:text-white">
+              {footerData.sections[1].title}
+            </h2>
+            <ul className="text-gray-600 dark:text-gray-400 font-medium">
+              {footerData.sections[1].links.map((link, index) => (
+                <li key={index} className="mb-2">
+                  <a onClick={() => navigate(link.path)} className="hover:underline">
                     {link.name}
                   </a>
                 </li>
@@ -89,15 +105,40 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Third column with contact details */}
+          {/* Fourth column with services links */}
+          <div className="mb-6">
+            <h2 className="mb-4 text-sm font-semibold uppercase text-gray-900 dark:text-white">
+              {footerData.sections[2].title}
+            </h2>
+            <ul className="text-gray-600 dark:text-gray-400 font-medium">
+              {footerData.sections[2].links.map((link, index) => (
+                <li key={index} className="mb-2">
+                  <span onClick={() => navigate(link.path)} className="hover:underline cursor-pointer">
+                    {link.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Fifth column with contact details */}
           <div className="mb-6">
             <h2 className="mb-4 text-sm font-semibold uppercase text-gray-900 dark:text-white">
               Contact
             </h2>
-            <ul className="text-gray-600 dark:text-gray-400 font-medium">
-              <li className="mb-2">{footerData.contact.email}</li>
-              <li className="mb-2">{footerData.contact.phone}</li>
-              <li>{footerData.contact.location}</li>
+            <ul className="text-gray-600  dark:text-gray-400 font-medium">
+              <li className="mb-2 ">
+                <FontAwesomeIcon icon={faEnvelope} className="mr-2 hover:text-[yellow]" />
+                {footerData.contact.email}
+              </li>
+              <li className="mb-2">
+                <FontAwesomeIcon icon={faPhone} className="mr-2" />
+                {footerData.contact.phone}
+              </li>
+              <li>
+                <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />
+                {footerData.contact.location}
+              </li>
             </ul>
           </div>
         </div>
@@ -110,31 +151,13 @@ const Footer = () => {
           <span className="text-sm text-gray-500 dark:text-gray-400 sm:text-center mb-4 sm:mb-0">
             © 2023{" "}
             <a href="#" className="hover:underline">
-              YourCompany™
+              CODESERVIR TECHNOLOGIES
             </a>
             . All Rights Reserved.
           </span>
 
           {/* Social media icons */}
-          <div className="flex space-x-6 sm:justify-end">
-            {footerData.social.map((social, index) => (
-              <a
-                key={index}
-                href={social.href}
-                className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-              >
-                <svg
-                  className="h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d={social.iconPath}></path>
-                </svg>
-                <span className="sr-only">{social.name} page</span>
-              </a>
-            ))}
-          </div>
+        
         </div>
       </div>
     </footer>

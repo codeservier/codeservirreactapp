@@ -12,8 +12,16 @@ const baseMenuData = [
   { to: "/ContactPage", label: "Contact" },
   { to: "/FAQ", label: "FAQ" },
   { to: "/Courses", label: "Courses" },
+  {
+    label: "More",
+    dropdown: [
+      { to: "/TermAndCondition", label: "Term and condition" },
+      { to: "/PrivacyPolicy", label: "Privacy and Policy" },
+    ],
+  },
   { to: "/InternshipForm", label: "Internship", highlight: true },
 ];
+
 const Navbar = ({ authData }) => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
@@ -21,18 +29,21 @@ const Navbar = ({ authData }) => {
 
   useEffect(() => {
     const updatedMenuData = [...baseMenuData];
-    
-    if (authData && authData !== null&&authData.role=='admin') {
-      const adminMenuItems = [
-        { to: "/Admin", label: "Admin" },
-        { to: "/TodoCompany", label: "Finance" },
-      ];
 
-      adminMenuItems.forEach((item) => {
-        if (!updatedMenuData.find((menuItem) => menuItem.to === item.to)) {
-          updatedMenuData.push(item);
-        }
-      });
+    if (authData && authData !== null && authData.role === "admin") {
+      // Check if admin menu items are already added
+      const isAdminAdded = updatedMenuData[6].dropdown.some((item) =>
+        ["/Admin", "/TodoCompany"].includes(item.to)
+      );
+
+      if (!isAdminAdded) {
+        const adminMenuItems = [
+          { to: "/Admin", label: "Admin" },
+          { to: "/TodoCompany", label: "Finance" },
+        ];
+
+        updatedMenuData[6].dropdown.push(...adminMenuItems); // Add admin items to the dropdown under "More"
+      }
     }
 
     setMenuData(updatedMenuData);
@@ -42,30 +53,43 @@ const Navbar = ({ authData }) => {
     setIsOpen(!isOpen);
   };
 
+  const handleMouseEnter = () => {
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsOpen(false);
+  };
+
   return (
     <div>
       <style>
         {`
-          @keyframes blink {
-            0%, 100% {
-              opacity: 1;
-            }
-            50% {
+          @keyframes fadeIn {
+            from {
               opacity: 0;
+              transform: translateY(-10px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
             }
           }
 
-          .blink {
-            animation: blink 1s infinite;
+          .dropdown-menu {
+            animation: fadeIn 0.3s ease-out;
           }
 
-          .highlight {
-            background-color: yellow;
-            color: red;
+          .dropdown-menu li {
+            transition: all 0.3s ease-out;
+          }
+
+          .dropdown-menu li:hover {
+            background-color: #f3f4f6;
           }
         `}
       </style>
-      <nav className="fixed top-[3.5rem] left-1/2 transform -translate-x-1/2 w-11/12 max-w-4xl md:bg-white rounded-[2rem] p-5 md:shadow-lg ">
+      <nav className="fixed top-[3.5rem] left-1/2 transform -translate-x-1/2 w-11/12 max-w-4xl md:bg-white rounded-[2rem] p-5 md:shadow-lg">
         <div className="block md:hidden">
           <button
             className="focus:outline-none absolute top-0 right-0 p-3"
@@ -99,25 +123,48 @@ const Navbar = ({ authData }) => {
               isOpen ? "max-h-screen" : "max-h-0"
             }`}
           >
-            <IsOpenMenu isOpen={isOpen} authData={authData}/>
+            <IsOpenMenu isOpen={isOpen} authData={authData} />
           </div>
         </div>
 
         <div className="hidden md:block">
-          <ul className="font-concert flex justify-between items-center space-x-4">
+          <ul className="font-concert flex justify-between items-center space-x-4 ">
             {menuData.map((item, index) => (
-              <li key={index} className={item.highlight ? "blink" : ""}>
-                <Link
-                  to={item.to}
-                  className={`font-concert text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1 ${
-                    item.highlight ? "highlight" : ""
-                  }`}
-                >
-                  {item.highlight && (
-                    <FontAwesomeIcon icon={faStar} className="mr-2" />
-                  )}
-                  {item.label}
-                </Link>
+              <li
+                key={index}
+                className={`relative ${item.dropdown ? "group" : ""}`}
+                onMouseEnter={item.dropdown ? handleMouseEnter : undefined}
+                onMouseLeave={item.dropdown ? handleMouseLeave : undefined}
+              >
+                {item.dropdown ? (
+                  <>
+                    <span className={`font-concert text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1 ${item.highlight ? "highlight" : ""}`}>
+                      {item.label}
+                    </span> 
+                    <ul className={`absolute left-0 mt-2 w-40 bg-[#ffffff] border shadow-lg rounded-lg py-2 ${isOpen ? "dropdown-menu" : "hidden"}`}>
+                      {item.dropdown.map((dropdownItem, dropdownIndex) => (
+                        <li key={dropdownIndex}>
+                          <Link
+                            to={dropdownItem.to}
+                            className="font-concert text-gray-700 hover:text-blue-500 block px-4 py-2 text-sm"
+                          >
+                            {dropdownItem.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                ) : (
+                  <Link
+                    to={item.to}
+                    className={`font-concert text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1 ${item.highlight ? "highlight" : ""}`}
+                  >
+                    {item.highlight && (
+                      <FontAwesomeIcon icon={faStar} className="mr-2" />
+                    )}
+                    {item.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>

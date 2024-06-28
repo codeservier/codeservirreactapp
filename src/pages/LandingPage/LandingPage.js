@@ -1,21 +1,24 @@
 import React, { useState, useEffect } from "react";
-import slideImage1 from "../../assets/backgrounds_images/header1.jpg";
-import slideImage2 from "../../assets/backgrounds_images/header2.jpg";
-import slideImage3 from "../../assets/backgrounds_images/header3.jpg";
-import slideImage4 from "../../assets/backgrounds_images/header4.png";
-import slideImage5 from "../../assets/backgrounds_images/header5.png";
+import iotimg1 from "../../assets/Iot.jpg";
+import androidimg2 from "../../assets/android.jpg";
+import securityimg3 from "../../assets/security.png";
+import tranningimg4 from "../../assets/tranning.jpg";
+import mantaince2 from "../../assets/mantaince2.jpg";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const slides = [
-  slideImage1,
-  slideImage2,
-  slideImage3,
-  slideImage4,
-  slideImage5,
+  iotimg1,
+  androidimg2,
+  securityimg3,
+  tranningimg4,
+  mantaince2,
 ];
 
 const LandingPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [entering, setEntering] = useState(true);
+ 
+  const navigate = useNavigate()
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -32,15 +35,16 @@ const LandingPage = () => {
   const getSlideContent = (index) => {
     switch(index) {
       case 0:
-        return "Android Development: Building mobile apps for Android.";
+        return "Empowering Businesses with Cutting-Edge IoT Technology for Seamless Integration.";
       case 1:
-        return "Web Development: Creating responsive and interactive websites.";
-      case 2:
-        return "iOS Development: Developing applications for Apple's iOS platform.";
-      case 3:
-        return "Cloud Computing: Leveraging cloud technology for scalable solutions.";
+        return "Android Development: Building mobile apps for Android. ";
+        case 2:
+          return "Securing the future by protecting your connected devices with advanced IoT security solutions.";
+          // return "Web Development: Creating responsive and interactive websites.";
+          case 3:
+        return "Empowering your skills with comprehensive training in DSA, development, and cutting-edge IoT security solutions.";
       case 4:
-        return "Artificial Intelligence: Innovating with AI and machine learning.";
+        return "Ensuring robust performance with expert training in DSA, development, and IoT security maintenance.";
       default:
         return "Content not available.";
     }
@@ -61,7 +65,7 @@ const LandingPage = () => {
   `;
 
   return (
-    <div className="min-h-screen  bg-no-repeat bg-cover bg-center sm:mx-[10rem]">
+    <div className="sm:mx-[10rem]">
       <style>{slideAnimation}</style>
       <div className="flex flex-col md:flex-row md:max-w-screen rounded-lg overflow-hidden">
         <div className="px-10  md:p-10 flex flex-col justify-center w-full mb-4 md:mb-0">
@@ -70,11 +74,11 @@ const LandingPage = () => {
             <span className="text-[#26baf6]">Futuristic Solutions</span>
           </h1>
 
-          <p className="text-[#16615f] mb-8 text-4xl font-lilita">
+          <p className="text-[#16615f] mb-8 text-3xl font-lilita">
             Discover the latest innovations and solutions with codeservir.
           </p>
-          <button className="bg-gradient-to-r from-yellow-400 to-sky-400 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:bg-gradient-to-l transition duration-300 ease-in-out transform hover:scale-105">
-            Explore Now
+          <button onClick={()=>navigate("/ContactPage")} className="bg-gradient-to-r from-yellow-400 to-sky-400 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:bg-gradient-to-l transition duration-300 ease-in-out transform hover:scale-105">
+            Get In Touch
           </button>
         </div>
 

@@ -5,10 +5,8 @@ import Logobtn from "../../components/Logobtn/Logobtn";
 import aboutimg from "../../assets/backgrounds_images/aboutbg2.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCogs, faUsers, faGlobe } from "@fortawesome/free-solid-svg-icons";
-// className="relative md:w-full w-10/12 md:h-1/2 h-40 max-w-xl mx-auto p-6 rounded-lg shadow-lg overflow-hidden"
-{
-  /* <div className="absolute inset-0 bg-black bg-opacity-75"></div> */
-}
+import fqaQ from "../../assets/backgrounds_images/aboutbg2.jpg";
+
 const About = () => {
   const cardData = [
     {
@@ -57,36 +55,32 @@ const About = () => {
 
   return (
     <>
-      <Logobtn />
+      <div className=" bg-[#ebfbff] bg-aboutbg  ">
+        <div className="bg-hero-pattern">
+          <Logobtn />
 
-      <div className="relative z-50">
-        <Navbar />
-      </div>
-
-      <div className="min-h-screen bg-[#ebfbff] bg-aboutbg bg-cover bg-center pt-[10rem]">
-        <div className="flex flex-col items-center justify-center py-8">
-          <div className="text-center mb-8 max-w-screen px-6 md:px-0">
-            <h1 className="md:text-8xl text-4xl font-bold text-[#26baf6] font-lilita">
-              About Our Company
-            </h1>
+          <div className="relative z-50">
+            <Navbar />
           </div>
 
-          <div className="flex flex-col md:flex-row items-center justify-center w-full md:max-w-screen-lg bg-white p-10 rounded-lg shadow-lg">
-            <div className="md:w-1/2 md:mr-4 text-center md:text-left mb-6 md:mb-0">
-              <h2 className=" font-concert  text-3xl md:text-6xl font-bold text-gray-800 mb-2">
-                Building software for world changers
-              </h2>
-              <p className=" font-concert text-gray-700 leading-relaxed text-lg md:text-xl">
-                Websites are very essential nowadays. Whether it is a large
-                scale industry or a new startup everyone owns a website for
-                their company. It can upscale your reach to more people and
-                that’s where we come into picture. Technological expertise
-                coupled with excellent UX skills makes us the leading web
-                development company in India.
+          <div className=" bg-white bg-hero-pattern flex flex-col md:flex-row justify-center items-center p-6 pt-[10rem]">
+            <div className=" max-w-3xl mb-6 md:mb-0 md:mr-6">
+              <h1 className="text-[#26baf6] font-lilita md:text-6xl text-4xl font-bold mb-4">
+                Enhancing Customer Experience with Innovative Web and Mobile App
+                Solutions
+              </h1>
+              <p className=" font-concert md:text-2xl text-xl leading-relaxed ">
+                Websites are essential for businesses. We offer top-notch web
+                development services in India, combining technical expertise
+                with exceptional UX design.
               </p>
             </div>
-            <div className="md:w-1/2 md:ml-4">
-              <img src={aboutimg} alt="About Us" className="w-full h-auto " />
+            <div className="text-center mb-6">
+              <img
+                src={fqaQ}
+                alt="FAQ Illustration"
+                className="w-full max-w-md bg-cover rounded-lg"
+              />
             </div>
           </div>
         </div>
@@ -122,42 +116,3 @@ const About = () => {
 };
 
 export default About;
-
-// import React from 'react';
-// import popimage from '../../assets/backgrounds_images/Internship.jpg';
-
-// const Popup = ({ onClose }) => {
-//   return (
-//     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-//       <div
-//         className="relative md:w-full w-10/12 md:h-80 h-64 max-w-xl mx-auto p-6 rounded-lg shadow-lg overflow-hidden  "
-//         style={{
-//           backgroundImage: `url(${popimage})`,
-//           backgroundSize: 'cover',
-//           backgroundPosition: 'center',
-//         }}
-//       >
-//         <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-center text-white p-6">
-//           <h1 className="text-2xl sm:text-4xl font-bold mb-2 sm:mb-4 text-[#26baf6] font-lilita">INTERNSHIP PROGRAM</h1>
-//           <p className="text-sm sm:text-base mb-4">
-//             Join our internship program and gain valuable experience in the field.
-//           </p>
-//           <button
-//             className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 text-sm sm:text-base"
-//             onClick={() => window.location.href = '/InternshipForm'}
-//           >
-//             Fill the Form
-//           </button>
-//         </div>
-//         <button
-//           className="absolute top-2 right-2 text-white hover:text-gray-900 z-10"
-//           onClick={onClose}
-//         >
-//           ✖
-//         </button>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Popup;
