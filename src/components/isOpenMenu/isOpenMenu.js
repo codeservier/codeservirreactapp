@@ -13,7 +13,9 @@ const baseMenuData = [
   { to: "/ContactPage", label: "Contact" },
   { to: "/FAQ", label: "FAQ" },
   { to: "/Courses", label: "Courses" },
-  { to: "/InternshipForm", label: "Internship", highlight: true },
+  { to: "/InternshipForm", label: "Internship", },
+  { to: "/TermAndCondition", label: "Term AndC ondition",  },
+  { to: "/PrivacyPolicy", label: "Privacy & Policy", },
 ];
 
 const IsOpenMenu = ({ isOpen, authData }) => {
