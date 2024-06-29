@@ -1,168 +1,63 @@
-import React, { useState } from "react";
-import projectImage1 from "../../assets/techCons.png";
-import projectImage2 from "../../assets/webDev.png";
+import React from "react";
+import projectImage1 from "../../assets/projectImages/car.png";
+import projectImage2 from "../../assets/projectImages/proj2_fitnesss.png";
+import medicalimg from "../../assets/projectImages/sh.png";
 
 const OurProjects = () => {
-  const [selectedCategory, setSelectedCategory] =
-    useState("Commercial Project");
-
-  const categories = [
-    "Commercial Project",
-    "Teaching Project",
-    "Gym Project",
-    // "AI Project",
-    // "Healthcare Project",
-    "Finance Project",
-    "Education Project",
-    "Retail Project",
+  const projects = [
+    {
+      title: "Car washing Android & ios",
+      description: "Streamlined booking for expert car detailing. Schedule services, manage bookings, and ensure your vehicle shines.",
+      image: projectImage1,
+      demoLink: "https://example.com/office-demo",
+    },
+    {
+      title: "Shree Hari Medical Store",
+      description: "Shree Hari Medical Store: Modern shopping mall hosting diverse stores, including a prominent medical outlet.",
+      image: medicalimg,
+      demoLink: "https://example.com/mall-demo",
+    },  
+    {
+      title: "RK Fitness Android & ios ",
+      description: "A tranquil Fitness studio app fostering mindfulness and exercise practices, designed for serene wellness experiences",
+      image: projectImage2,
+      demoLink: "https://example.com/yoga-studio-demo",
+    },
+ 
+    // Add more projects as needed
   ];
 
-  const projects = {
-    "Commercial Project": [
-      {
-        title: "Office Building",
-        description: "A state-of-the-art office building.",
-        image: projectImage1,
-      },
-      {
-        title: "Shopping Mall",
-        description: "A large shopping mall with various stores.",
-        image: projectImage2,
-      },
-    ],
-    "Teaching Project": [
-      {
-        title: "Online Learning Platform",
-        description: "An innovative platform for online learning.",
-        image: projectImage1,
-      },
-      {
-        title: "School Management System",
-        description: "A comprehensive system for managing schools.",
-        image: projectImage2,
-      },
-    ],
-    "Gym Project": [
-      {
-        title: "Fitness Center",
-        description: "A modern fitness center with advanced equipment.",
-        image: projectImage1,
-      },
-      {
-        title: "Yoga Studio",
-        description: "A serene yoga studio for mindfulness and meditation.",
-        image: projectImage2,
-      },
-    ],
-    "AI Project": [
-      {
-        title: "AI Chatbot",
-        description: "An intelligent chatbot for customer service.",
-        image: projectImage1,
-      },
-      {
-        title: "Machine Learning Model",
-        description: "A cutting-edge machine learning model for data analysis.",
-        image: projectImage2,
-      },
-    ],
-    "Healthcare Project": [
-      {
-        title: "AI Chatbot",
-        description: "An intelligent chatbot for customer service.",
-        image: projectImage1,
-      },
-      {
-        title: "Machine Learning Model",
-        description: "A cutting-edge machine learning model for data analysis.",
-        image: projectImage2,
-      },
-    ],
-    "Finance Project": [
-      {
-        title: "AI Chatbot",
-        description: "An intelligent chatbot for customer service.",
-        image: projectImage1,
-      },
-      {
-        title: "Machine Learning Model",
-        description: "A cutting-edge machine learning model for data analysis.",
-        image: projectImage2,
-      },
-    ],
-    "Education Project": [
-      {
-        title: "AI Chatbot",
-        description: "An intelligent chatbot for customer service.",
-        image: projectImage1,
-      },
-      {
-        title: "Machine Learning Model",
-        description: "A cutting-edge machine learning model for data analysis.",
-        image: projectImage2,
-      },
-    ],
-    "Retail Project": [
-      {
-        title: "AI Chatbot",
-        description: "An intelligent chatbot for customer service.",
-        image: projectImage1,
-      },
-      {
-        title: "Machine Learning Model",
-        description: "A cutting-edge machine learning model for data analysis.",
-        image: projectImage2,
-      },
-      {
-        title: "Machine Learning Model",
-        description: "A cutting-edge machine learning model for data analysis.",
-        image: projectImage2,
-      },
-      {
-        title: "Machine Learning Model",
-        description: "A cutting-edge machine learning model for data analysis.",
-        image: projectImage2,
-      },
-      {
-        title: "Machine Learning Model",
-        description: "A cutting-edge machine learning model for data analysis.",
-        image: projectImage2,
-      },
-    ],
-    // Add more projects for other categories as needed
-  };
-
-  const currentProjects = projects[selectedCategory] || [];
-
   return (
-    <div className="p-10 mx-5 sm:mx-[10rem] mb-10">
-      <div className="flex flex-wrap justify-around mb-6">
-        {categories.map((category) => (
-          <button
-            key={category}
-            onClick={() => setSelectedCategory(category)}
-            className={`px-4 py-2 m-2 rounded-full text-white transition duration-300 ${
-              selectedCategory === category
-                ? "bg-blue-500 hover:bg-blue-600"
-                : "bg-gray-500 hover:bg-gray-600"
-            }`}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
-      <div className="bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-semibold mb-4">{selectedCategory}</h2>
+    <div className="md:p-10 sm:mx-[2rem] md:my-16 my-7">
+      <h1 className="md:text-8xl my-7 text-4xl font-semibold md:mb-10 text-[#26baf6] font-lilita text-center">
+        Our Projects
+      </h1>
+      <div className="bg-[#fff] md:p-12 p-6 rounded-lg">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {currentProjects.map((project, index) => (
-            <div key={index} className="bg-gray-100 p-4 rounded-lg shadow">
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className="bg-[#ffffff] p-1 border-2 border-gray-200 rounded-md shadow-md flex flex-col relative"
+            >
               <img
                 src={project.image}
                 alt={project.title}
-                className="h-40 w-full object-cover rounded-lg mb-4"
+                className="h-100 w-full object-cover rounded-lg mb-4"
               />
-              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-              <p className="text-gray-700">{project.description}</p>
+              <div className="flex-1 p-4">
+                <h3 className="text-3xl text-[#d4771f] font-semibold mb-2">
+                  {project.title}
+                </h3>
+                <p className="text-gray-700">
+                  {project.description}
+                </p>
+                <a
+                  href={project.demoLink}
+                  className="absolute bottom-4 right-4 text-[#26baf6] font-semibold cursor-pointer animate-blink"
+                >
+                  Live Demo
+                </a>
+              </div>
             </div>
           ))}
         </div>

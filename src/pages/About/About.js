@@ -1,56 +1,117 @@
 import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-import logo from "../../assets/logo.png";
+import Logobtn from "../../components/Logobtn/Logobtn";
+import aboutimg from "../../assets/backgrounds_images/aboutbg2.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCogs, faUsers, faGlobe } from "@fortawesome/free-solid-svg-icons";
+import fqaQ from "../../assets/backgrounds_images/aboutbg2.jpg";
 
 const About = () => {
+  const cardData = [
+    {
+      id: 1,
+      icon: faCogs,
+      title: "Technology Solutions",
+      description:
+        "Explore our cutting-edge technology solutions designed to streamline your operations.",
+    },
+    {
+      id: 2,
+      icon: faUsers,
+      title: "Community Engagement",
+      description:
+        "Learn how we engage with communities to create positive impacts through our initiatives.",
+    },
+    {
+      id: 3,
+      icon: faGlobe,
+      title: "Global Presence",
+      description:
+        "Discover our global footprint and how we serve clients across different continents.",
+    },
+    {
+      id: 4,
+      icon: faGlobe,
+      title: "Global Presence",
+      description:
+        "Discover our global footprint and how we serve clients across different continents.",
+    },
+    {
+      id: 5,
+      icon: faGlobe,
+      title: "Global Presence",
+      description:
+        "Discover our global footprint and how we serve clients across different continents.",
+    },
+    {
+      id: 6,
+      icon: faGlobe,
+      title: "Global Presence",
+      description:
+        "Discover our global footprint and how we serve clients across different continents.",
+    },
+  ];
+
   return (
-    <div>
-      <Navbar></Navbar>
-      <div className="flex justify-between items-center px-10 ">
-        <div className="flex flex-col items-center">
-          <img src={logo} alt="Logo" className="h-40" />
-          <h2 className="text-[#ffb907] text-2xl mt-[-3.5rem]">
-            code<span className="text-[#1dceff]">servir.com</span>
-          </h2>
-        </div>
-        <div>
-          <button className="bg-[#000000] text-white px-4 py-2 rounded-[5rem] hidden md:block mr-4 hover:bg-blue-600 transition duration-300">
-            Login
-          </button>
-        </div>
-      </div>
-      <div>
-        <div className="bg-gray-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h1 className="text-3xl font-bold text-gray-800 mb-6">
-              About Our Company
-            </h1>
-            <p className="text-lg text-gray-700 mb-6">
-              At XYZ IT Solutions, we are committed to delivering exceptional IT
-              services tailored to meet the unique needs of each client. With a
-              team of experienced professionals and a proven track record of
-              success, we have completed over 239 projects across various
-              industries.
-            </p>
-            <p className="text-lg text-gray-700 mb-6">
-              Our mission is to empower businesses with innovative technology
-              solutions that drive growth and success. We believe in building
-              long-term partnerships with our clients, providing them with
-              reliable support and expert guidance every step of the way.
-            </p>
-            <p className="text-lg text-gray-700 mb-6">
-              Whether you're looking to develop custom software, enhance your
-              digital presence, or streamline your IT infrastructure, we have
-              the expertise and dedication to turn your vision into reality.
-              Contact us today to learn more about how we can help your business
-              thrive in the digital age.
-            </p>
+    <>
+      <div className=" bg-[#ebfbff] bg-aboutbg  ">
+        <div className="bg-hero-pattern">
+          <Logobtn />
+
+          <div className="relative z-50">
+            <Navbar />
+          </div>
+
+          <div className=" bg-white bg-hero-pattern flex flex-col md:flex-row justify-center items-center p-6 pt-[10rem]">
+            <div className=" max-w-3xl mb-6 md:mb-0 md:mr-6">
+              <h1 className="text-[#26baf6] font-lilita md:text-6xl text-4xl font-bold mb-4">
+                Enhancing Customer Experience with Innovative Web and Mobile App
+                Solutions
+              </h1>
+              <p className=" font-concert md:text-2xl text-xl leading-relaxed ">
+                Websites are essential for businesses. We offer top-notch web
+                development services in India, combining technical expertise
+                with exceptional UX design.
+              </p>
+            </div>
+            <div className="text-center mb-6">
+              <img
+                src={fqaQ}
+                alt="FAQ Illustration"
+                className="w-full max-w-md bg-cover rounded-lg"
+              />
+            </div>
           </div>
         </div>
+
+        <div className="flex justify-center py-8">
+          <div className="max-w-screen-lg grid grid-cols-1 md:grid-cols-3 gap-8">
+            {cardData.map((card) => (
+              <div
+                key={card.id}
+                className="bg-white rounded-lg shadow-md p-6 md:mx-0 mx-5"
+              >
+                <div className="text-center">
+                  <FontAwesomeIcon
+                    icon={card.icon}
+                    className="text-3xl text-[#26baf6] mb-2 mx-auto"
+                  />
+                  <h2 className="font-concert  text-xl md:text-2xl font-bold text-gray-800 mb-2">
+                    {card.title}
+                  </h2>
+                  <p className="font-concert  text-gray-700 leading-relaxed">
+                    {card.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 };
 

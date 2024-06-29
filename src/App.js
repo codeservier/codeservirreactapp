@@ -14,7 +14,7 @@ import Portfolio from "./pages/Portfolio/Portfolio";
 import Blog from "./pages/Blog/Blog";
 import Careers from "./pages/Careers/Careers";
 import FAQ from "./pages/FAQ/FAQ";
-
+import img from "./assets/backgrounds_images/bg_1.jpg";
 const App = () => {
   return (
     <BrowserRouter>
