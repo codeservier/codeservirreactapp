@@ -43,6 +43,10 @@ const Contact = () => {
       newErrors.email = "Email address is required.";
       valid = false;
     }
+    if (!formData.number) {
+      newErrors.number = "Number is required.";
+      valid = false;
+    }
     if (!formData.message) {
       newErrors.message = "Message is required.";
       valid = false;
@@ -77,7 +81,9 @@ const Contact = () => {
 
   return (
     <>
-      <h1 className="text-4xl md:text-6xl font-bold text-center mb-8 text-[#26baf6] font-lilita underline">
+     
+      <div className="pt-[13rem]">
+      <h1 className="text-4xl md:text-8xl font-bold text-center text-[#26baf6] font-lilita underline">
         Contact Us
       </h1>
       <div className="container mx-auto flex flex-col md:flex-row justify-center items-center p-8 min-h-screen">
@@ -90,8 +96,8 @@ const Contact = () => {
           />
         </div>
         {/* Left section with form */}
-        <div className="w-full md:w-1/2 md:p-28 p-10 bg-contactbg bg-cover bg-center hover:bg-[#ffffff] duration-500 rounded-lg shadow-md">
-          <h1 className="text-3xl md:text-8xl font-bold text-center mb-8 font-lilita text-[#26baf6]">
+        <div className="w-full md:w-1/2 md:px-28 p-10 bg-contactbg bg-cover bg-center hover:bg-[#ffffff] duration-500 rounded-lg shadow-md">
+          <h1 className="text-3xl md:text-5xl font-bold text-center mb-8 font-lilita text-[#26baf6]">
             Take a meet
           </h1>
           <form onSubmit={handleSubmit}>
@@ -120,10 +126,10 @@ const Contact = () => {
             )}
 
             <CustomInput
-              id="message"
+              id="number"
               // label="Message"
               placeholder="Enter your mobile number"
-              value={formData.message}
+              value={formData.number}
               onChange={handleChange}
             />
             {errors.message && (
@@ -148,7 +154,7 @@ const Contact = () => {
           </form>
         </div>
       </div>
-      <div className="container mx-auto py-12 pt-[5rem]">
+      <div className="container mx-auto pb-12">
         <div className="bg-[#ffffff] p-8 rounded-lg shadow-md mx-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow border">
@@ -238,6 +244,8 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      </div>
+     
     </>
   );
 };

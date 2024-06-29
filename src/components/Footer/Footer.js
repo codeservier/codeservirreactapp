@@ -1,22 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
-  faDiscord,
   faGithub,
-  faDribbble,
   faInstagram,
-  faYoutube,
-  faTwitter,
   faLinkedin,
+  faTwitter,
+  faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
-import {
-  faEnvelope,
-  faPhone,
-  faMapMarkerAlt,
-} from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faPhone, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 
 const footerData = {
   sections: [
@@ -27,7 +21,7 @@ const footerData = {
         { name: "Services", path: "/Services" },
         { name: "Contact Us", path: "/ContactPage" },
         { name: "Term And Condition", path: "/TermAndCondition" },
-        { name: "Privacy And Policy", path: "/PrivacyPolicy" },
+        { name: "Privacy And Policy", path: "/PrivacyandPolicy" },
       ],
     },
     {
@@ -52,16 +46,16 @@ const footerData = {
       href: "https://www.facebook.com/codeservir",
       icon: faFacebook,
     },
-    { name: "instagram", href: "#", icon: faInstagram },
+    { name: "Instagram", href: "#", icon: faInstagram },
     { name: "GitHub", href: "#", icon: faGithub },
-    { name: "Youtube", href: "#", icon: faYoutube },
+    { name: "YouTube", href: "#", icon: faYoutube },
     {
       name: "Twitter",
       href: "https://twitter.com/codeservir",
       icon: faTwitter,
     },
     {
-      name: "Linkdin",
+      name: "LinkedIn",
       href: "https://www.linkedin.com/company/codeservir",
       icon: faLinkedin,
     },
@@ -71,31 +65,31 @@ const footerData = {
 const Footer = () => {
   const navigate = useNavigate();
 
+  const handleLinkClick = (path) => {
+    navigate(path);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <footer className="bg-[#000000] text-white relative overflow-hidden w-full font-poppins pt-16 ">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
           {/* First column with logo, description, and social icons */}
-          <div className="    ">
-            <img
-              src={logo}
-              alt="Company Logo"
-              className="h-12 w-12 object-cover"
-            />
+          <div>
+            <img src={logo} alt="Company Logo" className="h-12 w-12 object-cover" />
             <h3>
-              Enhancing Customer Experience with Innovative Web and Mobile App
-              Solutions
+              Enhancing Customer Experience with Innovative Web and Mobile App Solutions
             </h3>
             <p className="mt-4 text-gray-400 text-sm max-w-md mx-auto md:mx-0">
-              We Innovate, Coffee Helps! A team of mobility experts driven by an
-              everlasting passion for app technology!
+              We Innovate, Coffee Helps! A team of mobility experts driven by an everlasting passion for app technology!
             </p>
             <div className="flex justify-center md:justify-start space-x-6 mt-4">
               {footerData.social.map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
-                  target="block"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
                 >
                   <FontAwesomeIcon
@@ -117,7 +111,7 @@ const Footer = () => {
               {footerData.sections[0].links.map((link, index) => (
                 <li key={index} className="mb-2">
                   <span
-                    onClick={() => navigate(link.path)}
+                    onClick={() => handleLinkClick(link.path)}
                     className="hover:underline cursor-pointer"
                   >
                     {link.name}
@@ -136,7 +130,7 @@ const Footer = () => {
               {footerData.sections[1].links.map((link, index) => (
                 <li key={index} className="mb-2">
                   <span
-                    onClick={() => navigate(link.path)}
+                    onClick={() => handleLinkClick(link.path)}
                     className="hover:underline cursor-pointer"
                   >
                     {link.name}

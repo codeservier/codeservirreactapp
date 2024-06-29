@@ -23,6 +23,7 @@ import img from "./assets/backgrounds_images/bg_1.jpg";
 import Courses from "./pages/Courses/Courses.js";
 import ComingSoon from "./pages/ComingSoon/ComingSoon.js";
 import Our3MontIntern from "./pages/Courses/OurInternship/Our3MonthIntern/Our3MontIntern.js";
+import Cpp from "./pages/Courses/AllCourses/Cpp/Cpp.js";
 const App = () => {
   return (
     <BrowserRouter>
@@ -34,7 +35,6 @@ const App = () => {
         <Route path="/About" element={<About />} />
         <Route path="/Portfolio" element={<Portfolio />} />
         <Route path="/ContactPage" element={<ContactPage />} />
-        <Route path="/SignUp" element={<SignUp />} />
         <Route path="/Blog" element={<Blog />} />
         <Route path="/Careers" element={<Careers />} />
         <Route path="/FAQ" element={<FAQ />} />
@@ -46,6 +46,7 @@ const App = () => {
         <Route path="/Courses" element={<Courses />} />
         <Route path="/ComingSoon" element={<ComingSoon />} />
         <Route path="/Our3MontIntern" element={<Our3MontIntern />} />
+        <Route path="/Cpp" element={<Cpp />} />
       </Routes>
     </BrowserRouter>
   );

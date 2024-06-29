@@ -61,6 +61,11 @@ const Navbar = ({ authData }) => {
     setIsOpen(false);
   };
 
+  const handleLinkClick = (path) => {
+    navigate(path);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div>
       <style>
@@ -152,20 +157,20 @@ const Navbar = ({ authData }) => {
                     >
                       {item.dropdown.map((dropdownItem, dropdownIndex) => (
                         <li key={dropdownIndex}>
-                          <Link
-                            to={dropdownItem.to}
-                            className="font-concert text-gray-700 hover:text-blue-500 block px-4 py-2 text-sm"
+                          <span
+                            onClick={() => handleLinkClick(dropdownItem.to)}
+                            className="font-concert text-gray-700 hover:text-blue-500 block px-4 py-2 text-sm cursor-pointer"
                           >
                             {dropdownItem.label}
-                          </Link>
+                          </span>
                         </li>
                       ))}
                     </ul>
                   </>
                 ) : (
-                  <Link
-                    to={item.to}
-                    className={`font-concert text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1 ${
+                  <span
+                    onClick={() => handleLinkClick(item.to)}
+                    className={`font-concert text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1 cursor-pointer ${
                       item.highlight ? "highlight" : ""
                     }`}
                   >
@@ -173,7 +178,7 @@ const Navbar = ({ authData }) => {
                       <FontAwesomeIcon icon={faStar} className="mr-2" />
                     )}
                     {item.label}
-                  </Link>
+                  </span>
                 )}
               </li>
             ))}
