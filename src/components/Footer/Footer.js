@@ -9,6 +9,8 @@ import {
   faDribbble,
   faInstagram,
   faYoutube,
+  faTwitter,
+  faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faEnvelope,
@@ -26,8 +28,6 @@ const footerData = {
         { name: "Contact Us", path: "/ContactPage" },
         { name: "Term And Condition", path: "/TermAndCondition" },
         { name: "Privacy And Policy", path: "/PrivacyPolicy" },
-        // { name: "Brand Center", path: "/brand-center" },
-        // { name: "Blog", path: "/blog" },
       ],
     },
     {
@@ -47,10 +47,24 @@ const footerData = {
     location: "Vishesh Khand Gomti Nagar, Lucknow",
   },
   social: [
-    { name: "Facebook", href: "#", icon: faFacebook },
+    {
+      name: "Facebook",
+      href: "https://www.facebook.com/codeservir",
+      icon: faFacebook,
+    },
     { name: "instagram", href: "#", icon: faInstagram },
     { name: "GitHub", href: "#", icon: faGithub },
     { name: "Youtube", href: "#", icon: faYoutube },
+    {
+      name: "Twitter",
+      href: "https://twitter.com/codeservir",
+      icon: faTwitter,
+    },
+    {
+      name: "Linkdin",
+      href: "https://www.linkedin.com/company/codeservir",
+      icon: faLinkedin,
+    },
   ],
 };
 
@@ -59,24 +73,29 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#000000] text-white relative overflow-hidden w-full font-poppins pt-16 ">
-      <div className="mx-auto px-4 py-6 sm:px-6 lg:px-8 max-w-screen-xl relative z-10">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
           {/* First column with logo, description, and social icons */}
-          <div className="mb-6">
+          <div className="    ">
             <img
               src={logo}
               alt="Company Logo"
-              className="h-[60px] mx-auto md:mx-0"
+              className="h-12 w-12 object-cover"
             />
+            <h3>
+              Enhancing Customer Experience with Innovative Web and Mobile App
+              Solutions
+            </h3>
             <p className="mt-4 text-gray-400 text-sm max-w-md mx-auto md:mx-0">
-              Your company description goes here. It can be a brief description
-              about what your company does, its mission, and values.
+              We Innovate, Coffee Helps! A team of mobility experts driven by an
+              everlasting passion for app technology!
             </p>
             <div className="flex justify-center md:justify-start space-x-6 mt-4">
               {footerData.social.map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
+                  target="block"
                   className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
                 >
                   <FontAwesomeIcon

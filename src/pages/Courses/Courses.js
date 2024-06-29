@@ -1,8 +1,8 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import Navbar from '../../components/Navbar/Navbar';
-import Logobtn from '../../components/Logobtn/Logobtn';
-import Footer from '../../components/Footer/Footer';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../../components/Navbar/Navbar";
+import Logobtn from "../../components/Logobtn/Logobtn";
+import Footer from "../../components/Footer/Footer";
 import JavaScript from "../../assets/courses/javascript2.png";
 import cpp from "../../assets/courses/cppcourseimg.png";
 import WebDev from "../../assets/courses/web-development1.png";
@@ -22,26 +22,120 @@ import internshipImage2 from "../../assets/courses/internship/summerintern.png";
 import internshipImage3 from "../../assets/courses/internship/threemonthintern.png";
 
 const slideshowImages = [
-  { id: 1, image: internshipImage1 },
-  { id: 2, image: internshipImage2 },
-  { id: 3, image: internshipImage3 },
+  { id: 1, image: internshipImage1, path: "/InternshipForm" },
+  { id: 2, image: internshipImage2, path: "/Our3MontIntern" },
+  { id: 3, image: internshipImage3, path: "/InternshipForm" },
 ];
 
 const coursesData = [
-  { id: 1, title: "JavaScript", description: "Learn the fundamentals of JavaScript, the programming language of the web.", image: JavaScript, route: '/ComingSoon'},
-  { id: 2, title: "C++", description: "Master the powerful features of C++ for high-performance applications.", image: cpp, route: '/Cpp' },
-  { id: 3, title: "Web Development", description: "Build modern and responsive websites using HTML, CSS, and JavaScript.", image: WebDev, route: '/ComingSoon' },
-  { id: 4, title: "Python", description: "Learn Python, a versatile language for web development, data analysis, and more.", image: python, route: '/ComingSoon' },
-  { id: 5, title: "React", description: "Dive into React and learn how to build dynamic user interfaces.", image: react, route: '/ComingSoon'},
-  { id: 6, title: "React Native", description: "Build mobile applications using React Native.", image: reactnative, route: '/ComingSoon' },
-  { id: 7, title: "Java", description: "Learn Java, a powerful and popular programming language.", image: java, route: '/ComingSoon'},
-  { id: 8, title: "Next.js", description: "Build server-side rendered React applications with Next.js.", image: nextjs, route: '/ComingSoon' },
-  { id: 9, title: "Blockchain", description: "Understand the fundamentals of blockchain technology.", image: blockchain, route: '/ComingSoon' },
-  { id: 10, title: "Data Structures and Algorithms", description: "Master data structures and algorithms to improve your problem-solving skills.", image: dsa, route: '/ComingSoon' },
-  { id: 11, title: "Flutter", description: "Build beautiful, natively compiled applications for mobile and web with Flutter.", image: flutter, route: '/ComingSoon'},
-  { id: 12, title: "HTML", description: "Learn HTML, the standard markup language for creating web pages.", image: html, route: '/ComingSoon' },
-  { id: 13, title: "CSS", description: "Style your web pages using CSS, the language for describing the presentation of web pages.", image: css, route: '/ComingSoon' },
-  { id: 14, title: "Tailwind CSS", description: "Learn Tailwind CSS, a utility-first CSS framework for rapidly building custom designs.", image: tailwindcss, route: '/ComingSoon' },
+  {
+    id: 1,
+    title: "JavaScript",
+    description:
+      "Learn the fundamentals of JavaScript, the programming language of the web.",
+    image: JavaScript,
+    route: "/ComingSoon",
+  },
+  {
+    id: 2,
+    title: "C++",
+    description:
+      "Master the powerful features of C++ for high-performance applications.",
+    image: cpp,
+    route: "/Cpp",
+  },
+  {
+    id: 3,
+    title: "Web Development",
+    description:
+      "Build modern and responsive websites using HTML, CSS, and JavaScript.",
+    image: WebDev,
+    route: "/ComingSoon",
+  },
+  {
+    id: 4,
+    title: "Python",
+    description:
+      "Learn Python, a versatile language for web development, data analysis, and more.",
+    image: python,
+    route: "/ComingSoon",
+  },
+  {
+    id: 5,
+    title: "React",
+    description:
+      "Dive into React and learn how to build dynamic user interfaces.",
+    image: react,
+    route: "/ComingSoon",
+  },
+  {
+    id: 6,
+    title: "React Native",
+    description: "Build mobile applications using React Native.",
+    image: reactnative,
+    route: "/ComingSoon",
+  },
+  {
+    id: 7,
+    title: "Java",
+    description: "Learn Java, a powerful and popular programming language.",
+    image: java,
+    route: "/ComingSoon",
+  },
+  {
+    id: 8,
+    title: "Next.js",
+    description: "Build server-side rendered React applications with Next.js.",
+    image: nextjs,
+    route: "/ComingSoon",
+  },
+  {
+    id: 9,
+    title: "Blockchain",
+    description: "Understand the fundamentals of blockchain technology.",
+    image: blockchain,
+    route: "/ComingSoon",
+  },
+  {
+    id: 10,
+    title: "Data Structures and Algorithms",
+    description:
+      "Master data structures and algorithms to improve your problem-solving skills.",
+    image: dsa,
+    route: "/ComingSoon",
+  },
+  {
+    id: 11,
+    title: "Flutter",
+    description:
+      "Build beautiful, natively compiled applications for mobile and web with Flutter.",
+    image: flutter,
+    route: "/ComingSoon",
+  },
+  {
+    id: 12,
+    title: "HTML",
+    description:
+      "Learn HTML, the standard markup language for creating web pages.",
+    image: html,
+    route: "/ComingSoon",
+  },
+  {
+    id: 13,
+    title: "CSS",
+    description:
+      "Style your web pages using CSS, the language for describing the presentation of web pages.",
+    image: css,
+    route: "/ComingSoon",
+  },
+  {
+    id: 14,
+    title: "Tailwind CSS",
+    description:
+      "Learn Tailwind CSS, a utility-first CSS framework for rapidly building custom designs.",
+    image: tailwindcss,
+    route: "/ComingSoon",
+  },
 ];
 
 const Courses = () => {
@@ -58,24 +152,31 @@ const Courses = () => {
         <Navbar />
       </div>
       <div className="min-h-screen bg-gray-100 md:p-40 pt-40 px-5 ">
-        <h1 className="text-8xl text-[#26baf6] font-bold text-center mb-10 font-lilita">Our Courses</h1>
+        <h1 className="text-8xl text-[#26baf6] font-bold text-center mb-10 font-lilita">
+          Our Courses
+        </h1>
 
         {/* Internship Program Section */}
         <div className="flex flex-col md:flex-row justify-center mb-10">
           {slideshowImages.map((item) => (
-            <div key={item.id} className="relative w-full md:w-1/3 mx-2 mb-4 md:mb-0">
+            <div
+              key={item.id}
+              className="relative w-full md:w-1/3 mx-2 mb-4 md:mb-0"
+            >
               <img
                 src={item.image}
                 alt="Internship Program"
                 className="w-full h-auto object-cover cursor-pointer hover:opacity-75 transition duration-300"
-                style={{ minHeight: '200px' }} // Set a minimum height to ensure consistent size
+                style={{ minHeight: "200px" }} // Set a minimum height to ensure consistent size
               />
               <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition duration-300">
                 <div className="text-center text-white">
-                  <h2 className="text-4xl font-semibold mb-4">Join Our Internship Program</h2>
+                  <h2 className="text-4xl font-semibold mb-4">
+                    Join Our Internship Program
+                  </h2>
                   <button
                     className="bg-blue-500 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition duration-300"
-                    onClick={() => navigate('/InternshipForm')}
+                    onClick={() => navigate(item.path)}
                   >
                     Join Now
                   </button>
@@ -88,12 +189,19 @@ const Courses = () => {
         {/* Courses Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {coursesData.map((course) => (
-            <div key={course.id} className="bg-white rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300">
-              <img src={course.image} alt={course.title} className="w-full h-48 object-cover bg-center"/>
+            <div
+              key={course.id}
+              className="bg-white rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300"
+            >
+              <img
+                src={course.image}
+                alt={course.title}
+                className="w-full h-48 object-cover bg-center"
+              />
               <div className="p-6">
                 <h2 className="text-2xl font-semibold mb-2">{course.title}</h2>
                 <p className="text-gray-700 mb-4">{course.description}</p>
-                <button 
+                <button
                   className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300"
                   onClick={() => handleLearnMore(course.route)}
                 >
@@ -104,9 +212,9 @@ const Courses = () => {
           ))}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
-}
+};
 
 export default Courses;

@@ -16,7 +16,7 @@ const baseMenuData = [
     label: "More",
     dropdown: [
       { to: "/TermAndCondition", label: "Term and condition" },
-      { to: "/PrivacyPolicy", label: "Privacy and Policy" },
+      { to: "/PrivacyandPolicy", label: "Privacy and Policy" },
     ],
   },
   { to: "/InternshipForm", label: "Internship", highlight: true },
@@ -138,10 +138,18 @@ const Navbar = ({ authData }) => {
               >
                 {item.dropdown ? (
                   <>
-                    <span className={`font-concert text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1 ${item.highlight ? "highlight" : ""}`}>
+                    <span
+                      className={`font-concert text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1 ${
+                        item.highlight ? "highlight" : ""
+                      }`}
+                    >
                       {item.label}
-                    </span> 
-                    <ul className={`absolute left-0 mt-2 w-40 bg-[#ffffff] border shadow-lg rounded-lg py-2 ${isOpen ? "dropdown-menu" : "hidden"}`}>
+                    </span>
+                    <ul
+                      className={`absolute left-0 mt-2 w-40 bg-[#ffffff] border shadow-lg rounded-lg py-2 ${
+                        isOpen ? "dropdown-menu" : "hidden"
+                      }`}
+                    >
                       {item.dropdown.map((dropdownItem, dropdownIndex) => (
                         <li key={dropdownIndex}>
                           <Link
@@ -157,7 +165,9 @@ const Navbar = ({ authData }) => {
                 ) : (
                   <Link
                     to={item.to}
-                    className={`font-concert text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1 ${item.highlight ? "highlight" : ""}`}
+                    className={`font-concert text-gray-700 hover:text-blue-500 transition duration-300 font-semibold uppercase bg-white rounded-full px-3 py-1 ${
+                      item.highlight ? "highlight" : ""
+                    }`}
                   >
                     {item.highlight && (
                       <FontAwesomeIcon icon={faStar} className="mr-2" />
