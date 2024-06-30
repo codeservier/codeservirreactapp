@@ -24,7 +24,8 @@ const Logobtn = ({ authData }) => {
   }, []);
 
   const handlelogout = () => {
-    auth.signOut(auth)
+    auth
+      .signOut(auth)
       .then(() => {
         navigate("/LoginPage");
       })
@@ -56,23 +57,25 @@ const Logobtn = ({ authData }) => {
             code<span className="text-[#1dceff]">servir.com</span>
           </h2>
         </div>
-        {authData && authData != null &&authData.name? (
-         <div className="flex items-center space-x-4 p-4 bg-white shadow-md rounded-lg">
-         <img
-           src={authData.photoURL || "https://via.placeholder.com/150"}
-           alt="User Profile"
-           className="w-16 h-16 rounded-full object-cover"
-         />
-         <div>
-           <h1 className="text-xl font-semibold">{authData.name || "User Name"}</h1>
-           <button
-             onClick={handlelogout}
-             className="bg-[#21c4ff] text-white text-lg md:text-xl px-6 md:px-6 py-1 rounded-full hover:scale-105 hover:bg-[#000000] transition duration-300"
-           >
-             Logout
-           </button>
-         </div>
-       </div>
+        {authData && authData != null && authData.name ? (
+          <div className="flex items-center space-x-4 p-4 bg-white shadow-md rounded-lg">
+            <img
+              src={authData.photoURL || "https://via.placeholder.com/150"}
+              alt="User Profile"
+              className="w-16 h-16 rounded-full object-cover"
+            />
+            <div>
+              <h1 className="text-xl font-semibold">
+                {authData.name || "User Name"}
+              </h1>
+              <button
+                onClick={handlelogout}
+                className="bg-[#21c4ff] text-white text-lg md:text-xl px-6 md:px-6 py-1 rounded-full hover:scale-105 hover:bg-[#000000] transition duration-300"
+              >
+                Logout
+              </button>
+            </div>
+          </div>
         ) : (
           <div className="md:flex hidden space-x-4 p-2 rounded-3xl md:mt-[12px] shadow-lg bg-white hover:translate-x-2 duration-500">
             <button
@@ -95,3 +98,4 @@ const Logobtn = ({ authData }) => {
 };
 
 export default Logobtn;
+

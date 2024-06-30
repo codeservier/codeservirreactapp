@@ -3,8 +3,16 @@ import { useTable } from "react-table";
 import { useNavigate } from "react-router-dom";
 import { Bar } from "react-chartjs-2";
 import "tailwindcss/tailwind.css";
-import { auth, db } from "../../config/config.js"; // Adjust the import path as needed
-import { collection, getDocs, doc, getDoc } from "firebase/firestore";
+import { auth, db, storage } from "../../config/config.js";
+import {
+  collection,
+  getDocs,
+  doc,
+  getDoc,
+
+} from 'firebase/firestore';
+import { getDownloadURL, ref } from 'firebase/storage'; // Add these imports
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -30,6 +38,7 @@ ChartJS.register(
 
 const Admin = () => {
   const [applications, setApplications] = useState([]);
+  const [applicationImages, setApplicationImages] = useState({});
   const [users, setUsers] = useState([]);
   const [contactMessages, setContactMessages] = useState([]);
   const [authData, setAuthData] = useState({});
@@ -42,16 +51,27 @@ const Admin = () => {
         const applicationsSnapshot = await getDocs(
           collection(db, "internshipApplications")
         );
-        const applicationsData = applicationsSnapshot.docs.map((doc) => {
+        const applicationsData = [];
+        const images = {};
+        for (const doc of applicationsSnapshot.docs) {
           const data = doc.data();
-          const timestamp = data.timestamp?.toDate ? data.timestamp.toDate() : null;
-          return {
+          const timestamp = data.timestamp?.toDate
+            ? data.timestamp.toDate()
+            : null;
+          const application = {
             id: doc.id,
             ...data,
             timestamp: timestamp || new Date(),
           };
-        });
+          applicationsData.push(application);
+          // Fetch image URLs
+          if (data.photoURL) {
+            const imageURL = await getDownloadURL(ref(storage, data.photoURL));
+            images[doc.id] = imageURL;
+          }
+        }
         setApplications(applicationsData);
+        setApplicationImages(images);
 
         // Fetch registered users
         const usersSnapshot = await getDocs(collection(db, "users"));
@@ -122,10 +142,7 @@ const Admin = () => {
         Header: "Degree",
         accessor: "degree",
       },
-      {
-        Header: "Skills",
-        accessor: "skills",
-      },
+    
       {
         Header: "Interests",
         accessor: (row) => {
@@ -138,6 +155,18 @@ const Admin = () => {
         },
       },
       {
+        Header: "Photo",
+        accessor: "id",
+        Cell: ({ value }) =>
+          applicationImages[value] ? (
+            <img
+              src={applicationImages[value]}
+              alt="Application Photo"
+              className="w-16 h-16 object-cover rounded-full"
+            />
+          ) : null,
+      },
+      {
         Header: "Time of submitting Data",
         accessor: "timestamp",
         Cell: ({ value }) => {
@@ -148,7 +177,7 @@ const Admin = () => {
         className: "newDataHighlight", // Apply class for new data
       },
     ],
-    []
+    [applicationImages]
   );
 
   const userColumns = React.useMemo(

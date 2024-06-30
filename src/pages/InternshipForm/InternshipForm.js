@@ -7,8 +7,9 @@ import CustomButton from "../../components/Buttons/CustomButton";
 import CustomCheckbox from "../../components/Checkbox/Checkbox";
 import internImg from "../../assets/backgrounds_images/Internship.jpg";
 import "tailwindcss/tailwind.css";
-import { db } from "../../config/config.js";
+import { db, storage } from "../../config/config.js";
 import { collection, addDoc } from "firebase/firestore";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const InternshipForm = () => {
   const [formData, setFormData] = useState({
@@ -24,6 +25,8 @@ const InternshipForm = () => {
       mobiledev: false,
     },
     timestamp: null,
+    photo: null,
+    photoURL: "",
   });
 
   const [errors, setErrors] = useState({
@@ -54,21 +57,42 @@ const InternshipForm = () => {
     },
     {
       id: "degree",
-      label: "Degree",
+      label: "Select Your Education",
       type: "select",
-      options: ["Select", "Bsc IT", "B.Tech CS", "BCA", "MCA", "Others"],
+      options: [
+        "Select",
+        "B.Tech",
+        "BCA",
+        "MCA",
+        "M.Tech",
+        "Diploma",
+        "Others",
+      ],
+    },
+    {
+      id: "technology",
+      label: " Choose Technology",
+      type: "select",
+      options: [
+        "Select",
+        "PHP",
+        "Android",
+        "iOS",
+        "ASP.NET",
+        "Python",
+        "React Native",
+        "Flutter",
+        "MERN Full Stack",
+        "Blockchain",
+        "Machine Learning And IOT",
+        "Not Yet Decided",
+      ],
     },
   ];
 
-  const checkboxFields = [
-    { id: "webdev", label: "Web Development" },
-    { id: "androidios", label: "Android & Ios Development" },
-    { id: "machine", label: "Machine Learning And IOT" },
-    { id: "blockchain", label: "Blockchain" },
-  ];
 
   const handleChange = (e) => {
-    const { id, value, type, checked } = e.target;
+    const { id, value, type, checked, files } = e.target;
     if (type === "checkbox") {
       setFormData((prevData) => ({
         ...prevData,
@@ -76,6 +100,11 @@ const InternshipForm = () => {
           ...prevData.interests,
           [id]: checked,
         },
+      }));
+    } else if (type === "file") {
+      setFormData((prevData) => ({
+        ...prevData,
+        photo: files[0],
       }));
     } else {
       setFormData((prevData) => ({
@@ -102,11 +131,15 @@ const InternshipForm = () => {
       valid = false;
     }
     if (!formData.degree || formData.degree === "select") {
-      newErrors.degree = "Degree is required.";
+      newErrors.degree = "Education is required.";
+      valid = false;
+    }
+    if (!formData.technology || formData.technology === "select") {
+      newErrors.technology = "Technology is required.";
       valid = false;
     }
     if (formData.degree === "others" && !formData.otherDegree) {
-      newErrors.otherDegree = "Please specify your degree.";
+      newErrors.otherDegree = "Please specify your Education.";
       valid = false;
     }
     if (!formData.mobile) {
@@ -132,6 +165,14 @@ const InternshipForm = () => {
           formData.degree === "others" ? formData.otherDegree : formData.degree,
       };
 
+      if (formData.photo) {
+        const photoRef = ref(storage, `photos/${formData.photo.name}`);
+        await uploadBytes(photoRef, formData.photo);
+        const photoURL = await getDownloadURL(photoRef);
+        formDataWithTimestamp.photoURL = photoURL;
+        formDataWithTimestamp.photo = null; // Remove photo file from formData
+      }
+
       await addDoc(
         collection(db, "internshipApplications"),
         formDataWithTimestamp
@@ -150,6 +191,8 @@ const InternshipForm = () => {
           mobiledev: false,
         },
         timestamp: null,
+        photo: null,
+        photoURL: "",
       });
     } catch (error) {
       console.error("Error submitting form: ", error);
@@ -212,13 +255,13 @@ const InternshipForm = () => {
                       ))}
                     </select>
                     {field.id === "degree" && formData.degree === "others" && (
-                      <CustomInput
-                        id="otherDegree"
-                        label="Specify your degree"
-                        placeholder="Enter your degree"
+                      <input
                         type="text"
+                        id="otherDegree"
                         value={formData.otherDegree}
                         onChange={handleChange}
+                        placeholder="Please specify your education"
+                        className="font-concert shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-2"
                       />
                     )}
                     {errors[field.id] && (
@@ -229,13 +272,19 @@ const InternshipForm = () => {
                   </div>
                 ) : (
                   <div key={field.id} className="mb-4">
-                    <CustomInput
-                      id={field.id}
-                      label={field.label}
-                      placeholder={field.placeholder}
+                    <label
+                      className="block text-gray-700 font-bold mb-2"
+                      htmlFor={field.id}
+                    >
+                      {field.label}
+                    </label>
+                    <input
                       type={field.type}
+                      id={field.id}
                       value={formData[field.id]}
                       onChange={handleChange}
+                      placeholder={field.placeholder}
+                      className="font-concert shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     />
                     {errors[field.id] && (
                       <p className="text-red-500 text-xs italic">
@@ -246,32 +295,28 @@ const InternshipForm = () => {
                 )
               )}
 
-              <div className="mb-6">
-                <label className="font-concert block text-gray-700 text-sm font-bold mb-2">
-                  Interested Areas
+              <div className="mb-4">
+                <label
+                  className="block text-gray-700 font-bold "
+                  htmlFor="photo"
+                >
+                  Payment Screenshot
                 </label>
-                {checkboxFields.map((field) => (
-                  <CustomCheckbox
-                    key={field.id}
-                    id={field.id}
-                    label={field.label}
-                    checked={formData.interests[field.id]}
-                    onChange={handleChange}
-                  />
-                ))}
-              </div>
-
-              <div className="font-concert flex items-center justify-between">
-                <CustomButton
-                  text="Submit"
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                <input
+                  type="file"
+                  id="photo"
+                  onChange={handleChange}
+                  className="font-concert shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
               </div>
+
+              
+
+              <CustomButton type="submit"  label="Submit" className={"bg-[blue] rounded-lg text-white p-2"} />
             </form>
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
