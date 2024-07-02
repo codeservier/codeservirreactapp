@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "codeservirreactapp"
-  }
+    "default": "codeservirreactapp",
+    "production": "codeservirreactapp"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }

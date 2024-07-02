@@ -1,7 +1,7 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
-import "firebase/compat/storage";  // Add this line
+import "firebase/compat/storage"; // Add this line
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -11,7 +11,7 @@ const firebaseConfig = {
   storageBucket: "codeservirreactapp.appspot.com",
   messagingSenderId: "596886885380",
   appId: "1:596886885380:web:3e5cab84baf8816c5d1151",
-  measurementId: "G-NHT5W6WCFD",
+  measurementId: "G-NHT5W6WCFD"
 };
 
 firebase.initializeApp(firebaseConfig);

@@ -139,8 +139,29 @@ const Admin = () => {
         accessor: "email",
       },
       {
+        Header: "Mobile",
+        accessor: "mobile",
+      },
+      {
         Header: "Degree",
         accessor: "degree",
+      },
+      {
+        Header: "Fee",
+        accessor: "amount",
+      },
+
+      {
+        Header: "College",
+        accessor: "collegeName",
+      },
+      {
+        Header: "Technology",
+        accessor: "technology",
+      },
+      {
+        Header: "Training",
+        accessor: "training",
       },
     
       {
@@ -154,20 +175,22 @@ const Admin = () => {
           return interests.join(", ");
         },
       },
+
       {
-        Header: "Photo",
+        Header: "Screenshot",
         accessor: "id",
         Cell: ({ value }) =>
           applicationImages[value] ? (
             <img
-              src={applicationImages[value]}
-              alt="Application Photo"
-              className="w-16 h-16 object-cover rounded-full"
-            />
+            src={applicationImages[value]}
+            alt="Application Photo"
+            className="w-full h-auto object-contain rounded-lg"
+          />
+          
           ) : null,
       },
       {
-        Header: "Time of submitting Data",
+        Header: "Submitted Date",
         accessor: "timestamp",
         Cell: ({ value }) => {
           if (!value) return "-";

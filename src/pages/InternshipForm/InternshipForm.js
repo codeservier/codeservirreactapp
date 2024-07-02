@@ -8,7 +8,7 @@ import CustomCheckbox from "../../components/Checkbox/Checkbox";
 import internImg from "../../assets/backgrounds_images/Internship.jpg";
 import "tailwindcss/tailwind.css";
 import { db, storage } from "../../config/config.js";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const InternshipForm = () => {
@@ -18,6 +18,8 @@ const InternshipForm = () => {
     degree: "",
     otherDegree: "",
     mobile: "",
+    collegeName: "",
+    amount: "",
     interests: {
       webdev: false,
       datascience: false,
@@ -34,7 +36,11 @@ const InternshipForm = () => {
     email: "",
     degree: "",
     mobile: "",
+    collegeName: "",
+    amount: "",
   });
+
+  const [loading, setLoading] = useState(false);
 
   const formFields = [
     {
@@ -56,11 +62,17 @@ const InternshipForm = () => {
       placeholder: "Enter your mobile number",
     },
     {
+      id: "collegeName",
+      label: "College name",
+      type: "text",
+      placeholder: "Enter your college name",
+    },
+    {
       id: "degree",
       label: "Select Your Education",
       type: "select",
       options: [
-        "Select",
+        "---Select---",
         "B.Tech",
         "BCA",
         "MCA",
@@ -71,10 +83,10 @@ const InternshipForm = () => {
     },
     {
       id: "technology",
-      label: " Choose Technology",
+      label: "Choose Technology",
       type: "select",
       options: [
-        "Select",
+        "---Select---",
         "PHP",
         "Android",
         "iOS",
@@ -88,8 +100,19 @@ const InternshipForm = () => {
         "Not Yet Decided",
       ],
     },
+    {
+      id: "training",
+      label: "Choose Training",
+      type: "select",
+      options: ["---Select---", "45 Day's", "3 Month", "6 Month", "1 Year"],
+    },
+    {
+      id: "amount",
+      label: "Paid amount",
+      type: "number",
+      placeholder: "Enter Paid Amount",
+    },
   ];
-
 
   const handleChange = (e) => {
     const { id, value, type, checked, files } = e.target;
@@ -138,12 +161,31 @@ const InternshipForm = () => {
       newErrors.technology = "Technology is required.";
       valid = false;
     }
+    if (!formData.training || formData.training === "select") {
+      newErrors.training = "Training is required.";
+      valid = false;
+    }
     if (formData.degree === "others" && !formData.otherDegree) {
       newErrors.otherDegree = "Please specify your Education.";
       valid = false;
     }
     if (!formData.mobile) {
       newErrors.mobile = "Mobile number is required.";
+      valid = false;
+    } else if (!/^\d{10}$/.test(formData.mobile)) {
+      newErrors.mobile = "Mobile number must be 10 digits.";
+      valid = false;
+    }
+    if (!formData.collegeName) {
+      newErrors.collegeName = "College name is required.";
+      valid = false;
+    }
+    if (!formData.amount) {
+      newErrors.amount = "Amount is required.";
+      valid = false;
+    }
+    if (!formData.photo) {
+      newErrors.photo = "Payment screenshot is required.";
       valid = false;
     }
 
@@ -156,6 +198,40 @@ const InternshipForm = () => {
     if (!validate()) {
       return;
     }
+    setLoading(true);
+
+    // Check for duplicate mobile number
+    const mobileQuery = query(
+      collection(db, "internshipApplications"),
+      where("mobile", "==", formData.mobile)
+    );
+    const mobileQuerySnapshot = await getDocs(mobileQuery);
+
+    if (!mobileQuerySnapshot.empty) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        mobile: "Mobile number already exists.",
+      }));
+      setLoading(false);
+      return;
+    }
+
+    // Check for duplicate email
+    const emailQuery = query(
+      collection(db, "internshipApplications"),
+      where("email", "==", formData.email)
+    );
+    const emailQuerySnapshot = await getDocs(emailQuery);
+
+    if (!emailQuerySnapshot.empty) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        email: "Email already exists.",
+      }));
+      setLoading(false);
+      return;
+    }
+
     try {
       const currentTimestamp = new Date().toISOString();
       const formDataWithTimestamp = {
@@ -184,6 +260,8 @@ const InternshipForm = () => {
         degree: "Select",
         otherDegree: "",
         mobile: "",
+        collegeName: "",
+        amount: "",
         interests: {
           webdev: false,
           datascience: false,
@@ -197,6 +275,8 @@ const InternshipForm = () => {
     } catch (error) {
       console.error("Error submitting form: ", error);
       alert("Failed to submit form. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -207,7 +287,7 @@ const InternshipForm = () => {
         <Navbar />
       </div>
       <div className="min-h-screen flex items-center justify-center p-6 pt-[10rem]">
-        <div className="bg-white shadow-lg rounded-lg flex flex-col md:flex-row overflow-hidden max-w-6xl w-full">
+        <div className="bg-white shadow-lg rounded-lg flex flex-col md:flex-row overflow-hidden max-w-6xl w-full relative">
           <div className="md:w-1/2 w-full relative p-4 flex flex-col justify-start">
             <div
               className="absolute inset-0 bg-cover bg-center md:opacity-100 opacity-60"
@@ -224,7 +304,7 @@ const InternshipForm = () => {
             </div>
           </div>
 
-          <div className="md:w-1/2 w-full p-8">
+          <div className="md:w-1/2 w-full p-8 relative">
             <h2 className="font-concert text-2xl font-bold mb-6 text-gray-700">
               Internship Joining Form
             </h2>
@@ -297,7 +377,7 @@ const InternshipForm = () => {
 
               <div className="mb-4">
                 <label
-                  className="block text-gray-700 font-bold "
+                  className="block text-gray-700 font-bold"
                   htmlFor="photo"
                 >
                   Payment Screenshot
@@ -308,11 +388,23 @@ const InternshipForm = () => {
                   onChange={handleChange}
                   className="font-concert shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
+                {errors.photo && (
+                  <p className="text-red-500 text-xs italic">
+                    {errors.photo}
+                  </p>
+                )}
               </div>
 
-              
-
-              <CustomButton type="submit"  label="Submit" className={"bg-[blue] rounded-lg text-white p-2"} />
+              <CustomButton
+                type="submit"
+                label="Submit"
+                className={"bg-[blue] rounded-lg text-white p-2"}
+              />
+              {loading && (
+                <div className="absolute inset-0 flex justify-center items-center">
+                  <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
+                </div>
+              )}
             </form>
           </div>
         </div>
