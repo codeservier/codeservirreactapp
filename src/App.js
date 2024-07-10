@@ -5,9 +5,6 @@ import SignUp from "./pages/auth/SignUp/SignUp";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import ContactPage from "./pages/Contact/Contact";
-import OurProjects from "./pages/OurProjects/OurProjects";
-import LandingPage from "./pages/LandingPage/LandingPage";
-import Services from "./pages/Services.js/Services";
 import ServicesInner from "./pages/ServicesInner/ServicesInner";
 import About from "./pages/About/About";
 import Portfolio from "./pages/Portfolio/Portfolio";
@@ -19,11 +16,14 @@ import TermAndCondition from "./pages/TermAndCondition/TermAndCondition.js";
 import TodoCompany from "./pages/Todocompany/TodoCompany.js";
 import InternshipForm from "./pages/InternshipForm/InternshipForm.js";
 import Admin from "./pages/Admin/Admin.js";
-import img from "./assets/backgrounds_images/bg_1.jpg";
 import Courses from "./pages/Courses/Courses.js";
 import ComingSoon from "./pages/ComingSoon/ComingSoon.js";
 import Our3MontIntern from "./pages/Courses/OurInternship/Our3MonthIntern/Our3MontIntern.js";
 import Cpp from "./pages/Courses/AllCourses/Cpp/Cpp.js";
+import Our6MonthIntern from "./pages/Courses/OurInternship/Our3MonthIntern/Our6month.js";
+import Our3monthDev from "./pages/Courses/OurInternship/Our3MonthIntern/Our3Monthdev.js";
+import Our1YearCourse from "./pages/Courses/OurInternship/Our3MonthIntern/Our1Year.js";
+import Our45daysIntern from "./pages/Courses/OurInternship/Our3MonthIntern/Our45dayintern.js";
 const App = () => {
   return (
     <BrowserRouter>
@@ -47,6 +47,10 @@ const App = () => {
         <Route path="/ComingSoon" element={<ComingSoon />} />
         <Route path="/Our3MontIntern" element={<Our3MontIntern />} />
         <Route path="/Cpp" element={<Cpp />} />
+        <Route path="/Our6MonthIntern" element={<Our6MonthIntern />} />
+        <Route path="/Our3monthDev" element={<Our3monthDev />} />
+        <Route path="/Our1YearCourse" element={<Our1YearCourse />} />
+        <Route path="/Our45daysIntern" element={<Our45daysIntern />} />
       </Routes>
     </BrowserRouter>
   );

@@ -57,8 +57,7 @@ const About = () => {
     <>
       <div className=" bg-[#ebfbff] bg-aboutbg  ">
         <div className="bg-hero-pattern">
-          <Logobtn />
-
+           <Logobtn/>
           <div className="relative z-50">
             <Navbar />
           </div>

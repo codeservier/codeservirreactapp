@@ -317,7 +317,8 @@ const Admin = () => {
 
   return (
     <>
-      <Logobtn authData={authData} />
+               <Logobtn/>
+
       <div className="relative z-50">
         <Navbar authData={authData}/>
       </div>

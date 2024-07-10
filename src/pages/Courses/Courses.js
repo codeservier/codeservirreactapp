@@ -17,14 +17,16 @@ import flutter from "../../assets/courses/flutter.png";
 import html from "../../assets/courses/html3.jpg";
 import css from "../../assets/courses/css2.png";
 import tailwindcss from "../../assets/courses/tailwindcss.png";
-import internshipImage1 from "../../assets/courses/internship/6monthintern.png";
-import internshipImage2 from "../../assets/courses/internship/summerintern.png";
-import internshipImage3 from "../../assets/courses/internship/threemonthintern.png";
+import internshipImage1 from "../../assets/courses/internship/6monthimg.png";
+import internshipImage2 from "../../assets/courses/internship/3monthimg.png";
+import internshipImage3 from "../../assets/courses/internship/45dayimg.png";
+import internshipImage4 from "../../assets/courses/internship/2.png";
 
 const slideshowImages = [
-  { id: 1, image: internshipImage1, path: "/InternshipForm" },
-  { id: 2, image: internshipImage2, path: "/Our3MontIntern" },
-  { id: 3, image: internshipImage3, path: "/InternshipForm" },
+  { id: 1, image: internshipImage1, path: "/Our6MonthIntern" },
+  { id: 2, image: internshipImage2, path: "/Our3monthDev" },
+  { id: 3, image: internshipImage3, path: "/Our45daysIntern" },
+  { id: 4, image: internshipImage4, path: "/Our1YearCourse" },
 ];
 
 const coursesData = [
@@ -147,7 +149,8 @@ const Courses = () => {
 
   return (
     <>
-      <Logobtn />
+               <Logobtn/>
+
       <div className="relative z-50">
         <Navbar />
       </div>

@@ -59,21 +59,21 @@ const LandingPage = () => {
   `;
 
   return (
-    <div className="sm:mx-[10rem]">
+    <div className="lg:mx-[10rem] mid:mx-[5rem] ">
       <style>{slideAnimation}</style>
-      <div className="flex flex-col md:flex-row md:max-w-screen rounded-lg overflow-hidden">
-        <div className="px-10  md:p-10 flex flex-col justify-center w-full mb-4 md:mb-0">
-          <h1 className="text-5xl md:text-7xl font-semibold text-[#dda242] mb-4 font-lilita">
+      <div className="flex flex-col lg:flex-row md:max-w-screen  rounded-lg overflow-hidden">
+        <div className="px-10 flex flex-col justify-center w-full mb-4 md:mb-0">
+          <h1 className="lg:text-7xl text-4xl mid:text-7xl font-semibold text-[#dda242] mb-4 font-lilita">
             Meet Innovation With Execution,{" "}
             <span className="text-[#26baf6]">Futuristic Solutions</span>
           </h1>
 
-          <p className="text-[#16615f] mb-8 text-3xl font-lilita">
+          <p className="text-[#16615f] mb-8 lg:text-3xl text-2xl font-lilita">
             Discover the latest innovations and solutions with codeservir.
           </p>
           <button
             onClick={() => navigate("/ContactPage")}
-            className="bg-gradient-to-r from-yellow-400 to-sky-400 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:bg-gradient-to-l transition duration-300 ease-in-out transform hover:scale-105"
+            className="w-[10rem] bg-gradient-to-r from-yellow-400 to-sky-400 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:bg-gradient-to-l transition duration-300 ease-in-out transform hover:scale-105"
           >
             Get In Touch
           </button>
@@ -90,13 +90,13 @@ const LandingPage = () => {
             position: "relative",
           }}
         >
-          <div className="relative flex ">
+          <div className="relative flex  mt-20  ">
             <img
               src={slides[currentSlide]}
               alt="Slideshow"
-              className="w-full h-auto object-cover"
+              className="w-full h-full object-cover"
             />
-            <div className="bg-[#ffffff7e] rounded-2xl p-4 h-auto w-full sm:w-[50%] absolute md:top-0 bottom-0  flex flex-col justify-between shadow-lg transform transition-transform duration-300 ease-in-out hover:scale-105 sm:p-6 sm:h-[200px]">
+            <div className="bg-[#ff00007e] rounded-2xl p-4 h-auto w-full sm:w-[50%] absolute md:top-0 bottom-0  flex flex-col justify-between shadow-lg transform transition-transform duration-300 ease-in-out hover:scale-105 sm:p-6 sm:h-[200px]">
               <div className="flex  items-center mb-4">
                 <span className="text-blue-500 mr-2">
                   <svg

@@ -8,27 +8,28 @@ import Contact from "../../components/contact/Contact";
 const PrivacyPolicy = () => {
   return (
     <>
-      <Logobtn />
+               <Logobtn/>
+
       <div className="relative z-50">
         <Navbar />
       </div>
-      <div className="container mx-auto py-8 pt-[10rem] flex flex-col items-center">
-        <h1 className="text-7xl font-bold text-center mb-6 text-[#26baf6] font-lalita">
+      <div className="container mx-auto py-8 pt-[10rem] flex flex-col items-center px-4">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-center mb-6 text-[#26baf6] font-lalita">
           Privacy & Policy
         </h1>
 
-        <div className="w-full md:w-3/4 flex flex-col items-center">
+        <div className="w-full flex flex-col items-center lg:flex-row lg:items-start">
           {/* Side Image */}
-          <div className="w-1/2 mb-8">
+          <div className="w-full lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
             <img
               src={privacy}
               alt="Privacy Policy"
-              className="rounded-lg s w-full"
+              className="rounded-lg w-full"
             />
           </div>
 
           {/* Content */}
-          <div className="w-full lg:w-3/4 lg:pl-8">
+          <div className="w-full lg:w-1/2 shadow-md p-10">
             <div className="text-gray-800 space-y-8">
               <p className="text-gray-800 mb-6">
                 Codeservir Technologies ("we", "us", or "our") is committed to

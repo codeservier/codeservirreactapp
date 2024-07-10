@@ -7,7 +7,7 @@ const Services = () => {
   const servicesData = [
     {
       icon: faLaptopCode,
-      title: "Android & iOS ",
+      title: "Android & iOS",
       description: "Crafting robust, scalable Android & iOS apps customized to meet your business requirements for optimal mobile experiences.",
       bgColor: "bg-green-100",
       textColor: "text-green-800",
@@ -47,14 +47,13 @@ const Services = () => {
       bgColor: "bg-indigo-100",
       textColor: "text-indigo-800",
     },
-  
   ];
 
   return (
     <>
       <div className="bg-servicebg3 flex flex-col items-center justify-center py-8 pt-[10rem]">
-        <div className="flex flex-col md:flex-row items-center justify-center w-full md:w-3/4 p-6">
-          <div className="md:w-1/2 md:mr-4 text-center md:text-left">
+        <div className="flex flex-col mx-10 lg:flex-row items-center justify-center lg:w-3/4 p-6">
+          <div className="lg:w-1/2 md:mr-4 text-center md:text-left">
             <h2 className="md:text-7xl text-4xl font-lilita font-bold text-[#26baf6] mb-2">
               Building software for world changers
             </h2>
@@ -67,35 +66,36 @@ const Services = () => {
               in India.
             </p>
           </div>
-          <div className="md:w-1/2 md:ml-4">
-            <img src={aboutimg} alt="About Us" />
+          <div className="md:w-1/2 md:ml-4 mt-6 lg:mt-0">
+            <img src={aboutimg} alt="About Us" className="w-full rounded-lg " />
           </div>
         </div>
       </div>
 
       <div className="bg-[#FFF] mx-4 my-8 p-8 sm:p-16 rounded-2xl flex flex-col items-center">
-        <h1 className="font-lilita md:text-7xl text-4xl sm:text-5xl font-bold text-[#26baf6] mb-6 sm:mb-10">
-          Our Services
-        </h1>
-        <div className="w-full flex flex-wrap justify-center gap-6 px-4">
-          {servicesData.map((service, index) => (
-            <div
-              key={index}
-              className={`${service.bgColor} p-8 sm:p-10 rounded-lg shadow-md flex flex-col items-center w-full sm:w-1/3 lg:w-1/4`}
-            >
-              <div className="flex items-center justify-center w-20 h-20 mb-4 rounded-full bg-white">
-                <FontAwesomeIcon icon={service.icon} className={`text-4xl ${service.textColor}`} />
-              </div>
-              <h2 className={`text-2xl sm:text-4xl font-semibold mb-4 ${service.textColor}`}>
-                {service.title}
-              </h2>
-              <p className="text-gray-700 text-center">
-                {service.description}
-              </p>
-            </div>
-          ))}
+  <h1 className="font-lilita md:text-7xl text-4xl sm:text-5xl font-bold text-[#26baf6] mb-6 sm:mb-10">
+    Our Services
+  </h1>
+  <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4">
+    {servicesData.map((service, index) => (
+      <div
+        key={index}
+        className={`${service.bgColor} p-8 sm:p-10 rounded-lg shadow-md flex flex-col items-center`}
+      >
+        <div className="flex items-center justify-center w-20 h-20 mb-4 rounded-full bg-white">
+          <FontAwesomeIcon icon={service.icon} className={`text-4xl ${service.textColor}`} />
         </div>
+        <h2 className={`text-2xl sm:text-4xl font-semibold mb-4 ${service.textColor}`}>
+          {service.title}
+        </h2>
+        <p className="text-gray-700 text-center">
+          {service.description}
+        </p>
       </div>
+    ))}
+  </div>
+</div>
+
     </>
   );
 };

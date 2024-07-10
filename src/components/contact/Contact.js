@@ -162,8 +162,7 @@ const Contact = () => {
                 <span className="text-2xl font-concert block font-bold">
                   Phone Number
                 </span>
-                <span className="font-concert block">+91 522 316 9897</span>
-                <span className="font-concert block">+91-9455791624</span>
+                <span className="font-concert block">+91 945-579-1624</span>
               </div>
             </div>
             <div className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow border">
@@ -171,10 +170,12 @@ const Contact = () => {
                 <span className="text-2xl font-concert block font-bold">
                   Email Address
                 </span>
-                <span className="font-concert block">
-                  coderservir@gmail.com
-                </span>
-                <span className="font-concert block">info@codeservir.com</span>
+                {/* https://www.facebook.com/codeservirtechnologies */}
+                {/* https://x.com/CodeServir */}
+                {/* https://in.linkedin.com/company/codeservir-technologies-private-limited */}
+                {/* https://www.instagram.com/codeservir/ */}
+                
+                <span className="font-concert block">info@codeservir.com,  coderservir@gmail.com</span>
               </div>
             </div>
           </div>
@@ -195,28 +196,28 @@ const Contact = () => {
                   Social Media
                 </span>
                 <a
-                  href="https://www.facebook.com"
+                  href="https://www.facebook.com/codeservirtechnologies"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <FaFacebook size={30} className="text-blue-600" />
                 </a>
                 <a
-                  href="https://www.twitter.com"
+                  href="https://x.com/CodeServir"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <FaTwitter size={30} className="text-blue-400" />
                 </a>
                 <a
-                  href="https://www.linkedin.com"
+                  href="https://in.linkedin.com/company/codeservir-technologies-private-limited"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <FaLinkedin size={30} className="text-blue-700" />
                 </a>
                 <a
-                  href="https://www.instagram.com"
+                  href="https://www.instagram.com/codeservir/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

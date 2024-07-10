@@ -44,7 +44,7 @@ const FAQ = () => {
   return (
     <>
       <div className="bg-hero-pattern">
-        <Logobtn />
+      <Logobtn/>
 
         <div className="relative z-50">
           <Navbar />

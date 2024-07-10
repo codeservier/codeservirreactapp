@@ -37,13 +37,13 @@ const footerData = {
   ],
   contact: {
     email: "info@codeservir.com",
-    phone: "+91 9455791624",
-    location: "Vishesh Khand Gomti Nagar, Lucknow",
+    phone: "+91 945-579-1624",
+    location: "4/37 Vibhav Khand Gomti Nagar, Lucknow, Uttar Pradesh, 226010 ",
   },
   social: [
     {
       name: "Facebook",
-      href: "https://www.facebook.com/codeservir",
+      href: "https://www.facebook.com/codeservirtechnologies",
       icon: faFacebook,
     },
     { name: "Instagram", href: "#", icon: faInstagram },
@@ -51,12 +51,12 @@ const footerData = {
     { name: "YouTube", href: "#", icon: faYoutube },
     {
       name: "Twitter",
-      href: "https://twitter.com/codeservir",
+      href: "https://x.com/CodeServir",
       icon: faTwitter,
     },
     {
       name: "LinkedIn",
-      href: "https://www.linkedin.com/company/codeservir",
+      href: "https://in.linkedin.com/company/codeservir-technologies-private-limited",
       icon: faLinkedin,
     },
   ],

@@ -4,6 +4,12 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      screens: {
+        // 'md': '500',
+        'lg': '1250px',
+        'mid': { 'min': '600px', 'max': '1250px' },
+       
+      },
       backgroundImage: {
         "hero-pattern1": "url('/src/assets/backgrounds_images/bg_22.png')",
         "hero-pattern2": "url('/src/assets/backgrounds_images/bg5.jpg')",

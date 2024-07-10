@@ -63,14 +63,13 @@ const Home = () => {
   return (
     <div className="bg-[#ffffff]">
       {isPopupOpen && <Popup onClose={handleClosePopup} />}
-      {/* {isPopupOpen && <PopupCourse onClose={handleClosePopup} />} */}
 
       <Logobtn authData={authData} />
       <div className="relative z-50">
         <Navbar authData={authData} />
       </div>
 
-      <div className="pt-[150px] min-h-screenbg-no-repeat bg-cover bg-center ">
+      <div className="pt-[150px] min-h-screenbg-no-repeat  ">
         <LandingPage />
       </div>
       <div className="bg-white-img bg-[50%] bg-no-repeat bg-cover ">

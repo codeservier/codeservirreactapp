@@ -8,7 +8,7 @@ import Logobtn from "../../components/Logobtn/Logobtn";
 const ServicesInner = () => {
   return (
     <div>
-      <Logobtn />
+           <Logobtn/>
 
       <div className="relative z-50">
         <Navbar />

@@ -112,7 +112,8 @@ const SignUp = () => {
 
   return (
     <>
-      <Logobtn />
+               <Logobtn/>
+
       <div className="relative z-50">
         <Navbar />
       </div>

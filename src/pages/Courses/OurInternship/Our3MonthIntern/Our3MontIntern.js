@@ -3,11 +3,12 @@ import internimg from "../../../../assets/courses/internship/internimg2.jpg";
 import Logobtn from "../../../../components/Logobtn/Logobtn";
 import Navbar from "../../../../components/Navbar/Navbar";
 import Footer from "../../../../components/Footer/Footer";
-
+import { useNavigate } from "react-router-dom";
 const Our3MontIntern = () => {
+  const navigate = useNavigate();
   return (
     <>
-      <Logobtn />
+           <Logobtn/>
 
       <div className="relative z-50">
         <Navbar />
@@ -38,7 +39,9 @@ const Our3MontIntern = () => {
               {renderCourseDetails()}
             </div>
             <div className="text-center">
-              <button className="bg-red-600 text-white font-bold py-2 px-4 rounded-full hover:bg-red-700 transition duration-300">
+              <button 
+              onClick={() => navigate('/InternshipForm')}
+              className="bg-red-600 text-white font-bold py-2 px-4 rounded-full hover:bg-red-700 transition duration-300">
                 Fill the Form or Join Now
               </button>
             </div>

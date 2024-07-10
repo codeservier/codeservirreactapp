@@ -281,8 +281,10 @@ const InternshipForm = () => {
   };
 
   return (
+    
     <div className="bg-gradient-to-r from-blue-500 to-red-400 min-h-screen">
-      <Logobtn />
+                 <Logobtn/>
+
       <div className="relative z-50">
         <Navbar />
       </div>
@@ -290,14 +292,14 @@ const InternshipForm = () => {
         <div className="bg-white shadow-lg rounded-lg flex flex-col md:flex-row overflow-hidden max-w-6xl w-full relative">
           <div className="md:w-1/2 w-full relative p-4 flex flex-col justify-start">
             <div
-              className="absolute inset-0 bg-cover bg-center md:opacity-100 opacity-60"
+              className="absolute inset-0 bg-cover bg-center md:opacity-100 opacity-60 "
               style={{ backgroundImage: `url(${internImg})` }}
             ></div>
             <div className="relative z-10">
-              <h1 className="text-4xl font-bold text-[red] font-lilita">
+              <h1 className="text-4xl font-bold text-[white] font-lilita">
                 INTERNSHIP PROGRAM
               </h1>
-              <p className="font-concert text-black mb-4">
+              <p className="font-concert text-3xl font-bold text-[#2196F3] mb-4">
                 Join our internship program and gain valuable experience in the
                 field.
               </p>
@@ -322,7 +324,7 @@ const InternshipForm = () => {
                       id={field.id}
                       value={formData[field.id]}
                       onChange={handleChange}
-                      className="mb-5 font-concert shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      className=" font-concert shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     >
                       {field.options.map((option, index) => (
                         <option
@@ -409,6 +411,7 @@ const InternshipForm = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };
