@@ -397,11 +397,14 @@ const InternshipForm = () => {
                 )}
               </div>
 
-              <CustomButton
-                type="submit"
+              <div className="">
+              <CustomButton 
+               type="submit"
                 label="Submit"
-                className={"bg-[blue] rounded-lg text-white p-2"}
-              />
+              className="btn2 w-full bg-black text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300 p-5" />
+            </div>
+       
+            
               {loading && (
                 <div className="absolute inset-0 flex justify-center items-center">
                   <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>

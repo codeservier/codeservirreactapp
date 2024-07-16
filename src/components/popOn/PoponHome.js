@@ -6,7 +6,7 @@ const Popup = ({ onClose }) => {
   // CSS for the blinking effect
   const styles = `
     .blink-button {
-      animation: blink 1s infinite;
+      animation: blink 2s infinite;
     }
 
     @keyframes blink {

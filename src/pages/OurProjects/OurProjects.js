@@ -2,26 +2,31 @@ import React from "react";
 import projectImage1 from "../../assets/projectImages/car.png";
 import projectImage2 from "../../assets/projectImages/proj2_fitnesss.png";
 import medicalimg from "../../assets/projectImages/sh.png";
+import { useNavigate } from "react-router-dom";
+
 
 const OurProjects = () => {
+
+      const navigate  = useNavigate();
+
   const projects = [
     {
       title: "Car washing Android & ios",
       description: "Streamlined booking for expert car detailing. Schedule services, manage bookings, and ensure your vehicle shines.",
       image: projectImage1,
-      demoLink: "https://example.com/office-demo",
+      demoLink:'/ComingSoon'
     },
     {
       title: "Shree Hari Medical Store",
       description: "Shree Hari Medical Store: Modern shopping mall hosting diverse stores, including a prominent medical outlet.",
       image: medicalimg,
-      demoLink: "https://example.com/mall-demo",
+      demoLink: '/ComingSoon'
     },  
     {
       title: "RK Fitness Android & ios ",
       description: "A tranquil Fitness studio app fostering mindfulness and exercise practices, designed for serene wellness experiences",
       image: projectImage2,
-      demoLink: "https://example.com/yoga-studio-demo",
+      demoLink: '/ComingSoon'
     },
  
     // Add more projects as needed
@@ -52,7 +57,7 @@ const OurProjects = () => {
                   {project.description}
                 </p>
                 <a
-                  href={project.demoLink}
+                   href={project.demoLink}
                   className="absolute bottom-4 right-4 text-[#26baf6] font-semibold cursor-pointer animate-blink"
                 >
                   Live Demo

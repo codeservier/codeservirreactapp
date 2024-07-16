@@ -145,8 +145,8 @@ const LoginPage = () => {
               />
               <span id="errorpassword" className="text-red-600"></span>
             </div>
-            <div className="flex justify-center">
-              <CustomButton className="btn2 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300 p-5" />
+            <div className="">
+              <CustomButton className="btn2 w-full bg-black text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300 p-5" />
             </div>
             <div className="text-center text-gray-600">
               Sign in with other apps
