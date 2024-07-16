@@ -69,7 +69,7 @@ const Home = () => {
         <Navbar authData={authData} />
       </div>
 
-      <div className="pt-[150px] min-h-screenbg-no-repeat  ">
+      <div className="pt-[110px]  min-h-screenbg-no-repeat  ">
         <LandingPage />
       </div>
       <div className="bg-white-img bg-[50%] bg-no-repeat bg-cover ">

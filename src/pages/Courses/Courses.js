@@ -149,23 +149,19 @@ const Courses = () => {
 
   return (
     <>
-               <Logobtn/>
-
+      <Logobtn />
       <div className="relative z-50">
         <Navbar />
       </div>
-      <div className="min-h-screen bg-gray-100 md:p-40 pt-40 px-5 ">
-        <h1 className="text-8xl text-[#26baf6] font-bold text-center mb-10 font-lilita">
+      <div className=" bg-gray-100 md:p-20">
+        <h1 className="text-8xl text-[#26baf6] font-bold text-center mb-10 font-lilita pt-32 md:pt-10">
           Our Courses
         </h1>
-
+ 
         {/* Internship Program Section */}
-        <div className="flex flex-col md:flex-row justify-center mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mb-10">
           {slideshowImages.map((item) => (
-            <div
-              key={item.id}
-              className="relative w-full md:w-1/3 mx-2 mb-4 md:mb-0"
-            >
+            <div key={item.id} className="relative w-full mx-2 mb-4 md:mb-0">
               <img
                 src={item.image}
                 alt="Internship Program"
@@ -190,7 +186,7 @@ const Courses = () => {
         </div>
 
         {/* Courses Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {coursesData.map((course) => (
             <div
               key={course.id}

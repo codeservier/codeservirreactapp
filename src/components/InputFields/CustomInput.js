@@ -4,7 +4,7 @@ import "tailwindcss/tailwind.css";
 const CustomInput = ({ style, placeholder, label, id, type, onChange, value }) => {
   return (
     <div className="mb-4 relative">
-      <label className="block text-sm font-bold text-gray-700 mb-2" htmlFor={id}>
+      <label className="block text-sm font-bold text-gray-700 ml-1" htmlFor={id}>
         {label}
       </label>
       <input

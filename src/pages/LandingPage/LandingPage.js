@@ -96,7 +96,7 @@ const LandingPage = () => {
               alt="Slideshow"
               className="w-full h-full object-cover"
             />
-            <div className="bg-[#ff00007e] rounded-2xl p-4 h-auto w-full sm:w-[50%] absolute md:top-0 bottom-0  flex flex-col justify-between shadow-lg transform transition-transform duration-300 ease-in-out hover:scale-105 sm:p-6 sm:h-[200px]">
+            <div className="bg-[#fff] rounded-2xl border p-1 h-auto w-full sm:w-[50%] absolute md:top-0 bottom-0  flex flex-col justify-between shadow-lg transform transition-transform duration-300 ease-in-out hover:scale-105 sm:p-6 sm:h-[200px]">
               <div className="flex  items-center mb-4">
                 <span className="text-blue-500 mr-2">
                   <svg
@@ -118,7 +118,7 @@ const LandingPage = () => {
                   {getSlideContent(currentSlide)}
                 </h2>
               </div>
-              <button className="bg-gradient-to-r from-yellow-400 to-sky-400 text-white font-semibold px-4 py-2 rounded-full shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:scale-105">
+              <button onClick={()=>navigate("/ComingSoon")} className="bg-gradient-to-r from-yellow-400 to-sky-400 text-white font-semibold px-4 py-2 rounded-full shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:scale-105">
                 Learn More
               </button>
             </div>
