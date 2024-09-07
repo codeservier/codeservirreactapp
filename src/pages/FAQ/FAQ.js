@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Navbar from "../../components/Navbar/Navbar";
-import Logobtn from "../../components/Logobtn/Logobtn";
+import Navbar from "../Layout/Navbar";
+import Logobtn from "../Layout/Logobtn";
 import Footer from "../../components/Footer/Footer";
 import fqaQ from "../../assets/backgrounds_images/faqbg.jpg";
 
@@ -44,11 +44,6 @@ const FAQ = () => {
   return (
     <>
       <div className="bg-hero-pattern">
-      <Logobtn/>
-
-        <div className="relative z-50">
-          <Navbar />
-        </div>
 
         <div className=" bg-hero-pattern flex flex-col md:flex-row justify-center items-center p-6 pt-[10rem]">
           <div className="text-center max-w-3xl mb-6 md:mb-0 md:mr-6">
@@ -117,7 +112,7 @@ const FAQ = () => {
         </div>
       </div>
 
-      <Footer />
+ 
     </>
   );
 };

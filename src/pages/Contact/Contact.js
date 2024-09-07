@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import CustomButton from "../../components/Buttons/CustomButton";
 import CustomInput from "../../components/InputFields/CustomInput";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../../components/Navbar/Navbar";
-import Logobtn from "../../components/Logobtn/Logobtn";
+import Navbar from "../Layout/Navbar";
+import Logobtn from "../Layout/Logobtn";
 import Footer from "../../components/Footer/Footer";
 import contactImg from "../../assets/logo.png";
 import Textarea from "../../components/InputFields/Textarea";
@@ -22,19 +22,10 @@ const ContactPage = () => {
 
   return (
     <>
-     <div className="bg-[#ebfbff] min-h-screen">
-           <Logobtn/>
-
-      <div className="relative z-50">
-        <Navbar />
+      <div className="bg-[#ebfbff] min-h-screen">
+        <Contact />
       </div>
-      <Contact/>
-   
-    </div>
-    <Footer />
-
     </>
-   
   );
 };
 

@@ -1,8 +1,8 @@
 import React from "react";
 import SideImage from "../../assets/backgrounds_images/termbg2.png";
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar from "../Layout/Navbar";
 import Footer from "../../components/Footer/Footer";
-import Logobtn from "../../components/Logobtn/Logobtn";
+import Logobtn from "../Layout/Logobtn";
 import termbg from "../../assets/backgrounds_images/termbg.jpg";
 
 const TermsOfService = () => {

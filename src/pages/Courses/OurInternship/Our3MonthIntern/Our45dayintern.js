@@ -1,7 +1,7 @@
 import React from "react";
 import internimg from "../../../../assets/courses/internship/internimg2.jpg";
-import Logobtn from "../../../../components/Logobtn/Logobtn";
-import Navbar from "../../../../components/Navbar/Navbar";
+import Logobtn from "../../../Layout/Logobtn";
+import Navbar from "../../../Layout/Navbar";
 import Footer from "../../../../components/Footer/Footer";
 
 import { useNavigate } from "react-router-dom";

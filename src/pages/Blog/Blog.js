@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "../../components/Navbar/Navbar";
-import Logobtn from "../../components/Logobtn/Logobtn";
+import Navbar from "../Layout/Navbar";
+import Logobtn from "../Layout/Logobtn";
 import Footer from "../../components/Footer/Footer";
 
 const Blog = () => {

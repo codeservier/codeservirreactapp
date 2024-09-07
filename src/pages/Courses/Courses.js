@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../../components/Navbar/Navbar";
-import Logobtn from "../../components/Logobtn/Logobtn";
+import Navbar from "../Layout/Navbar";
+import Logobtn from "../Layout/Logobtn";
 import Footer from "../../components/Footer/Footer";
 import JavaScript from "../../assets/courses/javascript2.png";
 import cpp from "../../assets/courses/cppcourseimg.png";
@@ -149,10 +149,7 @@ const Courses = () => {
 
   return (
     <>
-      <Logobtn />
-      <div className="relative z-50">
-        <Navbar />
-      </div>
+ 
       <div className=" bg-gray-100 md:p-20">
         <h1 className="text-8xl text-[#26baf6] font-bold text-center mb-10 font-lilita pt-32 md:pt-10">
           Our Courses
@@ -211,7 +208,7 @@ const Courses = () => {
           ))}
         </div>
       </div>
-      <Footer />
+   
     </>
   );
 };

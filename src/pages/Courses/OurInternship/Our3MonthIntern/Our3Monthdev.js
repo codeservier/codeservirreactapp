@@ -1,16 +1,14 @@
 import React from "react";
 import internimg from "../../../../assets/courses/internship/internimg2.jpg";
-import Logobtn from "../../../../components/Logobtn/Logobtn";
-import Navbar from "../../../../components/Navbar/Navbar";
+import Logobtn from "../../../Layout/Logobtn";
+import Navbar from "../../../Layout/Navbar";
 import Footer from "../../../../components/Footer/Footer";
 import { useNavigate } from "react-router-dom";
 const Our3monthDev = () => {
   const navigate = useNavigate();
   return (
     <>
-      <Logobtn />
       <div className="relative z-50">
-        <Navbar />
       </div>
       <div className="bg-gray-100 p-8">
         <div className="max-w-7xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-[10rem]">
@@ -47,8 +45,7 @@ const Our3monthDev = () => {
           </div>
         </div>
       </div>
-      <Footer />
-    </>
+      </>
   );
 };
 

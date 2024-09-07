@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
 import { FaClipboard, FaClipboardCheck } from "react-icons/fa";
-import Logobtn from "../../../../components/Logobtn/Logobtn";
-import Navbar from "../../../../components/Navbar/Navbar";
+import Logobtn from "../../../Layout/Logobtn";
+import Navbar from "../../../Layout/Navbar";
 import Footer from "../../../../components/Footer/Footer";
 
 

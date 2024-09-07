@@ -6,8 +6,8 @@ import googleLogo from "../../../assets/googlelogo.png";
 import facebookLogo from "../../../assets/facbooklogo.png";
 import githubLogo from "../../../assets/githublogo.png";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../../../components/Navbar/Navbar";
-import Logobtn from "../../../components/Logobtn/Logobtn";
+import Navbar from "../../Layout/Navbar";
+import Logobtn from "../../Layout/Logobtn";
 import Footer from "../../../components/Footer/Footer";
 import { auth, db } from "../../../config/config";
 const SignUp = () => {
@@ -112,11 +112,7 @@ const SignUp = () => {
 
   return (
     <>
-               <Logobtn/>
-
-      <div className="relative z-50">
-        <Navbar />
-      </div>
+              
       <div className="flex flex-col items-center justify-center bg-gray-100 pt-[6rem] pb-10">
         <div className="w-full max-w-6xl p-8 bg-white rounded-lg shadow-md mt-10 flex flex-col md:flex-row md:space-x-8">
           {/* Image Section */}
@@ -229,7 +225,6 @@ const SignUp = () => {
           </form>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

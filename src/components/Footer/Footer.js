@@ -71,7 +71,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#000000] text-white relative overflow-hidden w-full font-poppins pt-16 ">
+    <footer className="bg-[#275a6e] text-white relative overflow-hidden w-full font-poppins pt-16 ">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
           {/* First column with logo, description, and social icons */}

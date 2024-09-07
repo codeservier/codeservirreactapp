@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "tailwindcss/tailwind.css";
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar from "../Layout/Navbar.js";
 import Footer from "../../components/Footer/Footer";
 import LandingPage from "../LandingPage/LandingPage";
 import Services from "../Services.js/Services";
 import OurProjects from "../OurProjects/OurProjects";
-import Logobtn from "../../components/Logobtn/Logobtn";
+import Logobtn from "../Layout/Logobtn.js";
 import DevCycle from "../DevCycle/DevCycle";
 import Contact from "../../components/contact/Contact";
-import Popup from "../../components/popOn/PoponHome"; // Ensure you have this path correct
-// import PopupCourse from "../../components/popOn/PopupCourse";
+import Popup from "../../components/popOn/PoponHome";   
 
 import { auth, db } from "../../config/config.js"; // Adjust the import path as needed
 import { doc, getDoc } from "firebase/firestore";
@@ -32,7 +31,6 @@ const Home = () => {
   };
 
   useEffect(() => {
-    // Show popup when the component mounts
     setIsPopupOpen(true);
   }, []);
 
@@ -61,26 +59,20 @@ const Home = () => {
   }, [navigate]);
 
   return (
-    <div className="bg-[#ffffff]">
+    <div className="bg-[#000000]">
       {isPopupOpen && <Popup onClose={handleClosePopup} />}
 
-      <Logobtn authData={authData} />
-      <div className="relative z-50">
-        <Navbar authData={authData} />
-      </div>
-
-      <div className="pt-[110px]  min-h-screenbg-no-repeat  ">
+      <div className="  min-h-screen bg-no-repeat  ">
         <LandingPage />
       </div>
       <div className="bg-white-img bg-[50%] bg-no-repeat bg-cover ">
         <Services />
       </div>
       <DevCycle />
-      <div className="">
+      
         <OurProjects />
-      </div>
+   
       <Contact />
-      <Footer />
     </div>
   );
 };

@@ -3,14 +3,13 @@ import CustomButton from "../../../components/Buttons/CustomButton";
 import CustomInput from "../../../components/InputFields/CustomInput";
 import headerBg from "../../../assets/header-bg.jpg";
 import { useState } from "react";
-import maya from "../../../assets/news-2.png";
 import googleLogo from "../../../assets/googlelogo.png";
 import facebookLogo from "../../../assets/facbooklogo.png";
 import githubLogo from "../../../assets/githublogo.png";
 import { auth, db } from "../../../config/config";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../../../components/Navbar/Navbar";
-import Logobtn from "../../../components/Logobtn/Logobtn";
+import Navbar from "../../Layout/Navbar";
+import Logobtn from "../../Layout/Logobtn";
 import Footer from "../../../components/Footer/Footer";
 
 const LoginPage = () => {
@@ -107,11 +106,7 @@ const LoginPage = () => {
 
   return (
     <>
-               <Logobtn/>
-
-      <div className="relative z-50">
-        <Navbar />
-      </div>
+            
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 pt-[5rem]">
         <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
           <div className="flex justify-center">
@@ -167,7 +162,6 @@ const LoginPage = () => {
           </form>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

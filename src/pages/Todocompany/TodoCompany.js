@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import { firebase, db } from "../../config/config";
-import Logobtn from "../../components/Logobtn/Logobtn";
-import Navbar from "../../components/Navbar/Navbar";
+import Logobtn from "../Layout/Logobtn";
+import Navbar from "../Layout/Navbar";
 import Footer from "../../components/Footer/Footer";
 
 const TodoCompany = () => {

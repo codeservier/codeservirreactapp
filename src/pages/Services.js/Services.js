@@ -51,7 +51,7 @@ const Services = () => {
 
   return (
     <>
-      <div className="bg-servicebg3 flex flex-col items-center justify-center py-8 pt-[10rem]">
+      <div className="bg-servicebg3 flex flex-col items-center justify-center py-8  ">
         <div className="flex flex-col mx-10 lg:flex-row items-center justify-center lg:w-3/4 p-6">
           <div className="lg:w-1/2 md:mr-4 text-center md:text-left">
             <h2 className="md:text-7xl text-4xl font-lilita font-bold text-[#26baf6] mb-2">
@@ -72,7 +72,7 @@ const Services = () => {
         </div>
       </div>
 
-      <div className="bg-[#FFF] mx-4 my-8 p-8 sm:p-16 rounded-2xl flex flex-col items-center">
+      <div className="bg-[#000] mx-4 my-8 p-8 sm:p-16 rounded-2xl flex flex-col items-center">
   <h1 className="font-lilita md:text-7xl text-4xl sm:text-5xl font-bold text-[#26baf6] mb-6 sm:mb-10">
     Our Services
   </h1>

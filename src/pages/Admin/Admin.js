@@ -22,8 +22,8 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import Logobtn from "../../components/Logobtn/Logobtn.js";
-import Navbar from "../../components/Navbar/Navbar.js";
+import Logobtn from "../Layout/Logobtn.js";
+import Navbar from "../Layout/Navbar.js";
 import Footer from "../../components/Footer/Footer.js";
 
 // Register necessary chart components

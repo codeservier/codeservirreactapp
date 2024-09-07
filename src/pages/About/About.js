@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar from "../Layout/Navbar";
 import Footer from "../../components/Footer/Footer";
-import Logobtn from "../../components/Logobtn/Logobtn";
+import Logobtn from "../Layout/Logobtn";
 import aboutimg from "../../assets/backgrounds_images/aboutbg2.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCogs, faUsers, faGlobe } from "@fortawesome/free-solid-svg-icons";
@@ -57,11 +57,7 @@ const About = () => {
     <>
       <div className=" bg-[#ebfbff] bg-aboutbg  ">
         <div className="bg-hero-pattern">
-           <Logobtn/>
-          <div className="relative z-50">
-            <Navbar />
-          </div>
-
+         
           <div className=" bg-white bg-hero-pattern flex flex-col md:flex-row justify-center items-center p-6 pt-[10rem]">
             <div className=" max-w-3xl mb-6 md:mb-0 md:mr-6">
               <h1 className="text-[#26baf6] font-lilita md:text-6xl text-4xl font-bold mb-4">
@@ -108,7 +104,7 @@ const About = () => {
           </div>
         </div>
 
-        <Footer />
+    
       </div>
     </>
   );
