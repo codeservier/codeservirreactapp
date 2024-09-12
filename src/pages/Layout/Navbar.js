@@ -115,10 +115,10 @@ const Navbar = ({ authData }) => {
                 }
               >
                 {item.dropdown ? (
-                  <div className="relative">
+                  <div className="relativ e">
                     <span
                       onClick={() => handleLinkClick(item.to)}
-                      className={`font-concert text-white hover:text-blue-500 transition duration-300 font-semibold uppercase rounded-full px-3 py-1 cursor-pointer ${
+                      className={`font-concert text-black hover:text-blue-500 transition duration-300 font-semibold uppercase rounded-full px-3 py-1 cursor-pointer ${
                         item.highlight ? "highlight" : ""
                       }`}
                     >
@@ -128,7 +128,7 @@ const Navbar = ({ authData }) => {
                       )}
                     </span>
                     <ul
-                      className={`absolute left-0 mt-2 w-40 bg-white border shadow-lg rounded-lg py-2 ${
+                      className={`absolute left-0 mt-2 w-40 bg-black border shadow-lg rounded-lg py-2 ${
                         dropdownVisible ? "block" : "hidden"
                       }`}
                     >
@@ -136,7 +136,7 @@ const Navbar = ({ authData }) => {
                         <li key={dropdownIndex}>
                           <span
                             onClick={() => handleLinkClick(dropdownItem.to)}
-                            className="font-concert text-white hover:text-blue-500 block px-4 py-2 text-sm cursor-pointer"
+                            className="font-concert text-black hover:text-blue-500 block px-4 py-2 text-sm cursor-pointer"
                           >
                             {dropdownItem.label}
                           </span>
@@ -147,7 +147,7 @@ const Navbar = ({ authData }) => {
                 ) : (
                   <span
                     onClick={() => handleLinkClick(item.to)}
-                    className={`font-concert text-white hover:text-blue-500 transition duration-300 font-semibold uppercase rounded-full px-3 py-1 cursor-pointer ${
+                    className={`font-concert text-black hover:text-blue-500 transition duration-300 font-semibold uppercase rounded-full px-3 py-1 cursor-pointer ${
                       item.highlight ? "highlight" : ""
                     }`}
                   >
@@ -169,7 +169,7 @@ const Navbar = ({ authData }) => {
               </h1>
               <button
                 onClick={handleLogout}
-                className="bg-[#21c4ff] text-white text-lg px-4 md:px-6 py-1 rounded-full hover:scale-105 hover:bg-black transition duration-300"
+                className="bg-[#21c4ff] text-black text-lg px-4 md:px-6 py-1 rounded-full hover:scale-105 hover:bg-black transition duration-300"
               >
                 Logout
               </button>
@@ -198,11 +198,11 @@ const Navbar = ({ authData }) => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 z-50 left-0 w-full h-full bg-black bg-opacity-50 z-40 transition-transform duration-300 ${
+        className={`fixed top-0 z-50 left-0 w-full h-full bg-black bg-opacity-50  transition-transform duration-300 ${
           isOpenMenu ? "transform translate-x-0" : "transform -translate-x-full"
         }`}
       >
-        <div className="bg-white p-5">
+        <div className="bg-[#0c7987] p-5">
           <ul className="flex flex-col items-center space-y-4">
             {menuData.map((item, index) => (
               <li key={index} className="w-full">
@@ -210,16 +210,16 @@ const Navbar = ({ authData }) => {
                   <div className="relative w-full">
                     <button
                       onClick={() => handleLinkClick(item.to)}
-                      className={`block w-full text-center font-concert text-white hover:text-blue-500 transition duration-300 font-semibold uppercase rounded-full px-3 py-1 ${
-                        item.highlight ? "highlight" : ""
+                      className={`block w-full text-center font-concert text-black hover:text-blue-500 transition duration-300 font-semibold uppercase rounded-full px-3 py-1 ${
+                        item.highlight ? "highlight " : ""
                       }`}
                     >
-                      {item.label}
+                      <span className="text-black">{item.label}</span>
                       {item.highlight && (
                         <FontAwesomeIcon icon={faStar} className="ml-2" />
                       )}
                     </button>
-                    <ul className="absolute left-0 mt-2 w-full bg-white border shadow-lg rounded-lg py-2">
+                    <ul className="absolute left-0 mt-2 w-full bg-black border shadow-lg rounded-lg py-2">
                       {item.dropdown.map((dropdownItem, dropdownIndex) => (
                         <li key={dropdownIndex}>
                           <span

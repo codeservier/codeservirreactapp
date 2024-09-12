@@ -1,8 +1,5 @@
 import React, { useState,useEffect } from "react";
 import { FaClipboard, FaClipboardCheck } from "react-icons/fa";
-import Logobtn from "../../../Layout/Logobtn";
-import Navbar from "../../../Layout/Navbar";
-import Footer from "../../../../components/Footer/Footer";
 
 
 const cppTutorialData1 = [
@@ -403,11 +400,9 @@ const Cpp = () => {
 
   return (
     <>
-               <Logobtn/>
+     
 
-      <div className="relative z-50">
-        <Navbar />
-      </div>
+ 
       <div className="flex flex-col md:flex-row min-h-screen bg-gray-50 md:pt-[10rem] pt-[6rem]">
         <button
           onClick={toggleSidebar}
@@ -479,7 +474,6 @@ const Cpp = () => {
           </div>
         </main>
       </div>
-      <Footer />
     </>
   );
 };

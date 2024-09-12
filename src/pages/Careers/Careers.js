@@ -1,14 +1,10 @@
 import React from "react";
-import Navbar from "../Layout/Navbar";
-import Logobtn from "../Layout/Logobtn";
-import Footer from "../../components/Footer/Footer";
+
 
 const Careers = () => {
   return (
     <>
-               <Logobtn/>
 
-      <Navbar />
       <div className="bg-gray-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-3xl font-bold text-gray-800 mb-6">
@@ -69,7 +65,7 @@ const Careers = () => {
           </div>
         </div>
       </div>
-      <Footer />
+
     </>
   );
 };

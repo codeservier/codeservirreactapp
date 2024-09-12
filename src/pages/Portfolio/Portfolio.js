@@ -1,14 +1,10 @@
 import React from "react";
 import Navbar from "../Layout/Navbar";
-import Logobtn from "../Layout/Logobtn";
-import Footer from "../../components/Footer/Footer";
 
 const Portfolio = () => {
   return (
     <div>
-                 <Logobtn/>
 
-      <Navbar />
       <div>
         <div className="bg-gray-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
@@ -71,7 +67,7 @@ const Portfolio = () => {
           </div>
         </div>
       </div>
-      <Footer />
+
     </div>
   );
 };

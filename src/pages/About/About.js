@@ -1,7 +1,4 @@
 import React from "react";
-import Navbar from "../Layout/Navbar";
-import Footer from "../../components/Footer/Footer";
-import Logobtn from "../Layout/Logobtn";
 import aboutimg from "../../assets/backgrounds_images/aboutbg2.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCogs, faUsers, faGlobe } from "@fortawesome/free-solid-svg-icons";

@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "../Layout/Navbar";
-import Logobtn from "../Layout/Logobtn";
-import Footer from "../../components/Footer/Footer";
+
 import fqaQ from "../../assets/backgrounds_images/faqbg.jpg";
 
 const questions = [

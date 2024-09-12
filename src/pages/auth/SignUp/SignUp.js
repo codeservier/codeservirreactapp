@@ -6,9 +6,7 @@ import googleLogo from "../../../assets/googlelogo.png";
 import facebookLogo from "../../../assets/facbooklogo.png";
 import githubLogo from "../../../assets/githublogo.png";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../../Layout/Navbar";
-import Logobtn from "../../Layout/Logobtn";
-import Footer from "../../../components/Footer/Footer";
+
 import { auth, db } from "../../../config/config";
 const SignUp = () => {
   const navigate = useNavigate();
