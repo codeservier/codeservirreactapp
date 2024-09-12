@@ -1,8 +1,5 @@
 import React from "react";
 import internimg from "../../../../assets/courses/internship/internimg2.jpg";
-import Logobtn from "../../../Layout/Logobtn";
-import Navbar from "../../../Layout/Navbar";
-import Footer from "../../../../components/Footer/Footer";
 import { useNavigate } from "react-router-dom";
 const Our6MonthIntern = () => {
 
@@ -10,10 +7,7 @@ const Our6MonthIntern = () => {
   const navigate = useNavigate();
   return (
     <>
-      <Logobtn />
-      <div className="relative z-50">
-        <Navbar />
-      </div>
+  
       <div className="bg-gray-100 p-8">
         <div className="max-w-7xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-[10rem]">
           <div className="relative">
@@ -49,7 +43,6 @@ const Our6MonthIntern = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

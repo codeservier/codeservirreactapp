@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "../Layout/Navbar.js";
-import Footer from "../../components/Footer/Footer";
-import Logobtn from "../Layout/Logobtn.js";
+
 import CustomInput from "../../components/InputFields/CustomInput";
 import CustomButton from "../../components/Buttons/CustomButton";
 import CustomCheckbox from "../../components/Checkbox/Checkbox";

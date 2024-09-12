@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "tailwindcss/tailwind.css";
-import Navbar from "../Layout/Navbar.js";
-import Footer from "../../components/Footer/Footer";
 import LandingPage from "../LandingPage/LandingPage";
 import Services from "../Services.js/Services";
 import OurProjects from "../OurProjects/OurProjects";
-import Logobtn from "../Layout/Logobtn.js";
 import DevCycle from "../DevCycle/DevCycle";
 import Contact from "../../components/contact/Contact";
 import Popup from "../../components/popOn/PoponHome";   

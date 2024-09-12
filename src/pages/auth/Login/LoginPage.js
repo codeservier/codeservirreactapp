@@ -8,9 +8,7 @@ import facebookLogo from "../../../assets/facbooklogo.png";
 import githubLogo from "../../../assets/githublogo.png";
 import { auth, db } from "../../../config/config";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../../Layout/Navbar";
-import Logobtn from "../../Layout/Logobtn";
-import Footer from "../../../components/Footer/Footer";
+
 
 const LoginPage = () => {
   const navigate = useNavigate();

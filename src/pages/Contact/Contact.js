@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import CustomButton from "../../components/Buttons/CustomButton";
 import CustomInput from "../../components/InputFields/CustomInput";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../Layout/Navbar";
-import Logobtn from "../Layout/Logobtn";
-import Footer from "../../components/Footer/Footer";
+
 import contactImg from "../../assets/logo.png";
 import Textarea from "../../components/InputFields/Textarea";
 import Contact from "../../components/contact/Contact";

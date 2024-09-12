@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import { firebase, db } from "../../config/config";
-import Logobtn from "../Layout/Logobtn";
-import Navbar from "../Layout/Navbar";
-import Footer from "../../components/Footer/Footer";
+
 
 const TodoCompany = () => {
-  // State variables to hold data
   const [expenses, setExpenses] = useState([]);
   const [income, setIncome] = useState([]);
   const [companyName, setCompanyName] = useState("");
   const [amount, setAmount] = useState("");
-  const [transactionType, setTransactionType] = useState("expense"); // Default to expense
+  const [transactionType, setTransactionType] = useState("expense"); 
   const [selectedDate, setSelectedDate] = useState(""); // State for selected date
 
-  // Fetch data from Firebase on component mount
   useEffect(() => {
     const unsubscribe = db.collection("transactions").onSnapshot((snapshot) => {
       const transactions = snapshot.docs.map((doc) => ({
@@ -34,9 +30,8 @@ const TodoCompany = () => {
     return () => unsubscribe();
   }, []);
 
-  // Filter transactions based on selected date
   const filteredTransactions = expenses.concat(income).filter((transaction) => {
-    if (!selectedDate) return true; // If no date is selected, show all transactions
+    if (!selectedDate) return true; 
     const transactionDate = transaction.timestamp
       .toDate()
       .toISOString()
@@ -44,7 +39,6 @@ const TodoCompany = () => {
     return transactionDate === selectedDate;
   });
 
-  // Calculate total income and total expenses for the filtered transactions
   const totalIncome = filteredTransactions
     .filter((transaction) => transaction.type === "income")
     .reduce((acc, curr) => acc + curr.amount, 0);
@@ -53,7 +47,6 @@ const TodoCompany = () => {
     .reduce((acc, curr) => acc + curr.amount, 0);
   const remainingBalance = totalIncome - totalExpenses;
 
-  // State for chart data
   const [chartData, setChartData] = useState({
     labels: ["Total"],
     datasets: [
@@ -149,11 +142,7 @@ const TodoCompany = () => {
 
   return (
     <>
-               <Logobtn/>
-
-      <div className="relative z-50">
-        <Navbar />
-      </div>
+  
       <div className="container mx-auto pt-[10rem] px-4">
         <h1 className="text-3xl font-bold text-center mb-4">
           Company Financials
@@ -304,7 +293,6 @@ const TodoCompany = () => {
           />
         </div>
       </div>
-      <Footer />
     </>
   );
 };

@@ -1,18 +1,14 @@
 import React from "react";
 import privacy from "../../assets/backgrounds_images/privacypolicy2.jpg";
-import Logobtn from "../Layout/Logobtn";
-import Navbar from "../Layout/Navbar";
-import Footer from "../../components/Footer/Footer";
+
 import Contact from "../../components/contact/Contact";
 
 const PrivacyPolicy = () => {
   return (
     <>
-               <Logobtn/>
+          
 
-      <div className="relative z-50">
-        <Navbar />
-      </div>
+
       <div className="container mx-auto py-8 pt-[10rem] flex flex-col items-center px-4">
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-center mb-6 text-[#26baf6] font-lalita">
           Privacy & Policy
@@ -131,7 +127,6 @@ const PrivacyPolicy = () => {
         </div>
       </div>
       <Contact />
-      <Footer />
     </>
   );
 };

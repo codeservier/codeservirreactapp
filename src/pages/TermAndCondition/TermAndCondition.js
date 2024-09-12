@@ -1,18 +1,12 @@
 import React from "react";
 import SideImage from "../../assets/backgrounds_images/termbg2.png";
 import Navbar from "../Layout/Navbar";
-import Footer from "../../components/Footer/Footer";
-import Logobtn from "../Layout/Logobtn";
 import termbg from "../../assets/backgrounds_images/termbg.jpg";
 
 const TermsOfService = () => {
   return (
     <div className="bg-termbg min-h-screen">
-           <Logobtn/>
-
-      <div className="relative z-50">
-        <Navbar />
-      </div>
+ 
       <div className="container mx-auto px-4 py-8 pt-[10rem] flex flex-col items-center">
         <h1 className="text-4xl sm:text-5xl md:text-8xl font-bold mb-6 font-lilita text-[#26baf6] text-center">
           Terms & Conditions
@@ -138,7 +132,6 @@ const TermsOfService = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

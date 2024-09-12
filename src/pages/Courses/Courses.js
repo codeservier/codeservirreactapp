@@ -1,8 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../Layout/Navbar";
-import Logobtn from "../Layout/Logobtn";
-import Footer from "../../components/Footer/Footer";
+
 import JavaScript from "../../assets/courses/javascript2.png";
 import cpp from "../../assets/courses/cppcourseimg.png";
 import WebDev from "../../assets/courses/web-development1.png";

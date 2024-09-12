@@ -22,9 +22,6 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import Logobtn from "../Layout/Logobtn.js";
-import Navbar from "../Layout/Navbar.js";
-import Footer from "../../components/Footer/Footer.js";
 
 // Register necessary chart components
 ChartJS.register(
@@ -317,11 +314,8 @@ const Admin = () => {
 
   return (
     <>
-               <Logobtn/>
 
-      <div className="relative z-50">
-        <Navbar authData={authData}/>
-      </div>
+   
       <div className="min-h-screen bg-gray-100 flex flex-col items-center">
         <header className="bg-white shadow w-full">
           <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 pt-[12rem]">
@@ -507,7 +501,6 @@ const Admin = () => {
           </section>
         </main>
       </div>
-      <Footer />
     </>
   );
 };
