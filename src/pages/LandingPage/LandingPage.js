@@ -61,31 +61,31 @@ const LandingPage = () => {
 
   return (
     <div
-    className="h-screen mx-auto flex flex-col lg:flex-row items-center justify-center px-4 py-8 bg-cover bg-center"
+    className="mx-auto flex flex-col lg:flex-row items-center justify-center px-4 py-8 bg-cover bg-center"
     style={{ backgroundImage: `url(${backgroundImage})` }}
   >   
     <style>{slideAnimation}</style>
   
-    <div className="flex flex-col lg:flex-row w-full lg:w-[80%] rounded-lg overflow-hidden container mx-auto">
+    <div className="flex flex-col lg:flex-row w-full rounded-lg overflow-hidden container mx-auto">
       
-      <div className="flex flex-col justify-center w-full lg:w-1/2 px-4 mb-4 lg:mb-0 lg:px-10">
+      <div className="flex flex-col justify-center w-full  px-8  lg:mb-0 lg:px-40">
         <h1 className="text-4xl lg:text-5xl xl:text-6xl font-semibold text-[#FF8A00] mb-4 font-lilita">
           Meet Innovation With Execution,{" "}
           <span className="text-[#26baf6]">Futuristic Solutions</span>
         </h1>
-        <p className="text-xl lg:text-2xl xl:text-3xl text-[#16615f] mb-8 font-lilita">
+        <p className="text-xl lg:text-2xl xl:text-3xl text-[#16615f] font-lilita">
           Discover the latest innovations and solutions with codeservir.
         </p>
         <button
           onClick={() => navigate("/ContactPage")}
-          className="w-full lg:w-[12rem] bg-gradient-to-r from-yellow-400 to-sky-400 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:bg-gradient-to-l transition duration-300 ease-in-out transform hover:scale-105"
+          className="w-full lg:w-[12rem] bg-gradient-to-r -z-50 from-yellow-400 to-sky-400 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:bg-gradient-to-l transition duration-300 ease-in-out transform hover:scale-105"
         >
           Get In Touch
         </button>
       </div>
   
       <div
-        className={`relative w-full p-4 lg:p-8 lg:w-1/2 h-[300px] lg:h-[800px] overflow-hidden ${
+        className={`relative max-w-screen-2xl p-4 lg:p-8  overflow-hidden ${
           entering ? "slide-enter" : ""
         }`} 
       >
@@ -94,7 +94,7 @@ const LandingPage = () => {
           alt="Slideshow"
           className="w-full h-full object-cover"
         />
-        <div className="absolute bottom-0 left-0 w-full sm:w-[60%] lg:w-[50%] bg-white rounded-2xl border p-4 sm:p-6 shadow-lg transform transition-transform duration-300 ease-in-out hover:scale-105">
+        <div className="md:absolute bottom-12 left-0 w-full sm:w-[70%] lg:w-[70%] bg-white opacity-80 rounded-2xl border p-4 sm:p-6 shadow-lg transform transition-transform duration-300 ease-in-out hover:scale-95">
           <div className="flex items-center mb-4">
             <span className="text-blue-500 mr-2">
               <svg

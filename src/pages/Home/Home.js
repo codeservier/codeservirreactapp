@@ -6,7 +6,7 @@ import Services from "../Services.js/Services";
 import OurProjects from "../OurProjects/OurProjects";
 import DevCycle from "../DevCycle/DevCycle";
 import Contact from "../../components/contact/Contact";
-import Popup from "../../components/popOn/PoponHome";   
+import Popup from "../../components/popOn/PoponHome";
 
 import { auth, db } from "../../config/config.js"; // Adjust the import path as needed
 import { doc, getDoc } from "firebase/firestore";
@@ -59,16 +59,12 @@ const Home = () => {
     <div className="bg-[#000000]">
       {isPopupOpen && <Popup onClose={handleClosePopup} />}
 
-      <div className="  min-h-screen bg-no-repeat  ">
-        <LandingPage />
-      </div>
-      <div className="bg-white-img bg-[50%] bg-no-repeat bg-cover ">
-        <Services />
-      </div>
+      <LandingPage />
+      <Services />
       <DevCycle />
-      
-        <OurProjects />
-   
+
+      <OurProjects />
+
       <Contact />
     </div>
   );
