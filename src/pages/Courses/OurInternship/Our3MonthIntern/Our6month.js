@@ -4,10 +4,10 @@ import Logobtn from "../../../Layout/Logobtn";
 import Navbar from "../../../Layout/Navbar";
 import Footer from "../../../../components/Footer/Footer";
 import { useNavigate } from "react-router-dom";
+
 const Our6MonthIntern = () => {
-
-
   const navigate = useNavigate();
+
   return (
     <>
       <Logobtn />
@@ -30,8 +30,7 @@ const Our6MonthIntern = () => {
           </div>
           <div className="p-6">
             <p className="font-concert text-gray-800 mb-6">
-              Join our internship program and gain valuable experience in the
-              field.
+              Join our internship program and gain valuable experience in the field.
             </p>
             <div className="mb-6">
               <h2 className="text-2xl font-bold mb-4">
@@ -40,9 +39,10 @@ const Our6MonthIntern = () => {
               {renderCourseDetails()}
             </div>
             <div className="text-center">
-              <button 
-              onClick={() => navigate('/InternshipForm')}
-              className="bg-red-600 text-white font-bold py-2 px-4 rounded-full hover:bg-red-700 transition duration-300">
+              <button
+                onClick={() => navigate('/InternshipForm')}
+                className="bg-red-600 text-white font-bold py-2 px-4 rounded-full hover:bg-red-700 transition duration-300"
+              >
                 Fill the Form or Join Now
               </button>
             </div>
