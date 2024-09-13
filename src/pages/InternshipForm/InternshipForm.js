@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import CustomInput from "../../components/InputFields/CustomInput";
 import CustomButton from "../../components/Buttons/CustomButton";
 import CustomCheckbox from "../../components/Checkbox/Checkbox";
-import internImg from "../../assets/backgrounds_images/Internship.jpg";
+import internImg from "../../assets/backgrounds_images/bg_4.jpg";
 import "tailwindcss/tailwind.css";
 import { db, storage } from "../../config/config.js";
 import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
@@ -278,16 +278,16 @@ const InternshipForm = () => {
   };
 
   return (
-    <div className=" h-screen  flex justify-center   bg-gradient-to-r from-blue-500 to-red-400">
-      <div className=" flex mt-20  items-center justify-center ">
+    <div className="flex md:py-10   justify-center   bg-gradient-to-r from-blue-500 to-red-400">
+      <div className=" flex items-center justify-center ">
         <div className="bg-white shadow-lg rounded-lg flex flex-col md:flex-row overflow-hidden max-w-6xl w-full relative">
-          <div className="md:w-1/2 w-full relative p-4 flex flex-col justify-start">
+          <div className="md:w-1/2 w-full relative p-4 flex flex-col justify-start border-r">
             <div
-              className="absolute inset-0 bg-cover bg-center md:opacity-100 opacity-60 "
+              className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${internImg})` }}
             ></div>
             <div className="relative">
-              <h1 className="text-4xl font-bold text-white font-lilita">
+              <h1 className="text-4xl font-bold text-orange-500 font-lilita">
                 INTERNSHIP PROGRAM
               </h1>
               <p className="font-concert text-3xl font-bold text-[#2196F3] mb-4">
@@ -303,7 +303,7 @@ const InternshipForm = () => {
             </h2>
 
             <form onSubmit={handleSubmit}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4  p-6 ">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4   p-6 ">
                 {formFields.map((field) =>
                   field.type === "select" ? (
                     <div key={field.id}   >
