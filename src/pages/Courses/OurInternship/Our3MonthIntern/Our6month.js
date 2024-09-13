@@ -8,13 +8,13 @@ const Our6MonthIntern = () => {
   return (
     <>
   
-      <div className="bg-gray-100 p-8">
-        <div className="max-w-7xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-[10rem]">
-          <div className="relative">
+      <div className="bg-gray-100">
+        <div className="max-w-7xl mx-auto bg-white shadow-lg overflow-hidden ">
+          <div className=" ">
             <img
               src={internimg}
               alt="Internship Program"
-              className="w-full h-64 object-cover"
+              className="w-full h-64 object-cover -z-50 "
             />
             <div className="absolute inset-0 flex items-center justify-center">
               <h1 className="text-4xl font-bold text-[#00eaff] font-lilita bg-opacity-75 p-4 rounded">
@@ -22,7 +22,7 @@ const Our6MonthIntern = () => {
               </h1>
             </div>
           </div>
-          <div className="p-6">
+          <div className="px-1 py-3">
             <p className="font-concert text-gray-800 mb-6">
               Join our internship program and gain valuable experience in the field.
             </p>
@@ -50,11 +50,11 @@ const Our6MonthIntern = () => {
 const renderCourseDetails = () => (
   <div className="space-y-4">
     {coursePlan.map((month, index) => (
-      <div key={index} className="bg-gray-100 p-4 rounded-lg shadow-sm">
-        <h3 className="text-xl font-semibold mb-2">{month.title}</h3>
+      <div key={index} className="bg-gray-100 p-4 ">
+        <h3 className="text-xl text-orange-500 font-semibold mb-2">{month.title}</h3>
         {month.details.map((week, weekIndex) => (
           <div key={weekIndex} className="ml-4 mb-1">
-            <h4 className="text-lg font-semibold">{week.title}</h4>
+            <h4 className="text-lg text-gray-500 font-semibold">{week.title}</h4>
             {week.details.map((day, dayIndex) => (
               <p key={dayIndex} className="ml-4 mb-1">
                 {day}

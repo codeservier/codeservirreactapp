@@ -84,7 +84,7 @@ const Contact = () => {
 
   return (
     <>
-      <div className="pt-[10rem]">
+      <div>
         <h1 className="text-4xl md:text-8xl font-bold text-center text-[#26baf6] font-lilita underline">
           Contact Us
         </h1>
@@ -98,7 +98,7 @@ const Contact = () => {
             />
           </div>
           {/* Left section with form */}
-          <div className="w-full md:w-1/2 md:px-20 p-10 bg-contactbg bg-cover bg-center hover:bg-[#ffffff] duration-500 rounded-lg shadow-md">
+          <div className="w-full md:w-1/2 md:px-20 p-4 mb-4  md:p-10 bg-contactbg bg-cover bg-center hover:bg-[#ffffff] duration-500 rounded-lg shadow-md">
             <h1 className="text-3xl md:text-5xl font-bold text-center mb-8 font-lilita text-[#26baf6]">
               Take a meet
             </h1>
@@ -157,12 +157,12 @@ const Contact = () => {
             </form>
           </div>
         </div>
-        <div className="container mx-auto pb-12">
-          <div className="bg-[#ffffff] p-8 rounded-lg shadow-md mx-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="">
+          <div className="bg-[#ffffff] p-3 md:p-7 shadow-md">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow border">
                 <div>
-                  <span className="text-2xl font-concert block font-bold">
+                  <span className="text-xl font-concert block font-bold">
                     Phone Number
                   </span>
                   <span className="font-concert block">+91 945-579-1624</span>
@@ -170,8 +170,8 @@ const Contact = () => {
               </div>
               <div className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow border">
                 <div>
-                  <span className="text-2xl font-concert block font-bold">
-                    Email Address
+                <span className="text-xl font-concert block font-bold">
+                Email Address
                   </span>
                   <span className="font-concert block">
                     info@codeservir.com, coderservir@gmail.com
@@ -179,11 +179,11 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
               <div className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow border">
                 <div>
-                  <span className="text-2xl font-concert block font-bold">
-                    Address
+                <span className="text-xl font-concert block font-bold">
+                Address
                   </span>
                   <span className="font-concert block">
                     1234 Street Name, City, State, ZIP
@@ -192,8 +192,8 @@ const Contact = () => {
               </div>
               <div className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow border">
                 <div className="flex space-x-4">
-                  <span className="text-2xl font-concert block font-bold">
-                    Social Media
+                <span className="text-xl font-concert block font-bold">
+                Social Media
                   </span>
                   <a
                     href="https://www.facebook.com/codeservirtechnologies"
@@ -226,8 +226,8 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-1 gap-8 mt-8">
-              <div className="bg-white p-8 rounded-lg ">
+            <div className="mt-8">
+              <div className="bg-white p-2 rounded-lg ">
                 <h2 className="text-3xl md:text-6xl font-bold text-center mb-8 text-[#26baf6] font-lilita">
                   Our Location
                 </h2>
@@ -235,7 +235,7 @@ const Contact = () => {
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d271.4165368915143!2d81.0200616!3d26.8604014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be389340450d3%3A0xefe5d679c62b5a20!2sCodeServir%20Technologies!5e0!3m2!1sen!2sin!4v1689787406804!5m2!1sen!2sin"
                     width="100%"
-                    height="450"
+                    height="400px"
                     style={{ border: 0 }}
                     allowFullScreen=""
                     loading="lazy"

@@ -55,7 +55,7 @@ const About = () => {
       <div className=" bg-[#ebfbff] bg-aboutbg  ">
         <div className="bg-hero-pattern">
          
-          <div className=" bg-white bg-hero-pattern flex flex-col md:flex-row justify-center items-center p-6 pt-[10rem]">
+          <div className=" bg-white bg-hero-pattern flex flex-col md:flex-row justify-center items-center p-6 ">
             <div className=" max-w-3xl mb-6 md:mb-0 md:mr-6">
               <h1 className="text-[#26baf6] font-lilita md:text-6xl text-4xl font-bold mb-4">
                 Enhancing Customer Experience with Innovative Web and Mobile App

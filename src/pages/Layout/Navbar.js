@@ -98,7 +98,7 @@ const Navbar = ({ authData }) => {
     >
       <div className="flex container w-full mx-auto justify-between items-center px-4">
         <div className="flex items-center space-x-2 md:space-x-2">
-          <img src={logo} alt="Logo" className="h-12 md:h-12" />
+          <img src={logo} alt="Logo" className="h-9 md:h-12" />
         </div>
 
         <div className="hidden md:flex flex-grow justify-center items-center space-x-4">
@@ -124,11 +124,11 @@ const Navbar = ({ authData }) => {
                     >
                       {item.label}
                       {item.highlight && (
-                        <FontAwesomeIcon icon={faStar} className="ml-2" />
+                        <FontAwesomeIcon icon={faStar} className="ml-2 text-red-700 bg-red-500" />
                       )}
                     </span>
                     <ul
-                      className={`absolute left-0 mt-2 w-40 bg-white border shadow-lg rounded-lg py-2 ${
+                      className={`absolute left-0 mt-2 w-40 bg-black border shadow-lg rounded-lg py-2 ${
                         dropdownVisible ? "block" : "hidden"
                       }`}
                     >
@@ -153,7 +153,7 @@ const Navbar = ({ authData }) => {
                   >
                     {item.label}
                     {item.highlight && (
-                      <FontAwesomeIcon icon={faStar} className="ml-2" />
+                      <FontAwesomeIcon icon={faStar} className="ml-2 textred bg-blue-600" />
                     )}
                   </span>
                 )}
@@ -187,7 +187,7 @@ const Navbar = ({ authData }) => {
                 onClick={toggleMenu}
               >
                 <FontAwesomeIcon
-                  icon={isOpenMenu ? faTimes : faBars}
+                  icon={faBars}
                   className="h-6 w-6"
                 />
               </button>
@@ -203,6 +203,15 @@ const Navbar = ({ authData }) => {
         }`}
       >
         <div className="bg-[orange] p-5">
+        <button
+                className="lg:hidden text-gray-700 pr-4 focus:outline-none absolute top-5 right-0 z-50"
+                onClick={toggleMenu}
+              >
+                <FontAwesomeIcon
+                  icon={faTimes}
+                  className="h-6 w-6 "
+                />
+              </button>
           <ul className="flex flex-col items-center space-y-4">
             {menuData.map((item, index) => (
               <li key={index} className="w-full">

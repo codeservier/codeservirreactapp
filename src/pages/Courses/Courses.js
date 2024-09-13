@@ -149,7 +149,7 @@ const Courses = () => {
     <>
  
       <div className=" bg-gray-100 md:p-20">
-        <h1 className="text-8xl text-[#26baf6] font-bold text-center mb-10 font-lilita pt-32 md:pt-10">
+        <h1 className="text-6xl text-[#26baf6] font-bold text-center mb-10 font-lilita  pt-10">
           Our Courses
         </h1>
  

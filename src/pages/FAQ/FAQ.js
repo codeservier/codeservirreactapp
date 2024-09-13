@@ -43,12 +43,12 @@ const FAQ = () => {
     <>
       <div className="bg-hero-pattern">
 
-        <div className=" bg-hero-pattern flex flex-col md:flex-row justify-center items-center p-6 pt-[10rem]">
+        <div className=" bg-hero-pattern flex flex-col md:flex-row justify-center items-center p-6 ">
           <div className="text-center max-w-3xl mb-6 md:mb-0 md:mr-6">
             <h1 className="text-[#26baf6] font-lilita md:text-6xl text-4xl font-bold mb-4">
               Frequently Asked Questions
             </h1>
-            <p className=" font-concert md:text-2xl text-xl leading-relaxed ">
+            <p className=" font-concert md:text-2xl text-justify text-xl leading-relaxed ">
               Welcome to our Frequently Asked Questions (FAQ) section. Here
               you'll find answers to the most common queries about our software
               development services. From the technologies we use to our approach
