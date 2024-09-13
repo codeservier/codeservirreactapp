@@ -111,7 +111,7 @@ const SignUp = () => {
   return (
     <>
               
-      <div className="flex flex-col items-center justify-center bg-gray-100 pt-[6rem] pb-10">
+      <div className="flex flex-col items-center justify-center bg-gray-100  pb-10">
         <div className="w-full max-w-6xl p-8 bg-white rounded-lg shadow-md mt-10 flex flex-col md:flex-row md:space-x-8">
           {/* Image Section */}
           <div className="md:w-1/2 flex justify-center items-center">

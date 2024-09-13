@@ -118,7 +118,7 @@ const Navbar = ({ authData }) => {
                   <div className="relative">
                     <span
                       onClick={() => handleLinkClick(item.to)}
-                      className={`font-concert text-white hover:text-blue-500 transition duration-300 font-semibold uppercase rounded-full px-3 py-1 cursor-pointer ${
+                      className={`font-concert text-white hover:text-blue-500 transition duration-300 rounded-full px-3 py-1 cursor-pointer ${
                         item.highlight ? "highlight" : ""
                       }`}
                     >
@@ -147,7 +147,7 @@ const Navbar = ({ authData }) => {
                 ) : (
                   <span
                     onClick={() => handleLinkClick(item.to)}
-                    className={`font-concert text-white hover:text-blue-500 transition duration-300 font-semibold uppercase rounded-full px-3 py-1 cursor-pointer ${
+                    className={`font-concert text-white hover:text-blue-500 transition duration-300   rounded-full px-3 py-1 cursor-pointer ${
                       item.highlight ? "highlight" : ""
                     }`}
                   >
@@ -164,7 +164,7 @@ const Navbar = ({ authData }) => {
         <div className="flex items-center space-x-4">
           {authData && authData.name ? (
             <div className="hidden md:flex items-center space-x-2">
-              <h1 className="text-lg md:text-xl font-semibold">
+              <h1 className="text-lg md:text-xl ">
                 {authData.name}
               </h1>
               <button
@@ -219,7 +219,7 @@ const Navbar = ({ authData }) => {
                   <div className="relative w-full">
                     <button
                       onClick={() => handleLinkClick(item.to)}
-                      className={`block w-full text-center font-concert text-white hover:text-blue-500 transition duration-300 font-semibold uppercase rounded-full px-3 py-1 ${
+                      className={`block w-full text-center font-concert text-white hover:text-blue-500 transition duration-300  uppercase rounded-full px-3 py-1 ${
                         item.highlight ? "highlight" : ""
                       }`}
                     >
@@ -244,7 +244,7 @@ const Navbar = ({ authData }) => {
                 ) : (
                   <button
                     onClick={() => handleLinkClick(item.to)}
-                    className={`block w-full text-center font-concert text-white hover:text-blue-500 transition duration-300 font-semibold uppercase rounded-full px-3 py-1 ${
+                    className={`block w-full text-center font-concert text-white hover:text-blue-500 transition duration-300  uppercase rounded-full px-3 py-1 ${
                       item.highlight ? "highlight" : ""
                     }`}
                   >

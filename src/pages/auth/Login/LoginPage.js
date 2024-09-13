@@ -105,7 +105,7 @@ const LoginPage = () => {
   return (
     <>
             
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 pt-[5rem]">
+      <div className=" py-10 flex flex-col items-center justify-center bg-gray-100 ">
         <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
           <div className="flex justify-center">
             <img
