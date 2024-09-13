@@ -61,7 +61,7 @@ const LandingPage = () => {
 // hello>?
   return (
     <div
-    className="mx-auto flex flex-col lg:flex-row items-center justify-center px-4 py-8 bg-cover bg-center"
+    className="mx-auto md:h-screen flex flex-col lg:flex-row items-center justify-center px-4 bg-cover bg-center"
     style={{ backgroundImage: `url(${backgroundImage})` }}
   >   
     <style>{slideAnimation}</style>
