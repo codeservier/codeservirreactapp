@@ -63,49 +63,64 @@ const Services = () => {
 
   return (
     <>
-    <div className="bg-primary pb-20 ">
-      <div className="bg-primary  p-10 flex flex-col items-center justify-center    ">
-        <div className="flex flex-col md:mx-10 lg:flex-row  lg:w-3/4 ">
-          <div className="lg:w-1/2 px-10   md:mr-4 text-center md:text-left ">
-            <h2 className="md:text-6xl text-4xl font-lilita font-bold text-[#26baf6] mt-10  ">
-              Building software for world changers
-            </h2>
-            <p className=" text-textcolor text-xl text-justify mt-10 ">
-            We leverage modern technologies like AI, cloud computing, and data science to deliver scalable, high-performance software that supports your mission. From mobile applications to complex web platforms, we ensure that every solution we build is user-friendly, secure, and future-proof. Our approach focuses on collaboration and innovation, ensuring that the software we create not only meets your immediate needs but also evolves as your goals and the world around you change. Together, we’re building software that has the potential to make a lasting impact and inspire real change globally.
-            </p>
-          </div>
-          <div className="md:w-1/2 md:ml-4 mt-6 px-10 lg:mt-0">
-            <img src={aboutimg} alt="About Us" className="w-full rounded-lg " />
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-[#12121223]  sm:mx-[2rem] sm:p-16 rounded-2xl flex flex-col items-center ">
-        <h1 className="font-lilita md:text-7xl text-4xl sm:text-5xl font-bold text-[#26baf6] mb-6 sm:mb-10 py-4">
-          Our Services
-        </h1>
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 px-4">
-          {servicesData.map((service, index) => (
-            <div
-              key={index}
-              className={`${service.bgColor} p-4 sm:p-10 rounded-lg shadow-md flex flex-col items-center`}
-            >
-              <div className="flex items-center justify-center w-20 h-20 mb-4 rounded-full bg-white">
-                <FontAwesomeIcon
-                  icon={service.icon}
-                  className={`text-4xl ${service.textColor}`}
-                />
-              </div>
-              <h2
-                className={`text-2xl sm:text-4xl font-semibold mb-4 ${service.textColor}`}
-              >
-                {service.title}
+      <div className="bg-primary pb-20 ">
+        <div className="bg-primary md:p-10 flex flex-col items-center justify-center">
+          <div className="flex flex-col md:flex-row lg:w-3/4 items-center">
+            <div className="md:px-10 px-4 text-center md:text-left">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-lilita font-bold text-[#26baf6] mt-10">
+                Building software for world changers
               </h2>
-              <p className="text-gray-700 text-center">{service.description}</p>
+              <p className="text-textcolor text-base sm:text-lg md:text-xl lg:text-2xl text-justify mt-10">
+                We leverage modern technologies like AI, cloud computing, and
+                data science to deliver scalable, high-performance software that
+                supports your mission. From mobile applications to complex web
+                platforms, we ensure that every solution we build is
+                user-friendly, secure, and future-proof. Our approach focuses on
+                collaboration and innovation, ensuring that the software we
+                create not only meets your immediate needs but also evolves as
+                your goals and the world around you change. Together, we’re
+                building software that has the potential to make a lasting
+                impact and inspire real change globally.
+              </p>
             </div>
-          ))}
+            <div className="md:ml-4 mt-6 md:mt-0 px-4 flex items-center justify-center mb-5 md:w-[4000px] max-w-lg">
+              <img
+                src={aboutimg}
+                alt="About Us"
+                className="w-full h-auto rounded-lg"
+              />
+            </div>
+          </div>
         </div>
-      </div>
+
+        <div className="bg-[#9e999923]  sm:mx-[2rem] sm:p-16 rounded-2xl flex flex-col items-center ">
+          <h1 className="font-lilita md:text-7xl text-4xl sm:text-5xl font-bold text-[#26baf6] mb-6 sm:mb-10 py-4">
+            Our Services
+          </h1>
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols- 3 gap-6 px-4">
+            {servicesData.map((service, index) => (
+              <div
+                key={index}
+                className={`${service.bgColor} p-4 sm:p-10 rounded-lg shadow-md flex flex-col items-center`}
+              >
+                <div className="flex items-center justify-center w-20 h-20 mb-4 rounded-full bg-white">
+                  <FontAwesomeIcon
+                    icon={service.icon}
+                    className={`text-4xl ${service.textColor}`}
+                  />
+                </div>
+                <h2
+                  className={`text-2xl sm:text-4xl font-semibold mb-4 ${service.textColor}`}
+                >
+                  {service.title}
+                </h2>
+                <p className="text-gray-700 text-center">
+                  {service.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </>
   );

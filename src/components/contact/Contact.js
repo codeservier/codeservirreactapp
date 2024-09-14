@@ -161,9 +161,9 @@ const Contact = () => {
         </div>
       </div>
 
-      <div className="mt-8 container mx-auto border p-6 -lg rounded-lg">
+      <div className="mt-8 container mx-auto border md:p-6 -lg rounded-lg">
         <section class="">
-          <div class="container px-6 py-12 mx-auto">
+          <div class="container md:px-6 py-12 mx-auto">
          
             <div className="grid grid-cols-1 gap-12 mt-10 md:grid-cols-2 lg:grid-cols-3">
               <div className="flex flex-col items-center text-center">
@@ -219,7 +219,7 @@ const Contact = () => {
           </div>
         </section>
 
-        <div className=" p-6 rounded-lg  ">
+        <div className=" md:p-6 rounded-lg  ">
     
           <div className="flex justify-center">
             <iframe

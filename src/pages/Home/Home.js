@@ -20,7 +20,7 @@ const Home = () => {
     });
   }, []);
 
-  const handleClosePopup = () => {
+    const handleClosePopup = () => {
     setIsPopupOpen(false);
   };
 

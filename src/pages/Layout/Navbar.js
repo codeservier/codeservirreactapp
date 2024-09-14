@@ -18,7 +18,7 @@ const baseMenuData = [
 const Navbar = ({ authData }) => {
   const navigate = useNavigate();
   const [menuData, setMenuData] = useState(baseMenuData);
-  const [selectedItem, setSelectedItem] = useState(null); // Track selected item
+  const [selectedItem, setSelectedItem] = useState(null);
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -84,7 +84,7 @@ const Navbar = ({ authData }) => {
   return (
     <div
       className={`sticky py-4 top-0 shadow-gray-50 w-full ${
-        scrolled ? " bg-primary border-b rounded-b-sm z-50 " : "bg-primary "
+        scrolled ? " bg-primary border-b rounded-b-sm z-50 " : "bg-primary z-50 "
       }`}
     >
       <div className="flex container w-full mx-auto justify-between items-center px-4">
@@ -168,6 +168,7 @@ const Navbar = ({ authData }) => {
             ))}
           </ul>
         </div>
+
         <div className="flex items-center space-x-4">
           {authData && authData.name ? (
             <div className="hidden md:flex items-center space-x-2">
@@ -195,6 +196,67 @@ const Navbar = ({ authData }) => {
               </button>
             </>
           )}
+        </div>
+      </div>
+
+      {/* mobile view */}
+      <div
+        className={`fixed  top-0 left-0 w-full h-full bg-black bg-opacity-50 transition-transform duration-300 ${
+          isOpenMenu ? "transform translate-x-0" : "transform -translate-x-full"
+        }`}
+      >
+        <div className="bg-primary p-5 ">
+          <button
+            className="lg:hidden text-gray-700 pr-4 focus:outline-none absolute top-5 right-0 z-50"
+            onClick={toggleMenu}
+          >
+            <FontAwesomeIcon icon={faTimes} className="h-6 w-6 " />
+          </button>
+          <ul className="flex flex-col items-center space-y-4">
+            {menuData.map((item, index) => (
+              <li key={index} className="w-full">
+                {item.dropdown ? (
+                  <div className="relative w-full">
+                    <button
+                      onClick={() => handleLinkClick(item.to)}
+                      className={`block w-full text-center font-concert text-white hover:text-blue-500 transition duration-300  uppercase rounded-full px-3 py-1 ${
+                        item.highlight ? "highlight" : ""
+                      }`}
+                    >
+                      {item.label}
+                      {item.highlight && (
+                        <FontAwesomeIcon icon={faStar} className="ml-2" />
+                      )}
+                    </button>
+                    <ul className="absolute left-0 mt-2 w-full bg-white border shadow-lg rounded-lg py-2">
+                      {item.dropdown.map((dropdownItem, dropdownIndex) => (
+                        <li key={dropdownIndex}>
+                          <span
+                            onClick={() => handleLinkClick(dropdownItem.to)}
+                            className="font-concert text-gray-700 hover:text-blue-500 block px-4 py-2 text-sm cursor-pointer"
+                          >
+                            {dropdownItem.label}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => handleLinkClick(item.to)}
+                    className={`block w-full text-center font-concert text-white hover:text-blue-500 transition duration-300  uppercase rounded-full px-3 py-1 ${
+                      item.highlight ? "highlight" : ""
+                    }`}
+                  >
+                    {item.label}
+                    {item.highlight && (
+                      <FontAwesomeIcon icon={faStar} className="ml-2" />
+                    )}
+                  </button>
+                )}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>

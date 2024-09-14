@@ -184,7 +184,7 @@ const Footer = () => {
         <hr className=" border-gray-600 lg:my-8 my-8 mx-10" />
 
         {/* Footer bottom section */}
-        <div className="flex flex-col-reverse my-8 items-center justify-center sm:flex-row sm:items-center">
+        <div className="flex mx-10 flex-col-reverse my-8 items-center justify-center sm:flex-row sm:items-center">
           {/* Copyright notice */}
           <span className="text-sm text-gray-500 dark:text-gray-400 sm:text-center mb-4 sm:mb-0">
             © 2023{" "}
