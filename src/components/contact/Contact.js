@@ -4,7 +4,9 @@ import CustomButton from "../Buttons/CustomButton";
 import CustomInput from "../InputFields/CustomInput";
 import { db } from "../../config/config";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
-import contactImg from "../../assets/contactimg.png";
+import contactImg from "../../assets/svgfiles/contact.svg";
+import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
+import { MdLocationOn } from "react-icons/md";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -83,170 +85,155 @@ const Contact = () => {
   };
 
   return (
-    <>
-      <div>
-        <h1 className="text-4xl md:text-8xl font-bold text-center text-[#26baf6] font-lilita underline">
-          Contact Us
-        </h1>
-        <div className="container mx-auto flex flex-col md:flex-row justify-center items-center min-h-screen">
-          {/* Right section with image */}
-          <div className="w-full md:w-1/2 p-10">
-            <img
-              src={contactImg}
-              alt="Contact Illustration"
-              className="w-full h-auto"
-            />
-          </div>
-          {/* Left section with form */}
-          <div className="w-full md:w-1/2 md:px-20 p-4 mb-4  md:p-10 bg-contactbg bg-cover bg-center hover:bg-[#ffffff] duration-500 rounded-lg shadow-md">
-            <h1 className="text-3xl md:text-5xl font-bold text-center mb-8 font-lilita text-[#26baf6]">
-              Take a meet
-            </h1>
-            <form onSubmit={handleSubmit}>
-              <CustomInput
-                id="fullName"
-                label="Full Name"
-                type="text"
-                placeholder="Enter your full name"
-                value={formData.fullName}
-                onChange={handleChange}
-              />
-              {errors.fullName && (
-                <p className="text-red-500 text-xs italic">{errors.fullName}</p>
-              )}
-
-              <CustomInput
-                id="email"
-                label="Email Address"
-                type="email"
-                placeholder="Enter your email address"
-                value={formData.email}
-                onChange={handleChange}
-              />
-              {errors.email && (
-                <p className="text-red-500 text-xs italic">{errors.email}</p>
-              )}
-
-              <CustomInput
-                id="number"
-                label="Mobile Number"
-                placeholder="Enter your mobile number"
-                value={formData.number}
-                onChange={handleChange}
-              />
-              {errors.number && (
-                <p className="text-red-500 text-xs italic">{errors.number}</p>
-              )}
-
-              <CustomInput
-                id="message"
-                label="Message"
-                placeholder="Enter your message"
-                value={formData.message}
-                onChange={handleChange}
-              />
-              {errors.message && (
-                <p className="text-red-500 text-xs italic">{errors.message}</p>
-              )}
-
-              <CustomButton
-                type="submit"
-                label="Submit"
-                className="btn2 w-full bg-black text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300 p-5"
-              />
-            </form>
-          </div>
+    <div className="min-h-screen bg-mywhite py-8">
+      <div className="container mx-auto flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-8">
+        {/* Right section with image */}
+        <div className="w-full md:w-1/2 flex justify-center">
+          <img
+            src={contactImg}
+            alt="Contact Illustration"
+            className="w-full max-w-md"
+          />
         </div>
-        <div className="">
-          <div className="bg-[#ffffff] p-3 md:p-7 shadow-md">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow border">
-                <div>
-                  <span className="text-xl font-concert block font-bold">
-                    Phone Number
-                  </span>
-                  <span className="font-concert block">+91 945-579-1624</span>
-                </div>
-              </div>
-              <div className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow border">
-                <div>
-                <span className="text-xl font-concert block font-bold">
-                Email Address
-                  </span>
-                  <span className="font-concert block">
-                    info@codeservir.com, coderservir@gmail.com
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-              <div className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow border">
-                <div>
-                <span className="text-xl font-concert block font-bold">
-                Address
-                  </span>
-                  <span className="font-concert block">
-                    1234 Street Name, City, State, ZIP
-                  </span>
-                </div>
-              </div>
-              <div className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow border">
-                <div className="flex space-x-4">
-                <span className="text-xl font-concert block font-bold">
-                Social Media
-                  </span>
-                  <a
-                    href="https://www.facebook.com/codeservirtechnologies"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaFacebook size={30} className="text-blue-600" />
-                  </a>
-                  <a
-                    href="https://x.com/CodeServir"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaTwitter size={30} className="text-blue-400" />
-                  </a>
-                  <a
-                    href="https://in.linkedin.com/company/codeservir-technologies-private-limited"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaLinkedin size={30} className="text-blue-700" />
-                  </a>
-                  <a
-                    href="https://www.instagram.com/codeservir/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaInstagram size={30} className="text-pink-600" />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="mt-8">
-              <div className="bg-white p-2 rounded-lg ">
-                <h2 className="text-3xl md:text-6xl font-bold text-center mb-8 text-[#26baf6] font-lilita">
-                  Our Location
+
+        <div className="w-full md:w-1/2   border rounded-lg p-6 md:p-16">
+          <h1 className="text-3xl md:text-5xl font-bold text-center text-boldheading mb-6">
+            Get in Touch
+          </h1>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <CustomInput
+              id="fullName"
+              label="Full Name"
+              type="text"
+              placeholder="Enter your full name"
+              value={formData.fullName}
+              onChange={handleChange}
+            />
+            {errors.fullName && (
+              <p className="text-red-500 text-xs mt-7 italic">
+                {errors.fullName}
+              </p>
+            )}
+
+            <CustomInput
+              id="email"
+              label="Email Address"
+              type="email"
+              placeholder="Enter your email address"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            {errors.email && (
+              <p className="text-red-500 text-xs italic">{errors.email}</p>
+            )}
+
+            <CustomInput
+              id="number"
+              label="Mobile Number"
+              type="text"
+              placeholder="Enter your mobile number"
+              value={formData.number}
+              onChange={handleChange}
+            />
+            {errors.number && (
+              <p className="text-red-500 text-xs italic">{errors.number}</p>
+            )}
+
+            <CustomInput
+              id="message"
+              label="Message"
+              type="text"
+              placeholder="Enter your message"
+              value={formData.message}
+              onChange={handleChange}
+              textarea
+            />
+            {errors.message && (
+              <p className="text-red-500 text-xs italic">{errors.message}</p>
+            )}
+
+            <CustomButton
+              type="submit"
+              label="Submit"
+              className="w-full bg-black mt-12 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300"
+            />
+          </form>
+        </div>
+      </div>
+
+      <div className="mt-8 container mx-auto border p-6 -lg rounded-lg">
+        <section class="">
+          <div class="container px-6 py-12 mx-auto">
+         
+            <div className="grid grid-cols-1 gap-12 mt-10 md:grid-cols-2 lg:grid-cols-3">
+              <div className="flex flex-col items-center text-center">
+                <span className="inline-block p-3 text-primary rounded-full border border-primary">
+                  <AiOutlineMail className="w-6 h-6" />
+                </span>
+
+                <h2 className="mt-4 text-lg font-medium text-secondary">
+                  Email
                 </h2>
-                <div className="flex justify-center items-center p-0">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d271.4165368915143!2d81.0200616!3d26.8604014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be389340450d3%3A0xefe5d679c62b5a20!2sCodeServir%20Technologies!5e0!3m2!1sen!2sin!4v1689787406804!5m2!1sen!2sin"
-                    width="100%"
-                    height="400px"
-                    style={{ border: 0 }}
-                    allowFullScreen=""
-                    loading="lazy"
-                  ></iframe>
-                </div>
+                <p className="mt-2 text-gray-500 dark:text-gray-400">
+                  Our friendly team is here to help.
+                </p>
+                <p className="mt-2 text-blue-500 dark:text-blue-400">
+                info@codeservir.com
+
+                </p>
+              </div>
+
+              <div className="flex flex-col items-center text-center">
+              <span className="inline-block p-3 text-primary rounded-full border">
+              <MdLocationOn className="w-6 h-6" />
+                </span>
+
+                <h2 className="mt-4 text-lg font-medium text-secondary">
+                  Office
+                </h2>
+                <p className="mt-2 text-gray-500 dark:text-gray-400">
+                  Come say hello at our office HQ.
+                </p>
+                <p className="mt-2 text-blue-500 dark:text-blue-400">
+37 Vibhav Khand Gomti Nagar, Lucknow, Uttar Pradesh, 226010
+                </p>
+              </div>
+
+              <div className="flex flex-col items-center text-center">
+              <span className="inline-block p-3 text-primary rounded-full border">
+              <AiOutlinePhone className="w-6 h-6" />
+                </span>
+
+                <h2 className="mt-4 text-lg font-medium text-secondary">
+                  Phone
+                </h2>
+                <p className="mt-2 text-gray-500 dark:text-gray-400">
+                  Mon-Fri from 8am to 5pm.
+                </p>
+                <p className="mt-2 text-blue-500 dark:text-blue-400">
+                +91 945-579-1624
+
+                </p>
               </div>
             </div>
+          </div>
+        </section>
+
+        <div className=" p-6 rounded-lg  ">
+    
+          <div className="flex justify-center">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d271.4165368915143!2d81.0200616!3d26.8604014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be389340450d3%3A0xefe5d679c62b5a20!2sCodeServir%20Technologies!5e0!3m2!1sen!2sin!4v1689787406804!5m2!1sen!2sin"
+              width="100%"
+              height="400"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+            ></iframe>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

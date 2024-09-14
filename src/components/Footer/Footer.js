@@ -75,7 +75,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#275a6e] text-white relative overflow-hidden w-full font-poppins pt-16 ">
+    <footer className="bg-black  text-white relative overflow-hidden w-full font-poppins pt-16  ">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-xl relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
           {/* First column with logo, description, and social icons */}
@@ -83,7 +83,7 @@ const Footer = () => {
             <img
               src={logo}
               alt="Company Logo"
-              className="w-24 h-24 object-cover sticky bottom-0 "
+              className="w-36 h-36 -mt-8 object-cover sticky bottom-0 "
             />
             <h3>
               Enhancing Customer Experience with Innovative Web and Mobile App
@@ -93,15 +93,15 @@ const Footer = () => {
 
           {/* Second column with links */}
           <div className="mb-6">
-            <h2 className="mb-4 text-sm font-semibold uppercase text-white">
+            <h2 className="mb-4 text-sm font-semibold uppercase underline text-white">
               {footerData.sections[0].title}
             </h2>
             <ul className="text-white font-medium">
               {footerData.sections[0].links.map((link, index) => (
-                <li key={index} className="mb-2">
+                <li key={index} className="mb-1">
                   <span
                     onClick={() => handleLinkClick(link.path)}
-                    className="hover:underline cursor-pointer"
+                    className="hover:underline cursor-pointe text-sm"
                   >
                     {link.name}
                   </span>
@@ -112,15 +112,15 @@ const Footer = () => {
 
           {/* Third column with services links */}
           <div className="mb-6">
-            <h2 className="mb-4 text-sm font-semibold uppercase text-gray-900 dark:text-white">
-              {footerData.sections[1].title}
+          <h2 className="mb-4 text-sm font-semibold uppercase underline text-white">
+          {footerData.sections[1].title}
             </h2>
             <ul className="text-white font-medium">
               {footerData.sections[1].links.map((link, index) => (
-                <li key={index} className="mb-2">
+                <li key={index} className="mb-1">
                   <span
                     onClick={() => handleLinkClick(link.path)}
-                    className="hover:underline cursor-pointer"
+                    className="hover:underline cursor-pointer  text-sm"
                   >
                     {link.name}
                   </span>
@@ -131,28 +131,28 @@ const Footer = () => {
 
           {/* Fourth column with contact details */}
           <div className="mb-6">
-            <h2 className="mb-4 text-sm font-semibold uppercase text-gray-900 dark:text-white">
-              Contact
+          <h2 className="mb-4 text-sm font-semibold uppercase underline text-white">
+          Contact
             </h2>
             <ul className="text-white font-medium">
               <li className="mb-2">
                 <FontAwesomeIcon
                   icon={faEnvelope}
-                  className="mr-2 hover:text-[yellow]"
+                  className="mr-2 hover:text-[yellow]  text-sm"
                 />
                 {footerData.contact.email}
               </li>
-              <li className="mb-2">
-                <FontAwesomeIcon icon={faPhone} className="mr-2" />
+              <li className="mb-1">
+                <FontAwesomeIcon icon={faPhone} className="mr-1  text-sm" />
                 {footerData.contact.phone}
               </li>
               <li>
-                <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />
+                <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-1  text-sm " />
                 {footerData.contact.location}
               </li>
             </ul>
           </div>
-        </div>
+        </div>  
 
         <div className="flex justify-between flex-col md:flex-row">
          
@@ -181,7 +181,7 @@ const Footer = () => {
 
         {/* Horizontal line */}
       </div>
-        <hr className=" border-white lg:my-8 my-8" />
+        <hr className=" border-gray-600 lg:my-8 my-8 mx-10" />
 
         {/* Footer bottom section */}
         <div className="flex flex-col-reverse my-8 items-center justify-center sm:flex-row sm:items-center">

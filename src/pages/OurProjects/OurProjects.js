@@ -33,16 +33,16 @@ const OurProjects = () => {
   ];
 
   return (
-    <div className="md:p-10 sm:mx-[2rem] md:my-16 my-7">
+    <div className="md:p-10 sm:mx-[rem] md:my-16 my-7">
       <h1 className="md:text-8xl my-7 text-4xl font-semibold md:mb-10 text-[#26baf6] font-lilita text-center">
         Our Projects
       </h1>
-      <div className="bg-[#fff] md:p-12 p-6 rounded-lg">
+      <div className="bg-[#ffffff0d] md:p-12 p-6 rounded-2xl">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <div
-              key={index}
-              className="bg-[#ffffff] p-1 border-2 border-gray-200 rounded-md shadow-md flex flex-col relative"
+              key={index} 
+              className="bg-[#ffffff] p-4 border-2 border-gray-200 rounded-xl shadow-md flex flex-col relative"
             >
               <img
                 src={project.image}
@@ -50,10 +50,11 @@ const OurProjects = () => {
                 className="h-100 w-full object-cover rounded-lg mb-4"
               />
               <div className="flex-1 p-4">
-                <h3 className="text-3xl text-[#d4771f] font-semibold mb-2">
+                <h3 className="text-4xl text-[#000000ca] font-semibold mb-2">
+
                   {project.title}
                 </h3>
-                <p className="text-gray-700">
+                <p className="text-gray-700 mt-6 mb-4">
                   {project.description}
                 </p>
                 <a

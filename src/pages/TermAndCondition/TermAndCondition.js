@@ -1,7 +1,6 @@
 import React from "react";
 import SideImage from "../../assets/backgrounds_images/termbg2.png";
 import Navbar from "../Layout/Navbar";
-import termbg from "../../assets/backgrounds_images/termbg.jpg";
 
 const TermsOfService = () => {
   return (
@@ -17,12 +16,12 @@ const TermsOfService = () => {
             <img
               src={SideImage}
               alt="Side Image"
-              className="rounded-lg shadow-md w-full"
+              className="rounded-lg  w-full"
             />
           </div>
 
           {/* Content */}
-          <div className="w-full lg:w-1/2">
+          <div className="w-full lg:w-1/2 border border-gray-200 rounded-lg p-6">
             <div className="text-gray-800 space-y-8">
               <div>
                 <h2 className="text-2xl   mb-4">

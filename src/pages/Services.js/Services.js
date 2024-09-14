@@ -7,7 +7,7 @@ import {
   faShieldAlt,
   faBrain,
 } from "@fortawesome/free-solid-svg-icons";
-import aboutimg from "../../assets/backgrounds_images/servicebg.jpg";
+import aboutimg from "../../assets/svgfiles/bg/service.svg";
 
 const Services = () => {
   const servicesData = [
@@ -63,29 +63,25 @@ const Services = () => {
 
   return (
     <>
-      <div className="bg-servicebg3 flex flex-col items-center justify-center py-8  ">
-        <div className="flex flex-col md:mx-10 lg:flex-row  lg:w-3/4 p-6">
-          <div className="lg:w-1/2 md:p-14  md:mr-4 text-center md:text-left">
-            <h2 className="md:text-6xl text-4xl font-lilita font-bold text-[#26baf6] mb-2">
+    <div className="bg-primary pb-20 ">
+      <div className="bg-primary  p-10 flex flex-col items-center justify-center    ">
+        <div className="flex flex-col md:mx-10 lg:flex-row  lg:w-3/4 ">
+          <div className="lg:w-1/2 px-10   md:mr-4 text-center md:text-left ">
+            <h2 className="md:text-6xl text-4xl font-lilita font-bold text-[#26baf6] mt-10  ">
               Building software for world changers
             </h2>
-            <p className=" text-gray-700 text-xl text-justify ">
-              Websites are very essential nowadays. Whether it is a large scale
-              industry or a new startup everyone owns a website for their
-              company. It can upscale your reach to more people and that’s where
-              we come into picture. Technological expertise coupled with
-              excellent UX skills makes us the leading web development company
-              in India.
+            <p className=" text-textcolor text-xl text-justify mt-10 ">
+            We leverage modern technologies like AI, cloud computing, and data science to deliver scalable, high-performance software that supports your mission. From mobile applications to complex web platforms, we ensure that every solution we build is user-friendly, secure, and future-proof. Our approach focuses on collaboration and innovation, ensuring that the software we create not only meets your immediate needs but also evolves as your goals and the world around you change. Together, we’re building software that has the potential to make a lasting impact and inspire real change globally.
             </p>
           </div>
-          <div className="md:w-1/2 md:ml-4 mt-6 lg:mt-0">
+          <div className="md:w-1/2 md:ml-4 mt-6 px-10 lg:mt-0">
             <img src={aboutimg} alt="About Us" className="w-full rounded-lg " />
           </div>
         </div>
       </div>
 
-      <div className="bg-[#000] my-8 sm:p-16 rounded-2xl flex flex-col items-center">
-        <h1 className="font-lilita md:text-7xl text-4xl sm:text-5xl font-bold text-[#26baf6] mb-6 sm:mb-10">
+      <div className="bg-[#12121223]  sm:mx-[2rem] sm:p-16 rounded-2xl flex flex-col items-center ">
+        <h1 className="font-lilita md:text-7xl text-4xl sm:text-5xl font-bold text-[#26baf6] mb-6 sm:mb-10 py-4">
           Our Services
         </h1>
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 px-4">
@@ -109,6 +105,7 @@ const Services = () => {
             </div>
           ))}
         </div>
+      </div>
       </div>
     </>
   );

@@ -4,7 +4,6 @@ import LoginPage from "./pages/auth/Login/LoginPage";
 import SignUp from "./pages/auth/SignUp/SignUp";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
-import ContactPage from "./pages/Contact/Contact";
 import ServicesInner from "./pages/ServicesInner/ServicesInner";
 import About from "./pages/About/About";
 import Portfolio from "./pages/Portfolio/Portfolio";
@@ -25,6 +24,7 @@ import Our3monthDev from "./pages/Courses/OurInternship/Our3MonthIntern/Our3Mont
 import Our1YearCourse from "./pages/Courses/OurInternship/Our3MonthIntern/Our1Year.js";
 import Our45daysIntern from "./pages/Courses/OurInternship/Our3MonthIntern/Our45dayintern.js";
 import Layout from "./pages/Layout/Layout.js";
+import Contact from "./components/contact/Contact.js";
 const App = () => {
   return (
     <BrowserRouter>
@@ -36,7 +36,6 @@ const App = () => {
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/About" element={<About />} />
           <Route path="/Portfolio" element={<Portfolio />} />
-          <Route path="/ContactPage" element={<ContactPage />} />
           <Route path="/Blog" element={<Blog />} />
           <Route path="/Careers" element={<Careers />} />
           <Route path="/FAQ" element={<FAQ />} />
@@ -53,6 +52,7 @@ const App = () => {
           <Route path="/Our3monthDev" element={<Our3monthDev />} />
           <Route path="/Our1YearCourse" element={<Our1YearCourse />} />
           <Route path="/Our45daysIntern" element={<Our45daysIntern />} />
+          <Route path="/Contact" element={<Contact />} />
         </Route>
       </Routes>
     </BrowserRouter>

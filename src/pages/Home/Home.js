@@ -1,73 +1,49 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import "tailwindcss/tailwind.css";
+import React, { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import the AOS CSS file
+import Popup from "../../components/popOn/PoponHome";
 import LandingPage from "../LandingPage/LandingPage";
 import Services from "../Services.js/Services";
 import OurProjects from "../OurProjects/OurProjects";
 import DevCycle from "../DevCycle/DevCycle";
 import Contact from "../../components/contact/Contact";
-import Popup from "../../components/popOn/PoponHome";
 
-import { auth, db } from "../../config/config.js"; // Adjust the import path as needed
-import { doc, getDoc } from "firebase/firestore";
 const Home = () => {
-  const [isPopupOpen, setIsPopupOpen] = useState(true); // Add state for popup visibility
-  const navigate = useNavigate();
-  const [authData, setAuthData] = useState({});
 
-  const handleLogin = () => {
-    navigate("/LoginPage");
-  };
+  const [isPopupOpen, setIsPopupOpen] = useState(true); 
 
-  const handleSignup = () => {
-    navigate("/SignUp");
-  };
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, 
+      easing: "ease-in-out", 
+      once: true,
+    });
+  }, []);
 
   const handleClosePopup = () => {
     setIsPopupOpen(false);
   };
 
-  useEffect(() => {
-    setIsPopupOpen(true);
-  }, []);
-
-  useEffect(() => {
-    const fetchAuthData = async () => {
-      const user = auth.currentUser;
-      if (user) {
-        try {
-          // Retrieve user data from the database
-          const userDoc = await getDoc(doc(db, "users", user.uid));
-          if (userDoc.exists) {
-            const userData = userDoc.data();
-            console.log("User data:", userData);
-            setAuthData(userData);
-          } else {
-            console.error("No such user document!");
-            alert("No user data found.");
-          }
-        } catch (error) {
-          console.error("Error fetching auth data: ", error);
-        }
-      }
-    };
-
-    fetchAuthData();
-  }, [navigate]);
-
   return (
-    <div className="bg-[#000000]">
+    <div className="bg-primary">
       {isPopupOpen && <Popup onClose={handleClosePopup} />}
-
-      <LandingPage />
-      <Services />
-      <DevCycle />
-
-      <OurProjects />
-
-      <Contact />
+      <div data-aos="fade-up">
+        <LandingPage />
+      </div>
+      <div data-aos="fade-up">
+        <Services 
+         />
+      </div>
+      <div data-aos="fade-up">
+        <DevCycle />
+      </div>
+      <div data-aos="fade-up">
+        <OurProjects />
+      </div>
+      <div data-aos="fade-up">
+        <Contact />
+      </div>
     </div>
   );
 };
-
 export default Home;

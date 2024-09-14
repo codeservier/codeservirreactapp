@@ -66,14 +66,14 @@ const LandingPage = () => {
   >   
     <style>{slideAnimation}</style>
   
-    <div className="flex flex-col lg:flex-row w-full rounded-lg overflow-hidden container mx-auto">
+    <div className="flex flex-col lg:flex-row w-ful  px-8  lg:-mt-20  mt-10 rounded-lg overflow-hidden container mx-auto">
       
-      <div className="flex flex-col justify-center w-full  px-8  lg:mb-0 lg:px-40">
+      <div className="flex flex-col justify-center w-full  lg:mb-0 lg:px-40">
         <h1 className="text-4xl lg:text-5xl xl:text-6xl font-semibold text-[#FF8A00] mb-4 font-lilita">
           Meet Innovation With Execution,{" "}
           <span className="text-[#26baf6]">Futuristic Solutions</span>
         </h1>
-        <p className="text-xl lg:text-2xl xl:text-3xl text-[#16615f] font-lilita">
+        <p className="text-xl lg:text-2xl xl:text-3xl text-mywhite font-lilita">
           Discover the latest innovations and solutions with codeservir.
         </p>
         <button
