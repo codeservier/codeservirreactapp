@@ -12,13 +12,7 @@ const baseMenuData = [
   { to: "/ContactPage", label: "Contact" },
   { to: "/FAQ", label: "FAQ" },
   { to: "/Courses", label: "Courses" },
-  {
-    label: "More",
-    dropdown: [
-      { to: "/TermAndCondition", label: "Term and Condition" },
-      { to: "/PrivacyandPolicy", label: "Privacy and Policy" },
-    ],
-  },
+ 
   { to: "/InternshipForm", label: "Internship", highlight: true },
 ];
 

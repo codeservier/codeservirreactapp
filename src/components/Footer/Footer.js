@@ -10,7 +10,11 @@ import {
   faTwitter,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faPhone, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEnvelope,
+  faPhone,
+  faMapMarkerAlt,
+} from "@fortawesome/free-solid-svg-icons";
 
 const footerData = {
   sections: [
@@ -76,38 +80,23 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
           {/* First column with logo, description, and social icons */}
           <div>
-            <img src={logo} alt="Company Logo" className="h-12 w-12 object-cover" />
+            <img
+              src={logo}
+              alt="Company Logo"
+              className="w-24 h-24 object-cover sticky bottom-0 "
+            />
             <h3>
-              Enhancing Customer Experience with Innovative Web and Mobile App Solutions
+              Enhancing Customer Experience with Innovative Web and Mobile App
+              Solutions
             </h3>
-            <p className="mt-4 text-gray-400 text-sm max-w-md mx-auto md:mx-0">
-              We Innovate, Coffee Helps! A team of mobility experts driven by an everlasting passion for app technology!
-            </p>
-            <div className="flex justify-center md:justify-start space-x-6 mt-4">
-              {footerData.social.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-                >
-                  <FontAwesomeIcon
-                    icon={social.icon}
-                    className="h-5 w-5 hover:text-[yellow]"
-                  />
-                  <span className="sr-only">{social.name} page</span>
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Second column with links */}
           <div className="mb-6">
-            <h2 className="mb-4 text-sm font-semibold uppercase text-gray-900 dark:text-white">
+            <h2 className="mb-4 text-sm font-semibold uppercase text-white">
               {footerData.sections[0].title}
             </h2>
-            <ul className="text-gray-600 dark:text-gray-400 font-medium">
+            <ul className="text-white font-medium">
               {footerData.sections[0].links.map((link, index) => (
                 <li key={index} className="mb-2">
                   <span
@@ -126,7 +115,7 @@ const Footer = () => {
             <h2 className="mb-4 text-sm font-semibold uppercase text-gray-900 dark:text-white">
               {footerData.sections[1].title}
             </h2>
-            <ul className="text-gray-600 dark:text-gray-400 font-medium">
+            <ul className="text-white font-medium">
               {footerData.sections[1].links.map((link, index) => (
                 <li key={index} className="mb-2">
                   <span
@@ -145,7 +134,7 @@ const Footer = () => {
             <h2 className="mb-4 text-sm font-semibold uppercase text-gray-900 dark:text-white">
               Contact
             </h2>
-            <ul className="text-gray-600 dark:text-gray-400 font-medium">
+            <ul className="text-white font-medium">
               <li className="mb-2">
                 <FontAwesomeIcon
                   icon={faEnvelope}
@@ -165,11 +154,37 @@ const Footer = () => {
           </div>
         </div>
 
+        <div className="flex justify-between flex-col md:flex-row">
+         
+          <p className="mt-4 text-white text-sm max-w-md mx-auto md:mx-0">
+            We Innovate, Coffee Helps! A team of mobility experts driven by an
+            everlasting passion for app technology!
+          </p>
+          <div className="flex justify-center md:justify-start space-x-6 mt-4">
+            {footerData.social.map((social, index) => (
+              <a
+                key={index}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-gray-900 dark:hover:text-white"
+              >
+                <FontAwesomeIcon
+                  icon={social.icon}
+                  className="h-5 w-5 hover:text-[yellow]"
+                />
+                <span className="sr-only">{social.name} page</span>
+              </a>
+            ))}
+          </div>
+        </div>
+
         {/* Horizontal line */}
-        <hr className="my-6 border-gray-200 dark:border-gray-700 lg:my-8" />
+      </div>
+        <hr className=" border-white lg:my-8 my-8" />
 
         {/* Footer bottom section */}
-        <div className="flex flex-col-reverse items-center justify-center sm:flex-row sm:items-center">
+        <div className="flex flex-col-reverse my-8 items-center justify-center sm:flex-row sm:items-center">
           {/* Copyright notice */}
           <span className="text-sm text-gray-500 dark:text-gray-400 sm:text-center mb-4 sm:mb-0">
             © 2023{" "}
@@ -179,7 +194,6 @@ const Footer = () => {
             . All Rights Reserved.
           </span>
         </div>
-      </div>
     </footer>
   );
 };
