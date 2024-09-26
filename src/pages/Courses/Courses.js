@@ -16,9 +16,9 @@ import html from "../../assets/courses/html3.jpg";
 import css from "../../assets/courses/css2.png";
 import tailwindcss from "../../assets/courses/tailwindcss.png";
 import internshipImage1 from "../../assets/course/9.png";
-import internshipImage2 from "../../assets/course/2.png";
-import internshipImage3 from "../../assets/course/3.png";
-import internshipImage4 from "../../assets/course/4.png";
+import internshipImage2 from "../../assets/course/6.png";
+import internshipImage3 from "../../assets/course/5.png";
+import internshipImage4 from "../../assets/course/7.png";
 
 const slideshowImages = [
   { id: 1, image: internshipImage1, path: "/Our6MonthIntern" },
