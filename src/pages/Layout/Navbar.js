@@ -84,7 +84,7 @@ const Navbar = ({ authData }) => {
   return (
     <div
       className={`sticky py-4 top-0 shadow-gray-50 w-full ${
-        scrolled ? " bg-primary border-b rounded-b-sm z-50 " : "bg-primary z-50 "
+        scrolled ? " bg-primary rounded-b-sm z-50 " : "bg-primary z-50 "
       }`}
     >
       <div className="flex container w-full mx-auto justify-between items-center px-4">
