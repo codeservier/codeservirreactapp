@@ -182,8 +182,8 @@ const Courses = () => {
   return (
     <>
  
-      <div className=" bg-gray-100 md:p-20 bg-[#0e385c]">
-        <h1 className="text-6xl text-[#26baf6] font-bold text-center mb-10 font-lilita  pt-10">
+      <div className="  md:p-12 bg-[#0c2b46]">
+        <h1 className="text-6xl text-[#fff] font-bold text-center mb-10 font-lilita">
           Our Courses
         </h1>
  
@@ -197,7 +197,7 @@ const Courses = () => {
                 className="w-full h-auto object-cover cursor-pointer hover:opacity-75 transition duration-300 rounded-xl shadow-xl"
                 style={{ 
                   minHeight: "200px",
-                  boxShadow: "0 4px 4px rgba(0, 0, 0, 0.5)"
+                  boxShadow: "0 2px 2px 2px white"
                  }} // Set a minimum height to ensure consistent size
               />
               <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition duration-300 rounded-xl">
