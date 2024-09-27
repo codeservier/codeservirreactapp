@@ -15,16 +15,27 @@ import flutter from "../../assets/courses/flutter.png";
 import html from "../../assets/courses/html3.jpg";
 import css from "../../assets/courses/css2.png";
 import tailwindcss from "../../assets/courses/tailwindcss.png";
-import internshipImage1 from "../../assets/course/9.png";
-import internshipImage2 from "../../assets/course/6.png";
-import internshipImage3 from "../../assets/course/5.png";
-import internshipImage4 from "../../assets/course/7.png";
+import Java from "../../assets/course/2.png";
+import ASPDevelopment from "../../assets/course/3.png";
+import Python from "../../assets/course/4.png";
+import AbdroidDevelopment from "../../assets/course/5.png";
+import FlutterDevelopment from "../../assets/course/6.png";
+import MernStack from "../../assets/course/7.png";
+import wordpress from "../../assets/course/8.png";
+import ReactjsDevelopment from "../../assets/course/9.png";
+
+
 
 const slideshowImages = [
-  { id: 1, image: internshipImage1, path: "/Our6MonthIntern" },
-  { id: 2, image: internshipImage2, path: "/Our3monthDev" },
-  { id: 3, image: internshipImage3, path: "/Our45daysIntern" },
-  { id: 4, image: internshipImage4, path: "/Our1YearCourse" },
+  { id: 1, image: ReactjsDevelopment, path: "/Our6MonthIntern" },
+  { id: 2, image: FlutterDevelopment, path: "/Our3monthDev" },
+  { id: 3, image: AbdroidDevelopment, path: "/Our45daysIntern" },
+  { id: 4, image: MernStack, path: "/Our1YearCourse" },
+  { id: 5, image: Java, path: "/Our1YearCourse" },
+  { id: 6, image: ASPDevelopment, path: "/Our1YearCourse" },
+  { id: 7, image: Python, path: "/Our1YearCourse" },
+  { id: 8, image: wordpress, path: "/Our1YearCourse" },
+  
 ];
 
 const coursesData = [
@@ -52,14 +63,14 @@ const coursesData = [
     image: WebDev,
     route: "/ComingSoon",
   },
-  {
-    id: 4,
-    title: "Python",
-    description:
-      "Learn Python, a versatile language for web development, data analysis, and more.",
-    image: python,
-    route: "/ComingSoon",
-  },
+  // {
+  //   id: 4,
+  //   title: "Python",
+  //   description:
+  //     "Learn Python, a versatile language for web development, data analysis, and more.",
+  //   image: python,
+  //   route: "/ComingSoon",
+  // },
   {
     id: 5,
     title: "React",
@@ -75,13 +86,13 @@ const coursesData = [
     image: reactnative,
     route: "/ComingSoon",
   },
-  {
-    id: 7,
-    title: "Java",
-    description: "Learn Java, a powerful and popular programming language.",
-    image: java,
-    route: "/ComingSoon",
-  },
+  // {
+  //   id: 7,
+  //   title: "Java",
+  //   description: "Learn Java, a powerful and popular programming language.",
+  //   image: java,
+  //   route: "/ComingSoon",
+  // },
   {
     id: 8,
     title: "Next.js",
@@ -104,14 +115,14 @@ const coursesData = [
     image: dsa,
     route: "/ComingSoon",
   },
-  {
-    id: 11,
-    title: "Flutter",
-    description:
-      "Build beautiful, natively compiled applications for mobile and web with Flutter.",
-    image: flutter,
-    route: "/ComingSoon",
-  },
+  // {
+  //   id: 11,
+  //   title: "Flutter",
+  //   description:
+  //     "Build beautiful, natively compiled applications for mobile and web with Flutter.",
+  //   image: flutter,
+  //   route: "/ComingSoon",
+  // },
   {
     id: 12,
     title: "HTML",
