@@ -197,7 +197,7 @@ const Courses = () => {
                 className="w-full h-auto object-cover cursor-pointer hover:opacity-75 transition duration-300 rounded-xl shadow-xl"
                 style={{ 
                   minHeight: "200px",
-                  boxShadow: "0 2px 2px 2px white"
+                  boxShadow: "0 2px 2px 2px rgba(255, 255, 255, 0.6)"
                  }} // Set a minimum height to ensure consistent size
               />
               <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition duration-300 rounded-xl">
