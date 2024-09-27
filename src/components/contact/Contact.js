@@ -155,7 +155,7 @@ const Contact = () => {
             <CustomButton
               type="submit"
               label="Submit"
-              className="w-full bg-black mt-12 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300"
+              className="w-full bg-[#0c2b46] mt-12 text-white py-2 rounded-lg hover:bg-[#89d5f4] transition duration-300"
             />
           </form>
         </div>
@@ -164,7 +164,6 @@ const Contact = () => {
       <div className="mt-8 container mx-auto border md:p-6 -lg rounded-lg">
         <section class="">
           <div class="container md:px-6 py-12 mx-auto">
-         
             <div className="grid grid-cols-1 gap-12 mt-10 md:grid-cols-2 lg:grid-cols-3">
               <div className="flex flex-col items-center text-center">
                 <span className="inline-block p-3 text-primary rounded-full border border-primary">
@@ -178,14 +177,13 @@ const Contact = () => {
                   Our friendly team is here to help.
                 </p>
                 <p className="mt-2 text-blue-500 dark:text-blue-400">
-                info@codeservir.com
-
+                  info@codeservir.com
                 </p>
               </div>
 
               <div className="flex flex-col items-center text-center">
-              <span className="inline-block p-3 text-primary rounded-full border">
-              <MdLocationOn className="w-6 h-6" />
+                <span className="inline-block p-3 text-primary rounded-full border">
+                  <MdLocationOn className="w-6 h-6" />
                 </span>
 
                 <h2 className="mt-4 text-lg font-medium text-secondary">
@@ -195,13 +193,13 @@ const Contact = () => {
                   Come say hello at our office HQ.
                 </p>
                 <p className="mt-2 text-blue-500 dark:text-blue-400">
-37 Vibhav Khand Gomti Nagar, Lucknow, Uttar Pradesh, 226010
+                  37 Vibhav Khand Gomti Nagar, Lucknow, Uttar Pradesh, 226010
                 </p>
               </div>
 
               <div className="flex flex-col items-center text-center">
-              <span className="inline-block p-3 text-primary rounded-full border">
-              <AiOutlinePhone className="w-6 h-6" />
+                <span className="inline-block p-3 text-primary rounded-full border">
+                  <AiOutlinePhone className="w-6 h-6" />
                 </span>
 
                 <h2 className="mt-4 text-lg font-medium text-secondary">
@@ -211,8 +209,7 @@ const Contact = () => {
                   Mon-Fri from 8am to 5pm.
                 </p>
                 <p className="mt-2 text-blue-500 dark:text-blue-400">
-                +91 945-579-1624
-
+                  +91 945-579-1624
                 </p>
               </div>
             </div>
@@ -220,7 +217,6 @@ const Contact = () => {
         </section>
 
         <div className=" md:p-6 rounded-lg  ">
-    
           <div className="flex justify-center">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d271.4165368915143!2d81.0200616!3d26.8604014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be389340450d3%3A0xefe5d679c62b5a20!2sCodeServir%20Technologies!5e0!3m2!1sen!2sin!4v1689787406804!5m2!1sen!2sin"
