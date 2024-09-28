@@ -64,9 +64,9 @@ const LandingPage = () => {
           <img
             src={slides[currentSlide]}
             alt={`Slideshow image ${currentSlide + 1}`}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover md:w-auto md:self-center md:mx-auto"
           />
-          <div className="md:absolute bottom-12 left-0 w-full sm:w-[70%] lg:w-[70%] bg-white opacity-80 rounded-2xl border p-4 sm:p-6 shadow-lg transform transition-transform duration-300 ease-in-out hover:scale-95">
+          <div className="md:absolute bottom-12 left-0 w-full sm:w-[70%] lg:w-[70%] bg-white opacity-70 rounded-2xl border p-4 sm:p-6 shadow-lg transform transition-transform duration-300 ease-in-out hover:scale-95">
             <div className="flex items-center mb-4">
               <span className="text-blue-500 mr-2">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

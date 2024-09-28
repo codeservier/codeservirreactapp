@@ -192,7 +192,7 @@ const Navbar = ({ authData }) => {
                 className="lg:hidden text-gray-700 pr-4 focus:outline-none"
                 onClick={toggleMenu}
               >
-                <FontAwesomeIcon icon={faBars} className="h-6 w-6" />
+                <FontAwesomeIcon icon={faBars} className="h-6 w-6 text-white" />
               </button>
             </>
           )}
@@ -210,7 +210,7 @@ const Navbar = ({ authData }) => {
             className="lg:hidden text-gray-700 pr-4 focus:outline-none absolute top-5 right-0 z-50"
             onClick={toggleMenu}
           >
-            <FontAwesomeIcon icon={faTimes} className="h-6 w-6 " />
+            <FontAwesomeIcon icon={faTimes} className="h-6 w-6 text-white " />
           </button>
           <ul className="flex flex-col items-center space-y-4">
             {menuData.map((item, index) => (
