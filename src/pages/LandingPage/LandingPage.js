@@ -43,12 +43,12 @@ const LandingPage = () => {
       style={{ backgroundImage: `url(${backgroundImage})`, zIndex: -10 }}
     >
       <div className="flex flex-col lg:flex-row w-full md:px-8 lg:-mt-20 mt-10 rounded-lg overflow-hidden container mx-auto">
-        <div className="flex flex-col justify-center w-full lg:mb-0 lg:px-40">
+        <div className="flex flex-col justify-center w-full lg:mb-0 lg:px-20">
           <h1 className="text-4xl lg:text-4xl xl:text-5xl font-semibold text-[#FF8A00] mb-4 font-lilita">
             Meet Innovation With Execution,{" "}
             <span className="text-[#26baf6]">Futuristic Solutions</span>
           </h1>
-          <p className="text-xl lg:text-2xl xl:text-3xl text-mywhite font-lilita">
+          <p className="text-xl lg:text-2xl xl:text-3xl text-mywhite font-lilita mb-6">
             Discover the latest innovations and solutions with codeservir.
           </p>
           <button

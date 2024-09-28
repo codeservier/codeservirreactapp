@@ -38,26 +38,26 @@ import CSS from "../../assets/course/20.png";
 
 
 const slideshowImages = [
-  { id: 1, image: ReactjsDevelopment, path: "/Our6MonthIntern" },
-  { id: 2, image: FlutterDevelopment, path: "/Our3monthDev" },
-  { id: 3, image: AndroidDevelopment, path: "/Our45daysIntern" },
-  { id: 4, image: MernStack, path: "/Our1YearCourse" },
-  { id: 5, image: JAVA, path: "/Our1YearCourse" },
-  { id: 6, image: ASPDevelopment, path: "/Our1YearCourse" },
-  { id: 7, image: Python, path: "/Our1YearCourse" },
-  // { id: 8, image: wordpress, path: "/Our1YearCourse" },
-  { id: 9, image: wordpress, path: "/Our1YearCourse" },
-  { id: 10, image: JavaScript, path: "/Our1YearCourse" },
-  // { id: 11, image: wordpress, path: "/Our1YearCourse" },
-  { id: 12, image: CPlusPlus, path: "/Our1YearCourse" },
-  { id: 13, image: WebDevelopment, path: "/Our1YearCourse" },
-  { id: 14, image: ReactDevelopment, path: "/Our1YearCourse" },
-  { id: 15, image: ReactNative, path: "/Our1YearCourse" },
-  { id: 16, image: NextJs, path: "/Our1YearCourse" },
-  { id: 17, image: Blockchain, path: "/Our1YearCourse" },
-  { id: 18, image: DSA, path: "/Our1YearCourse" },
-  { id: 19, image: HTLM, path: "/Our1YearCourse" },
-  { id: 20, image: CSS, path: "/Our1YearCourse" },
+  { id: 1, image: ReactjsDevelopment, path: "/ComingSoon" },
+  { id: 2, image: FlutterDevelopment, path: "/ComingSoon" },
+  { id: 3, image: AndroidDevelopment, path: "/ComingSoon" },
+  { id: 4, image: MernStack, path: "/ComingSoon" },
+  { id: 5, image: JAVA, path: "/ComingSoon" },
+  { id: 6, image: ASPDevelopment, path: "/ComingSoon" },
+  { id: 7, image: Python, path: "/ComingSoon" },
+  // { id: 8, image: wordpress, path: "/ComingSoon" },
+  { id: 9, image: wordpress, path: "/ComingSoon" },
+  { id: 10, image: JavaScript, path: "/ComingSoon" },
+  // { id: 11, image: wordpress, path: "/ComingSoon" },
+  { id: 12, image: CPlusPlus, path: "/ComingSoon" },
+  { id: 13, image: WebDevelopment, path: "/ComingSoon" },
+  { id: 14, image: ReactDevelopment, path: "/ComingSoon" },
+  { id: 15, image: ReactNative, path: "/ComingSoon" },
+  { id: 16, image: NextJs, path: "/ComingSoon" },
+  { id: 17, image: Blockchain, path: "/ComingSoon" },
+  { id: 18, image: DSA, path: "/ComingSoon" },
+  { id: 19, image: HTLM, path: "/ComingSoon" },
+  { id: 20, image: CSS, path: "/ComingSoon" },
   
 ];
 
@@ -188,13 +188,13 @@ const Courses = () => {
         </h1>
  
         {/* Internship Program Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10 md:gap-6 pr-4">
           {slideshowImages.map((item) => (
             <div key={item.id} className="relative w-full mx-2 mb-4 md:mb-0">
               <img
                 src={item.image}
                 alt="Internship Program"
-                className="w-full h-auto object-cover cursor-pointer hover:opacity-75 transition duration-300 rounded-xl shadow-xl"
+                className="w-full h-auto object-cover cursor-pointer hover:opacity-75 transition duration-300 rounded-xl shadow-xl md:w-full"
                 style={{ 
                   minHeight: "200px",
                   boxShadow: "0 2px 2px 2px rgba(255, 255, 255, 0.6)"

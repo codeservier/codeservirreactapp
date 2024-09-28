@@ -64,13 +64,13 @@ const Services = () => {
   return (
     <>
       <div className="bg-primary pb-20 ">
-        <div className="bg-primary md:p-10 flex flex-col items-center justify-center">
-          <div className="flex flex-col md:flex-row lg:w-3/4 items-center">
-            <div className="md:px-10 px-4 text-center md:text-left">
+        <div className="bg-primary  flex flex-col items-center justify-center">
+          <div className="flex flex-col lg:px-10 md:flex-row items-center">
+            <div className="md:px-10 lg:px-10 px-4 text-center md:text-left">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-lilita font-bold text-[#26baf6] mt-10">
                 Building software for world changers
               </h2>
-              <p className="text-textcolor text-base sm:text-lg md:text-xl lg:text-2xl text-justify mt-10">
+              <p className="text-textcolor text-base sm:text-lg md:text-xl lg:text-2xl my-7">
                 We leverage modern technologies like AI, cloud computing, and
                 data science to deliver scalable, high-performance software that
                 supports your mission. From mobile applications to complex web

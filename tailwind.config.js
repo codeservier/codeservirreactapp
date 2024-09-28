@@ -6,7 +6,7 @@
       extend: {
         screens: {
           // 'md': '500',
-          'lg': '1250px',
+          'lg': '1024px',
           'mid': { 'min': '600px', 'max': '1250px' },
         
         },

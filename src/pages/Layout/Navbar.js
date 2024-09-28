@@ -92,7 +92,7 @@ const Navbar = ({ authData }) => {
           <img src={logo} alt="Logo" className="h-9 md:h-12" />
         </div>
 
-        <div className="hidden md:flex flex-grow justify-center items-center space-x-4">
+        <div className="hidden md:hidden lg:flex flex-grow justify-center items-center space-x-4">
           <ul className="flex space-x-4">
             {menuData.map((item, index) => (
               <li
